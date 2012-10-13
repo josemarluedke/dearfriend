@@ -69,4 +69,10 @@ describe User do
     it{ should validate_presence_of :email }
     it{ should validate_presence_of :password }
   end
+
+  describe "associations" do
+    it { should have_many :authorizations }
+    it { should have_many :messages_as_author }
+    it { should have_many :messages_as_volunteer }
+  end
 end
