@@ -2,6 +2,15 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  layouts:
+    header:
+      links:
+        send_message: "Send a message"
+        download_messages: "Download messages"
+        profile_settings: "Profile settings"
+        sign_out: "Sign Out"
+        sign_in: "Sign In"
+        sign_up: "Sign Up"
   activerecord:
     models:
       user: "User"
