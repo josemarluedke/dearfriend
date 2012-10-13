@@ -1,0 +1,6 @@
+en:
+  simple_form:
+    hints:
+      user:
+        password: "leave it blank if you don't want to change it"
+        current_password: "we need your current password to confirm your changes"
