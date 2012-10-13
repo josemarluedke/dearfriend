@@ -4,9 +4,7 @@
       .container
         = @project.name
   .project-image
-    // TODO real image
-    //= image_tag project.image.url
-    = image_tag "http://placehold.it/1200x370"
+    = image_tag @project.image_url if @project.image?
 
 .project
   .first-column
