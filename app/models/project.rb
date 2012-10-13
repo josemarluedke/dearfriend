@@ -3,4 +3,9 @@ class Project < ActiveRecord::Base
   has_many :messages
   validates :name, :description, presence: true
   mount_uploader :image, ImageUploader
+
+
+  def total_messages_sent
+    messages.where("volunteer_id IS NOT ?", nil).size
+  end
 end
