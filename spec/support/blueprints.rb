@@ -19,7 +19,7 @@ end
 Project.blueprint do
   name {  "Lorem placerat dictumst sit magnis " }
   description { "Cum augue? Augue pellentesque tristique ac adipiscing ut, montes placerat et, nec tortor mid montes" }
-  image { File.open("#{Rails.root}/spec/fixtures/images/image.png") }
+  image { File.open("#{Rails.root}/spec/fixtures/images/image.jpg") }
   goal { 100 }
 end
 
