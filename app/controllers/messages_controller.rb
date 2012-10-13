@@ -4,4 +4,10 @@ class MessagesController < ApplicationController
 
   def new
   end
+
+  def select_project
+  end
+
+  def confirm_payment
+  end
 end
