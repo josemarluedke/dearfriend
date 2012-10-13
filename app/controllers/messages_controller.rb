@@ -31,6 +31,8 @@ class MessagesController < ApplicationController
   end
 
   def select_project
+    @message = Message.find(params[:id])
+    @projects = Project.all
   end
 
   def confirm_payment

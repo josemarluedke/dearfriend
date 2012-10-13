@@ -56,4 +56,19 @@ describe MessagesController do
     end
   end
 
+
+  describe "GET 'select_project'" do
+    it "assigns project variable" do
+      message = Message.make!
+      get 'select_project', id: message.id
+      expect(assigns(:projects)).to be_a_kind_of(Array)
+    end
+
+    it "assigns message variable" do
+      message = Message.make!
+      get 'select_project', id: message.id
+      expect(assigns(:message)).to be == message
+    end
+  end
+
 end
