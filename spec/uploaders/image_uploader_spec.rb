@@ -15,9 +15,9 @@ describe ImageUploader do
     @uploader.remove!
   end
 
-  context 'the thumb version' do
-    it "TODO: define thumb size" do
-      @uploader.thumb.should have_dimensions(64, 64)
+  context 'the resized image' do
+    it "Should be a 620X270 image" do
+      @uploader.should have_dimensions(620, 270)
     end
   end
 end

@@ -1,0 +1,9 @@
+h2 Confirm payment
+| ------------------
+h3 You are helping 
+h2 
+  = @project.name
+
+h3 Price: #{number_to_currency Message::PRICE}
+
+/ = link_to "Pay with paypal", message_pay_path

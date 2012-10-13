@@ -5,7 +5,7 @@
   .navbar-inner
     height: auto
   .banner, .steps
-    margin: -20px -20px 0 -20px
+    margin-top: -20px
     padding-top: 10px
     .container
       padding: 10px
@@ -19,5 +19,18 @@
     &:before
       padding-top: 35px
 
-//@media (max-width: 1198px)
+@media (max-width: 768px)
+  .banner
+    margin:
+      left: -20px
+      right: -20px
+
+  .project-box
+    .details
+      float: none
+      width: auto !important
+    .image
+      margin-top: 20px
+      float: none
+      width: auto !important
 

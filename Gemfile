@@ -33,6 +33,7 @@ gem 'rack-google-analytics'
 gem 'simple_form'
 gem 'rails_admin'
 gem 'carrierwave'
+gem "rmagick"
 #gem 'auto_html'
 
 # Administration

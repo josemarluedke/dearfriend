@@ -1,0 +1,25 @@
+.project-box
+  .row-fluid
+    .details
+      h3= project.name
+      p.description= project.description.truncate(150)
+      .button
+        = link_to "See more!", project, class: "btn btn-primary"
+    .image
+      .image-wrapper
+        // TODO real image thumb
+        /= image_tag project.image.url
+        = image_tag "http://placehold.it/620x270"
+
+      .scoreboard
+        .written
+          .number = project.messages.size
+          .text Written
+        .sent
+          .number = project.total_messages_sent
+          .text Sent
+        .goal
+          .text Goal
+          .number = project.goal
+          .text Sent letters
+
