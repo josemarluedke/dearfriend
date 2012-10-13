@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
 
   attr_accessible :name, :email, :password, :image_url, :password_confirmation, :remember_me
   has_many :authorizations, dependent: :destroy
+  has_many :messages_as_author, class_name: "Message", foreign_key: "author_id"
+  has_many :messages_as_volunteer, class_name: "Message", foreign_key: "volunteer_id"
   validates :name, presence: true
 
   def self.new_with_session(params, session)

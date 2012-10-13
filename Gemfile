@@ -15,6 +15,7 @@ gem "devise", "~> 2.1.2"
 gem "omniauth", "~> 1.1.0"
 gem "omniauth-facebook", "~> 1.2.0"
 gem "omniauth-twitter", "~> 0.0.12"
+gem "cancan"
 
 # Server
 gem 'thin'
@@ -30,6 +31,7 @@ gem 'rack-google-analytics'
 
 # Tools
 gem 'simple_form'
+gem 'rails_admin'
 #gem 'auto_html'
 
 # Administration
