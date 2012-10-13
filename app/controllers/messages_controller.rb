@@ -6,6 +6,7 @@ class MessagesController < ApplicationController
   actions :new, :create, :update
 
   def new
+    resource.project_id = params[:project_id]
     new!
   end
 

@@ -15,6 +15,7 @@
     .row-fluid
       .first-column
         = f.error_notification
+        = f.input :project_id, as: :hidden
         .form-inputs
           = f.input :letter, :required => true, :wrapper => :prepend
 
