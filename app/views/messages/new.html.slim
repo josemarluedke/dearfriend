@@ -17,11 +17,11 @@
         = f.error_notification
         = f.input :project_id, as: :hidden
         .form-inputs
-          = f.input :letter, :required => true, :wrapper => :prepend
+          = f.input :letter, :required => true, :wrapper => :prepend, input_html: { maxlength: 2000 }
 
       .second-column
         .form-inputs
-          = f.input :from_address, :as => :text, :required => true, :wrapper => :prepend
+          = f.input :from_address, :as => :text, :required => true, :wrapper => :prepend, input_html: { maxlength: 255 }
           hr
-          = f.input :to_address, :as => :text, :required => true, :wrapper => :prepend
+          = f.input :to_address, :as => :text, :required => true, :wrapper => :prepend, input_html: { maxlength: 255 }
           = f.button :submit, t("simple_form.next"), class: "btn-primary"

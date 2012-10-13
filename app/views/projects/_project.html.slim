@@ -1,21 +1,20 @@
 .project-box
   .row-fluid
     .details
-      - unless defined?(choose)
-        - link = project
+      - if defined?(choose)
+        - link = "#"
       - else
-          - link = "#"
+        - link = project
       h3 = link_to project.name, link
       hr
       p.description= project.description.truncate(150)
       hr
       .button[class="project-#{project.id}"]
-        - unless defined?(choose)
-          = link_to "See more!", link, class: "btn btn-primary btn-custon"
-        - else
+        - if defined?(choose)
           = link_to "Select", "#select-#{project.id}", class: "btn btn-primary btn-custon btn-choose", data: { id: project.id }
           = link_to "Selected", "#select-#{project.id}", class: "btn btn-primary btn-custon btn-selected hide", data: { id: project.id }
-
+        - else
+          = link_to "See more!", link, class: "btn btn-primary btn-custon"
     .image
       .image-wrapper
         = link_to project do
@@ -32,4 +31,3 @@
           .text Goal
           .number = project.goal
           .text Sent letters
-

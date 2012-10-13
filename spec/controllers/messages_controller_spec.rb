@@ -25,7 +25,13 @@ describe MessagesController do
   end
 
   describe "POST 'create'" do
-    it "redirects to select project page" do
+    it "renders new page in case of error on saving resource" do
+      Message.any_instance.stub(:save).and_return(false)
+      post 'create', message: valid_letter_with_project_attributes
+      response.should render_template("new")
+    end
+
+    it "redirects to select project page if none project is set" do
       sign_in User.make!
       message = Message.make!(author: @user)
       controller.stub(:resource).and_return(message)
@@ -33,10 +39,10 @@ describe MessagesController do
       response.should redirect_to(select_project_message_path(message))
     end
 
-    it "renders new page in case of none project set" do
-      Message.any_instance.stub(:save).and_return(false)
-      post 'new', message: valid_letter_with_project_attributes
-      response.should render_template("new")
+    it "redirects to confirm_payment page in case of project set" do
+      project = Project.make!
+      post 'create', message: valid_completed_letter_attributes.merge(project_id: project.id)
+      response.should redirect_to(confirm_payment_message_path(assigns(:message)))
     end
   end
 
@@ -47,13 +53,6 @@ describe MessagesController do
         put 'update', id: message.id, message: valid_letter_with_project_attributes
         response.should redirect_to(confirm_payment_message_path(message))
       end
-
-      it "renders select_project page in case of none project set" do
-        Message.any_instance.stub(:letter_with_project?).and_return(false)
-        message = Message.make!(author: @user)
-        put 'update', id: message.id, message: valid_letter_with_project_attributes
-        response.should render_template("select_project")
-      end
     end
 
     it "redirects to new message page if refered message it's already paid" do
@@ -61,6 +60,20 @@ describe MessagesController do
       message = Message.make!(author: @user)
       get 'confirm_payment', id: message.id
       response.should_not redirect_to(new_message_path)
+    end
+
+    it "renders select_project page in case of none project set" do
+      Message.any_instance.stub(:letter_with_project?).and_return(false)
+      message = Message.make!(author: @user)
+      put 'update', id: message.id, message: valid_letter_with_project_attributes
+      response.should render_template("select_project")
+    end
+
+    it "assigns projects variable" do
+      Message.any_instance.stub(:letter_with_project?).and_return(false)
+      message = Message.make!(author: @user)
+      put 'update', id: message.id, message: valid_letter_with_project_attributes
+      expect(assigns(:projects)).to be_a_kind_of(Array)
     end
   end
 

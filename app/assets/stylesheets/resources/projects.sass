@@ -1,4 +1,10 @@
 .project-box
+  background: white
+  +border-radius (20px)
+  border: 1px solid #dfdfdf
+  padding: 20px
+  margin-bottom: 15px
+
   .details
     @extend .span4
     float: left
@@ -9,7 +15,31 @@
       font-weight: normal
       a
         text-decoration: none
+    hr
+      border-top: 1px solid #F0F0F0
+      width: 90%
+    p
+      font-family: $abelFamily
+      font-size: 16px
+      color: #8a8987
+      line-height: 21px
+      width: 90%
+
 
   .image
     @extend .span8
     float: left
+    .scoreboard
+      margin-top: -50px
+      height: 110px
+      float: right
+      z-index: 99999
+      position: relative
+      .written, .sent
+        background: rgba(#b0afac, 0.8)
+        width: 100px
+        float: left
+      .goal
+        background: rgba(#9dc2bf, 0.8)
+        width: 110px
+        float: right
