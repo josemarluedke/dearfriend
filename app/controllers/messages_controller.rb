@@ -6,16 +6,18 @@ class MessagesController < ApplicationController
   actions :new, :create, :update
 
   def new
+    resource.project_id = params[:project_id]
     new!
   end
 
   def create
     create! do
       resource.author = current_user
-      if resource.save
-        redirect_to select_project_message_path(resource)
+      render :new and return unless resource.save
+      if resource.letter_with_project?
+        redirect_to confirm_payment_message_path(resource)
       else
-        render :new
+        redirect_to select_project_message_path(resource)
       end
       return
     end
