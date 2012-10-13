@@ -8,4 +8,8 @@ class Message < ActiveRecord::Base
   def complete_letter?
     letter.present? && from_address.present? && to_address.present?
   end
+
+  def letter_with_project?
+    complete_letter? && project.present?
+  end
 end
