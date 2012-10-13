@@ -1,5 +1,67 @@
 .banner
-  height: 561px
+  min-height: 453px
   background: image-url('banner-background.jpg')
   margin-top: -60px
+  padding-top: 100px
+  .text
+    @extend .span5
+    @extend .pull-left
+    padding: 10px
+  .video
+    @extend .span6
+    @extend .pull-right
+  .button
+    margin-top: 20px
 
+.steps
+  +clearfix
+  header
+    margin-top: 15px
+    background: $orange
+
+    &:before, &:after
+      content: ""
+      display: block
+      height: 6px
+      background: image-url('dot-steps-header.png') repeat-x
+    &:before
+      border-top: 10px solid $orange
+    &:after
+      border-bottom: 5px solid $orange
+    .container
+      padding: 20px
+      position: relative
+      &:after
+        content: ""
+        width: 0
+        height: 0
+        border-left: 20px solid transparent
+        border-right: 20px solid transparent
+        border-top: 20px solid $orange
+        position: absolute
+        left: 50%
+        bottom: -20px
+        margin-left: -10px
+
+  .container.steps
+    padding: 30px
+    .step
+      margin-top: 10px
+      float: left
+      &:before
+        content: ""
+        width: 60px
+        height: 35px
+        float: left
+        background: image-url('circle.png') no-repeat
+        font-size: 48px
+        font-family: $satisfyFamily
+        color: white
+        padding-top: 25px
+        text-align: center
+      &.one:before
+        content: "1"
+      &.two:before
+        content: "2"
+      &.three:before
+        content: "3"
