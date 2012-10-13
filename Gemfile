@@ -32,6 +32,7 @@ gem 'rack-google-analytics'
 # Tools
 gem 'simple_form'
 gem 'rails_admin'
+gem 'carrierwave'
 #gem 'auto_html'
 
 # Administration
