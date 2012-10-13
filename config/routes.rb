@@ -1,9 +1,13 @@
 DearFriend::Application.routes.draw do
-  get "messages/new"
 
   resources :projects, only: [:show]
 
-  resources :messages
+  resources :messages, only: [:new, :create, :update] do
+    member do
+      get 'select_project'
+      get 'confirm_payment'
+    end
+  end
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
