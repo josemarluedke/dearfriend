@@ -1,0 +1,61 @@
+.login-btn
+  background-color: transparent
+  @include border-radius(4px)
+  @include box-shadow(rgba(255, 255, 255, 0.296875) 0px 1px 0px 0px inset, #89B4DC 1px 0px 0px 0px, #CCC 0px 1px 3px 0px)
+  color: white
+  display: block
+  font-size: 15px
+  line-height: 32px
+  height: 34px
+  text-decoration: none
+  width: 278px
+  &:hover
+    text-decoration: none
+    color: white
+  &.facebook
+    @include background(linear-gradient(top, #2875BE, #2264AE))
+    &:before
+      background: url("facebook-icon.png") center center no-repeat
+      border-right: 1px solid #1855A2
+      @include box-shadow(0px 1px rgba(255, 255, 255, 0.3) inset, 1px 0 0 #4C9FE1)
+  &.twitter
+    @include background(linear-gradient(top, #58CDFF, #3EADE2))
+    &:before
+      background: url("twitter-icon.png") center center no-repeat
+      border-right: 1px solid #3794BE
+      @include box-shadow(0px 1px rgba(255, 255, 255, 0.3) inset, 1px 0 0 #9FE4FF)
+  &:before
+    content: ''
+    width: 50px
+    height: 34px
+    margin-right: 10px
+    float: left
+    @include border-radius(3px 0 0 3px)
+
+.sign_in_box, .sign_up_box, .new_password_box, .edit_password_box
+  width: 280px
+  margin: auto
+  .links
+    text-align: center
+  input
+    width: 239px
+  .btn
+    width: 280px
+    display: block
+    margin-bottom: 10px
+
+.omniauth
+  +clearfix
+  margin-bottom: 20px
+  .avatar
+    float: left
+    width: 60px
+    img
+      +border-radius(50%)
+  .user-name
+    float: left
+    font-size: 20px
+    font-weight: bold
+    margin-bottom: 10px
+  .description
+    color: #999
