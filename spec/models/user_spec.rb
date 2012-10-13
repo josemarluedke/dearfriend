@@ -1,4 +1,5 @@
 require 'spec_helper'
+require "cancan/matchers"
 
 describe User do
   before do
@@ -76,11 +77,29 @@ describe User do
     it { should have_many :messages_as_volunteer }
   end
 
+  describe "abilities" do
+    subject { ability }
+    let(:ability) { Ability.new(user) }
+    let(:user) { User.make! }
+
+    it "manages its own messages" do
+      message = Message.new
+      message.author = user
+      should be_able_to(:manage, message)
+    end
+
+    it "doesn't manages messages from other users" do
+      message = Message.new
+      message.author = User.make!
+      should_not be_able_to(:manage, message)
+    end
+  end
+
   describe "#volunteer?" do
     before do
       @user = User.make!
       @volunteer = User.make! volunteer: true
-      @verified_volunteer = User.make! volunteer: true, verified_volunteer: true      
+      @verified_volunteer = User.make! volunteer: true, verified_volunteer: true
     end
 
     describe "User" do
