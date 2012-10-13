@@ -2,7 +2,7 @@ DearFriend::Application.routes.draw do
 
   resources :projects, only: [:show] do
     member do
-      get 'download_messages'
+      post 'download_messages'
     end
   end
 

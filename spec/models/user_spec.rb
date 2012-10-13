@@ -95,7 +95,7 @@ describe User do
     end
 
     it "doesn't download messages" do
-      should_not be_able_to(:download, Message.new)
+      should_not be_able_to(:download_messages, Project.new)
     end
 
     context "volunteers" do
@@ -105,8 +105,8 @@ describe User do
         user
       end
 
-      it "does download messages" do
-        should be_able_to(:download, Message.new)
+      it "does download project's messages" do
+        should be_able_to(:download_messages, Project.new)
       end
     end
   end

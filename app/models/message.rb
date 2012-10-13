@@ -7,6 +7,9 @@ class Message < ActiveRecord::Base
 
   PRICE = 5
 
+  scope :sent, where("volunteer_id IS NOT ?", nil)
+  scope :to_be_sent, where(volunteer_id: nil)
+
   def letter_with_project?
     valid? && project.present?
   end
