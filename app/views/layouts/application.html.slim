@@ -10,6 +10,7 @@ html
     = javascript_include_tag "application"
   body
     = initjs_tag
+    = render 'layouts/facebook_api' 
     = render 'layouts/flash', flash: flash if flash.present?
     = render 'layouts/header'
     - if content_for?(:header_area)
@@ -17,3 +18,4 @@ html
     .container
       = yield
     = render 'layouts/footer'
+
