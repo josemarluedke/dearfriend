@@ -13,36 +13,7 @@
   .button
     margin-top: 20px
 
-.steps, .project-header
-  +clearfix
-  header
-    margin-top: 15px
-    background: $orange
-    text-align: center
-    &:before, &:after
-      content: ""
-      display: block
-      height: 6px
-      background: image-url('dot-steps-header.png') repeat-x
-    &:before
-      border-top: 10px solid $orange
-    &:after
-      border-bottom: 5px solid $orange
-    .container
-      padding: 20px
-      position: relative
-      &:after
-        content: ""
-        width: 0
-        height: 0
-        border-left: 20px solid transparent
-        border-right: 20px solid transparent
-        border-top: 20px solid $orange
-        position: absolute
-        left: 50%
-        bottom: -20px
-        margin-left: -10px
-
+.steps
   .container.steps
     padding: 30px
     .step
