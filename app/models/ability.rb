@@ -2,6 +2,13 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    user ||= User.new
+    can :manage, Message, author: user
+    cannot :update, Message, paid?: true
+    cannot :select_project, Message, paid?: true
+    cannot :confirm_payment, Message, paid?: true
+    cannot :pay, Message, paid?: true
+
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)

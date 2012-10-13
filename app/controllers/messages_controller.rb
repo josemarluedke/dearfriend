@@ -1,10 +1,9 @@
 class MessagesController < ApplicationController
   inherit_resources
+  before_filter :authenticate_user!
+  load_and_authorize_resource
   respond_to :html, :json
   actions :new, :create, :update
-
-  before_filter :verify_update_authorization,
-    only: [:update, :select_project, :confirm_payment, :pay]
 
   def new
     new!
@@ -42,6 +41,7 @@ class MessagesController < ApplicationController
   # GET /messages/1/confirm_payment
   def confirm_payment
     @message = Message.find(params[:id])
+    @project = Project.find(@message.project_id)
     unless @message.letter_with_project?
       flash[:alert] = "You must select a project before pay for your letter."
       redirect_to select_project_message_path(resource)
@@ -50,14 +50,5 @@ class MessagesController < ApplicationController
 
   # POST /messages/1/pay
   def pay
-  end
-
-  private
-
-  def verify_update_authorization
-    if Message.find(params[:id]).paid?
-      flash[:warning] = "You already completed this letter. What about writing another one?"
-      redirect_to new_message_path
-    end
   end
 end
