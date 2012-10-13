@@ -16,9 +16,10 @@ gem "omniauth", "~> 1.1.0"
 gem "omniauth-facebook", "~> 1.2.0"
 gem "omniauth-twitter", "~> 0.0.12"
 
-# Heroku - Server
+# Server
 gem 'thin'
-gem 'heroku'
+#gem 'heroku'
+gem 'capistrano'
 
 # Frontend stuff
 gem 'jquery-rails'
