@@ -38,7 +38,7 @@
 
 // TODO
 - if can?(:download, Message)
-  #download-messges.modal.hide tabindex="-1" role="dialog" aria-labelledby="Download messages" aria-hidden="true"
+  #download-messges.modal.hide tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
     = form_tag download_messages_project_path(@project), method: :post do
       .modal-header
         button.close aria-hidden="true" data-dismiss="modal" type="button"
@@ -46,4 +46,4 @@
       .modal-body
         = number_field_tag "messages_quantity", nil, max: @project.total_messages_to_be_downloaded
       .modal-footer
-        = submit_tag "Baixar", class: "btn btn-primary"
+        = submit_tag "Download", class: "btn btn-primary"

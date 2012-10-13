@@ -17,7 +17,8 @@ feature "Download messages" do
     within ".project-box"do
       click_on "See more!"
     end
-    fill_in "#messages_quantity", with: "3"
+    click_on "Download messages"
+    fill_in "messages_quantity", with: "3"
     click_on "Download"
     page.should have_content("Download started!")
   end
