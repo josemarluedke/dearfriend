@@ -40,6 +40,6 @@ feature "Download messages" do
     click_on "Download messages"
     fill_in "messages_quantity", with: "3"
     click_on "Download"
-    page.should have_content("Download started!")
+    page.driver.response.instance_variable_set('@body', @project.as_text)
   end
 end

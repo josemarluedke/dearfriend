@@ -20,8 +20,25 @@ class Project < ActiveRecord::Base
       raise InsufficientMessagesToBeSent
     end
 
-    messages.to_be_sent.first(quantity.to_i).each do |message|
+    assigned_messages = messages.to_be_sent.first(quantity.to_i)
+    assigned_messages.each do |message|
       message.update_attributes(volunteer: user)
     end
+
+    messages_file = ""
+    messages_file << as_text
+    messages_separator = "\n=====\n\n"
+    messages_file << messages_separator
+    messages_file << assigned_messages.each_with_index.
+      map { |m, index| m.as_text(index) }.join(messages_separator)
+
+    messages_file
+  end
+
+  def as_text
+    <<TEXT
+Project "#{name}"
+#{description}
+TEXT
   end
 end

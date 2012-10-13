@@ -18,4 +18,20 @@ class Message < ActiveRecord::Base
   def paid?
     false
   end
+
+  def as_text(index = nil)
+    string = <<TEXT
+FROM_ADDRESS
+#{author.name}
+#{from_address}
+
+TO_ADDRESS
+#{to_address}
+
+LETTER
+#{letter}
+TEXT
+    string.insert(0, "MESSAGE ##{index+1}\n\n") unless index.nil?
+    string
+  end
 end

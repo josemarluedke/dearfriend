@@ -7,15 +7,46 @@ footer
   .share
     @extend .span5
     float: left
+    p
+      font-family: $satisfyFamily
+      color: #9dc2bf
+      font-size: 24px
+      margin-bottom: 20px
+
   .buttons
     @extend .span7
     float: right
     .submit-project
       @extend .span6
       float: left
+      margin-right: 17px
+      p
+        color: #82a8a5
+        font-size: 16px
+        font-family: $abelFamily
+        line-height: 21px
+        margin: 0 auto 10px
+        text-align: center
+        width: 75%
+      .btn-custom
+        font-size: 27px
+        &:before
+          background: #82a8a5 image-url('community_icon.png') center center no-repeat      
     .become-voluntter
+      p
+        color: #df6867
+        font-size: 16px
+        font-family: $abelFamily
+        line-height: 21px
+        margin: 0 0 10px 13px
+        text-align: center
+        width: 77%
       @extend .span6
       float: left
+      .btn-custom-red
+        font-size: 27px
+        &:before
+          background: #df6867 image-url('volunteer_icon.png') center center no-repeat       
 
 
   .super-footer
