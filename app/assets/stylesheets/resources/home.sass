@@ -7,15 +7,40 @@
     @extend .span5
     @extend .pull-left
     padding: 10px
+    font-family: $satisfyFamily
+    color: white
+    font-size: 400%
+    line-height: 121%
+    margin-top: 20px
   .video
     @extend .span6
     @extend .pull-right
   .button
     margin-top: 20px
+    overflow: hidden
+    .btn-custom
+      &:before
+        background: #82a8a5 image-url('pencil_icon.png') center center no-repeat
 
+.steps
+  .container
+    text-shadow: 1px 2px #cf6160
 .steps, .write-message-header
   .container.steps
     padding: 30px
+    text-shadow: 1px 1px white
+    font-family: $abelFamily
+    font-size: 21px
+    line-height: 21px
+    color: #8a8987
+    .one
+      width: 20% 
+      margin-right: 80px
+    .two
+      width: 25%
+      margin-right: 50px
+    .three
+      width: 26%
     .step
       margin-top: 10px
       float: left
@@ -30,6 +55,8 @@
         color: white
         padding-top: 25px
         text-align: center
+        margin-right: 10px
+        margin-top: -10px
       &.disabled
         &:before
           background: image-url('circle-disabled.png') no-repeat
