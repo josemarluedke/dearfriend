@@ -11,6 +11,7 @@
     .text
       h1 About the Community
       p = simple_format @project.description
+    .fb-comments data-href="#{request.host}:#{request.port}#{request.fullpath}"
   .second-column
     .scoreboard
       .written
