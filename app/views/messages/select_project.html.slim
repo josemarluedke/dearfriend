@@ -1,9 +1,11 @@
 h2 
   = t('layouts.views.select_project')
 
+= render @projects, choose: true
+
 = simple_form_for(@message) do |f|
   = f.error_notification
-  .form-inputs
+  .form-inputs.hide
     = f.input :project_id, :collection => @projects, as: :radio_buttons, label: ""
 
   = f.button :submit, t("simple_form.next"), class: "btn-primary"
