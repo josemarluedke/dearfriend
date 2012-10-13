@@ -93,9 +93,25 @@ describe User do
       message.author = User.make!
       should_not be_able_to(:manage, message)
     end
+
+    it "doesn't download messages" do
+      should_not be_able_to(:download, Message.new)
+    end
+
+    context "volunteers" do
+      let(:user) do
+        user = User.make!
+        user.stub(:active_volunteer?).and_return(true)
+        user
+      end
+
+      it "does download messages" do
+        should be_able_to(:download, Message.new)
+      end
+    end
   end
 
-  describe "#volunteer?" do
+  describe "#active_volunteer?" do
     before do
       @user = User.make!
       @volunteer = User.make! volunteer: true
@@ -104,19 +120,19 @@ describe User do
 
     describe "User" do
       it "should not be a valid volunteer" do
-        @user.should_not be_volunteer
+        @user.should_not be_active_volunteer
       end
     end
 
     describe "Volunteer" do
-      it "should not be a valid volunteer" do
-        @volunteer.should_not be_volunteer
+      it "should not be a active_volunteer" do
+        @volunteer.should_not be_active_volunteer
       end
     end
 
     describe "Verified Volunteer" do
       it "should be a valid volunteer" do
-        @verified_volunteer.should be_volunteer
+        @verified_volunteer.should be_active_volunteer
       end
     end
   end

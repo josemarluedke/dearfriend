@@ -25,4 +25,22 @@ describe Project do
       subject.total_messages_sent.should == 3
     end
   end
+
+  describe "#total_messages_to_be_downloaded" do
+    subject { Project.make! }
+
+    before do
+      subject.stub(:total_messages_sent).and_return(3)
+      3.times do |i|
+        m = Message.make!
+        m.project = subject
+        m.volunteer = User.make! unless i == 0
+        m.save
+      end
+    end
+
+    it "is equal to #total_messages_sent minus already downloaded messages" do
+      expect(subject.total_messages_to_be_downloaded).to eql(1)
+    end
+  end
 end

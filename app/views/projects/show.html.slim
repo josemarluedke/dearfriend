@@ -27,13 +27,24 @@
         .text Sent letters
     .buttons
       .write
-        // TODO real link
-        = link_to "Write a message", "#", class: "btn btn-primary"
+        = link_to "Write a message", new_message_path, class: "btn btn-primary"
         p Write to someone special. A hand from this community will transcript it for you for only $5.
 
-
-      - if current_user.volunteer?
+      // TODO
+      - if can?(:download, Message)
         .download-messages
-          // TODO real link
-          = link_to "Download messages", "#download-messages", class: "btn btn-primary"
+          = link_to "Download messages", "#download-messges", class: "btn btn-primary", :'data-toggle' => "modal"
           p Volunteer, we need you to deliver messages to this community, get letters and post them.
+
+// TODO
+- if can?(:download, Message)
+  #download-messges.modal.hide tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+    = form_tag download_messages_project_path(@project), method: :get do
+      .modal-header
+        button.close aria-hidden="true" data-dismiss="modal" type="button"
+        h3 Download messages
+      .modal-body
+        = number_field_tag "messages_quantity", nil, max: @project.total_messages_to_be_downloaded
+      .modal-footer
+        = submit_tag "Baixar", class: "btn btn-primary"
+
