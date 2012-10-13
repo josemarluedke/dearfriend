@@ -18,10 +18,31 @@
 
   .steps .container.steps .step
     float: none
+    width: 100%
     display: block
     +clearfix
     &:before
       padding-top: 35px
+
+
+  .submit-project,
+  .become-voluntter,
+  footer .share,
+  footer .buttons
+    float: none
+    width: 100% !important
+
+  footer .share
+    text-align: center
+
+  .submit-project, .become-voluntter
+    text-align: center
+    p
+      width: 100% !important
+
+  .become-voluntter
+    padding-top: 30px
+
 
 @media (max-width: 768px)
   .banner, .super-footer
@@ -50,27 +71,12 @@
     margin-top: -35px
 
   // Clear floats
-  .submit-project,
-  .become-voluntter,
   .first-column,
   .second-column,
   .project-box .details,
   .project-box .image,
   .banner .text,
-  .banner .video,
-  footer .share,
-  footer .buttons
+  .banner .video
     float: none
     width: 100% !important
-
-  footer .share
-    text-align: center
-
-  .submit-project, .become-voluntter
-    text-align: center
-    p
-      width: 100% !important
-
-  .become-voluntter
-    padding-top: 30px
 
