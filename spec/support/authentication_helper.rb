@@ -15,7 +15,7 @@ module AuthenticationHelper
      )
   end
 
-  def sign_in_via(provider, attrs = {})
+  def sign_in_via(provider, attrs = {}, volunteer = false)
     user = auth_omniauth(provider, attrs)
 
     visit "/"
@@ -23,8 +23,14 @@ module AuthenticationHelper
     click_on "Sign in with #{provider.to_s.humanize}"
     fill_in "Password", with: "123123"
     fill_in "Password confirmation", with: "123123"
+    check "Volunteer?" if attrs[:volunteer]
     within "form" do
       click_on "Sign Up"
+    end
+    if attrs[:verified_volunteer]
+      user = User.find_by_email(user["info"]["email"])
+      user.verified_volunteer = true
+      user.save
     end
 
     user
