@@ -7,6 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #
 
-User.create! name: "rumble", email: "rumble@dearfriend.cc", password: "rumble", password_confirmation: "rumble"
+u = User.create! name: "rumble", email: "rumble@dearfriend.cc", password: "rumble", password_confirmation: "rumble"
+u.admin = true
+u.save!
 
 3.times { Project.create! name: Faker::Name.name, description: Faker::Lorem::sentences, goal: 100 }
