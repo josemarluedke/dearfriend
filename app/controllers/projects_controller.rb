@@ -9,6 +9,9 @@ class ProjectsController < ApplicationController
     @project.give_messages_to_volunteer(current_user,
                                         params[:messages_quantity])
     flash[:notice] = "Download started!"
+  rescue InsufficientMessagesToBeSent => e
+    flash[:alert] = "There is just #{@project.total_messages_to_be_downloaded} messages to be downloaded."
+  ensure
     render :show
   end
 end
