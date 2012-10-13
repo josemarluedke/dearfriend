@@ -61,6 +61,18 @@ describe MessagesController do
       get 'select_project', id: Message.make!
       response.should render_template("select_project")
     end
+
+    it "assigns project variable" do
+      message = Message.make!
+      get 'select_project', id: message.id
+      expect(assigns(:projects)).to be_a_kind_of(Array)
+    end
+
+    it "assigns message variable" do
+      message = Message.make!
+      get 'select_project', id: message.id
+      expect(assigns(:message)).to be == message
+    end
   end
 
   describe "GET 'confirm_payment'" do
