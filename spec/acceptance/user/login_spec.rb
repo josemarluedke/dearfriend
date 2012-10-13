@@ -1,7 +1,7 @@
 require "spec_helper"
 
-feature "Login" do
-  describe "without using any provider" do
+feature "User Login" do
+  context "without using any provider" do
     scenario "Create an account" do
       visit "/"
       click_on "Sign Up"
@@ -41,7 +41,7 @@ feature "Login" do
     end
   end
 
-  describe "with Facebook" do
+  context "with Facebook" do
     scenario "Create an account" do
       sign_in_via(:facebook)
       page.should have_content("Welcome! You have signed up successfully.")
@@ -64,7 +64,7 @@ feature "Login" do
     end
   end
 
-  describe "with Twitter" do
+  context "with Twitter" do
     scenario "Create an account" do
       sign_in_via(:twitter)
       page.should have_content("Welcome! You have signed up successfully.")
@@ -85,5 +85,29 @@ feature "Login" do
       click_on "Sign Out"
       page.should have_content("Signed out successfully.")
     end
+  end
+
+  scenario "Logged user authorizes Facebook account" do
+    sign_in_via(:twitter)
+    click_on "Edit profile"
+    auth_omniauth(:facebook)
+    click_on "Connect your Facebook"
+    page.should have_content("Disconnect from Facebook")
+  end
+
+  scenario "Logged user authorizes Twitter account" do
+    sign_in_via(:facebook)
+    click_on "Edit profile"
+    auth_omniauth(:twitter)
+    click_on "Connect your Twitter"
+    page.should have_content("Disconnect from Twitter")
+  end
+
+  scenario "Become a volunteer and receive a message demonstrating the future approval" do
+    sign_in_via(:facebook)
+    click_on "Edit profile"
+    check "Volunteer?"
+    click_on "Update"
+    page.should have_content("You're almost a volunteer. We just need verify your appliance.")
   end
 end
