@@ -58,6 +58,7 @@ group :development, :test do
   gem "ffaker"
   gem 'database_cleaner'
   gem "capybara"
+  gem "launchy"
   gem "jasmine"
   gem "pry"
   gem 'awesome_print'

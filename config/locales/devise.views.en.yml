@@ -22,7 +22,7 @@ en:
         omniauth_description: "Complete your registration setting a password."
     sessions:
       new:
-        sign_in: "Sign in"
+        sign_in: "Sign In"
     confirmations:
       new:
         resend_confirmation_instructions: "Resend confirmation instructions"
@@ -65,8 +65,8 @@ en:
       social_links:
         sign_in_with: "Sign in with %{provider}"
       links:
-        sign_in: "Sign in"
-        sign_up: "Sign up"
+        sign_in: "Sign In"
+        sign_up: "Sign Up"
         reset_your_password: "Reset your password"
         didn_t_receive_confirmation_instructions?: "Didn't receive confirmation instructions?"
         didn_t_receive_unlock_instructions?: "Didn't receive unlock instructions?"

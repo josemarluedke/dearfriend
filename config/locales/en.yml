@@ -2,4 +2,17 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    models:
+      user: "User"
+    attributes:
+      user:
+        admin: "Admin?"
+        current_password: "Current password"
+        email: "E-mail"
+        image: "Image"
+        name: "Name"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        verified_volunteer: "Verified volunteer?"
+        volunteer: "Volunteer?"
