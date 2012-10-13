@@ -4,20 +4,45 @@
     padding-top: 0
   .navbar-inner
     height: auto
+
   .banner, .steps
     margin-top: -20px
     padding-top: 10px
     .container
       padding: 10px
-    .text, .video
-      width: auto !important
-      float: none
+
+  .banner
+    .button
+      a
+        width: 96%
+
   .steps .container.steps .step
     float: none
+    width: 100%
     display: block
     +clearfix
     &:before
       padding-top: 35px
+
+
+  .submit-project,
+  .become-voluntter,
+  footer .share,
+  footer .buttons
+    float: none
+    width: 100% !important
+
+  footer .share
+    text-align: center
+
+  .submit-project, .become-voluntter
+    text-align: center
+    p
+      width: 100% !important
+
+  .become-voluntter
+    padding-top: 30px
+
 
 @media (max-width: 768px)
   .banner, .super-footer
@@ -26,13 +51,9 @@
       right: -20px
 
   .project-box
-    .details
-      float: none
-      width: auto !important
     .image
       margin-top: 20px
-      float: none
-      width: auto !important
+
   footer
     .super-footer
       .container
@@ -41,17 +62,21 @@
         float: none
         .title
           float: none
-    .share, .buttons
-      float: none
-      width: auto !important
+
   .project
     margin-top: 0
-    .first-column, .second-column
-      float: none
-      width: auto !important
-  .write-message
-    .first-column, .second-column
-      float: none
-      width: auto !important
+
+  // Margin header
   .project-header, .write-message-header
     margin-top: -35px
+
+  // Clear floats
+  .first-column,
+  .second-column,
+  .project-box .details,
+  .project-box .image,
+  .banner .text,
+  .banner .video
+    float: none
+    width: 100% !important
+

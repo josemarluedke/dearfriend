@@ -6,6 +6,7 @@ class MessagesController < ApplicationController
   actions :new, :create, :update
 
   def new
+    resource.project_id = params[:project_id]
     new!
   end
 
@@ -50,5 +51,6 @@ class MessagesController < ApplicationController
 
   # POST /messages/1/pay
   def pay
+    # TODO: Implement payment (by Paypal or anything)
   end
 end
