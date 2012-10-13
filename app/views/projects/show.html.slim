@@ -1,4 +1,5 @@
 - if can?(:download, Message)
   = form_tag download_messages_project_path(@project), method: :get do
+    = label_tag "messages_quantity", "Quantity"
     = number_field_tag "messages_quantity", nil, max: @project.total_messages_to_be_downloaded
-    = submit_tag "Baixar"
+    = submit_tag "Download"

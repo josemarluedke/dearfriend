@@ -12,7 +12,9 @@ class Project < ActiveRecord::Base
     messages.to_be_sent.size
   end
 
-  def give_messages_to_volunteer
-
+  def give_messages_to_volunteer(user, quantity)
+    messages.to_be_sent.first(quantity.to_i).each do |message|
+      message.update_attributes(volunteer: user)
+    end
   end
 end
