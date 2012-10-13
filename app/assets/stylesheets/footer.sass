@@ -19,6 +19,19 @@ footer
 
 
   .super-footer
+    +clearfix
+    margin-top: 15px
+    background: $green image-url('green-filter.png')
+
+    &:before, &:after
+      content: ""
+      display: block
+      height: 6px
+      background: image-url('dot-footer.png') repeat-x
+    &:before
+      border-top: 10px solid $green
+    &:after
+      border-bottom: 5px solid $green
     .text
       padding-right: 10px
       float: right
