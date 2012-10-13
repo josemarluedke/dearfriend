@@ -1,23 +1,27 @@
 - content_for :header_area do
-  .banner
-    .container
-      .row-fluid
-        .text
-          p
-            | Dear friend,
-            br/
-            | Everybody loves beautiful handwritten letters. Here you can write a message to someone special and support a community. They will transcript it for you, with a personal touch. Your letter will be sent, in the real world.
-            br/<D-r>
-            |P.S.:  The best part: the money goes to the community! :)
-        .video
-          = image_tag "http://placehold.it/458x259"
-      .button
-        a.btn.btn-primary Write a message
-  section.steps
-    header
-      .container Give life to your message transforming it in a letter.
-    .container.steps
-      .step.one Write your lovely message to a friend.
-      .step.two Choose the community that will transcript it by hand.
-      .step.three Pay $5 for each message and support the community.
-    
+  div
+    .banner
+      .container
+        .row-fluid
+          .text
+            p
+              | Dear friend,
+              br/
+              | Everybody loves beautiful handwritten letters. Here you can write a message to someone special and support a community. They will transcript it for you, with a personal touch. Your letter will be sent, in the real world.
+              br/
+              |P.S.:  The best part: the money goes to the community! :)
+          .video
+            = image_tag "http://placehold.it/458x259"
+        .button
+          // TODO put real link
+          = link_to "Write a message", "#", class: "btn btn-primary"
+    section.steps
+      header
+        .container Give life to your message transforming it in a letter.
+      .container.steps
+        .step.one Write your lovely message to a friend.
+        .step.two Choose the community that will transcript it by hand.
+        .step.three Pay $5 for each message and support the community.
+
+.projects
+  = render @projects
