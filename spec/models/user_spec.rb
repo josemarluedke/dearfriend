@@ -75,4 +75,30 @@ describe User do
     it { should have_many :messages_as_author }
     it { should have_many :messages_as_volunteer }
   end
+
+  describe "#volunteer?" do
+    before do
+      @user = User.make!
+      @volunteer = User.make! volunteer: true
+      @verified_volunteer = User.make! volunteer: true, verified_volunteer: true      
+    end
+
+    describe "User" do
+      it "should not be a valid volunteer" do
+        @user.should_not be_volunteer
+      end
+    end
+
+    describe "Volunteer" do
+      it "should not be a valid volunteer" do
+        @volunteer.should_not be_volunteer
+      end
+    end
+
+    describe "Verified Volunteer" do
+      it "should be a valid volunteer" do
+        @verified_volunteer.should be_volunteer
+      end
+    end
+  end
 end
