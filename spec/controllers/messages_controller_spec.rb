@@ -1,11 +1,58 @@
 require 'spec_helper'
 
+def valid_completed_letter_attributes
+  {
+    letter: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    from_address: "221B Baker Street",
+    to_address: "220B Baker Street"
+  }
+end
+
+def valid_letter_with_project_attributes
+  {
+    project_id: Project.make!.id
+  }
+end
+
 describe MessagesController do
 
   describe "GET 'new'" do
     it "returns http success" do
       get 'new'
       response.should be_success
+    end
+  end
+
+  describe "POST 'create'" do
+    it "redirects to select project page" do
+      sign_in User.make!
+      message = Message.make!
+      controller.stub(:resource).and_return(message)
+      post 'create', message: valid_completed_letter_attributes
+      response.should redirect_to(select_project_message_path(message))
+    end
+
+    it "renders new page in case of none project set" do
+      Message.any_instance.stub(:save).and_return(false)
+      post 'new', message: valid_letter_with_project_attributes
+      response.should render_template("new")
+    end
+  end
+
+  describe "PUT 'update'" do
+    context "with letter_with_project" do
+      it "redirects to payment confirmation page" do
+        message = Message.make!
+        put 'update', id: message.id, message: valid_letter_with_project_attributes
+        response.should redirect_to(confirm_payment_message_path(message))
+      end
+
+      it "renders select_project page in case of none project set" do
+        Message.any_instance.stub(:letter_with_project?).and_return(false)
+        message = Message.make!
+        put 'update', id: message.id, message: valid_letter_with_project_attributes
+        response.should render_template("select_project")
+      end
     end
   end
 

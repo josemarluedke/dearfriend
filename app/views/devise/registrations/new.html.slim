@@ -3,7 +3,7 @@
   br/
   .omniauth
     - if resource.authorizations.any?
-      .avatar= image_tag resource.avatar_url
+      .avatar= image_tag resource.avatar_url(50)
       .user-name= resource.name
       .description= t('.omniauth_description')
     - else
