@@ -27,6 +27,7 @@ class MessagesController < ApplicationController
       if resource.letter_with_project?
         redirect_to confirm_payment_message_path(resource)
       else
+        @projects = Project.all
         render :select_project
       end
       return
