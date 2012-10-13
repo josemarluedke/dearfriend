@@ -86,4 +86,20 @@ feature "Login" do
       page.should have_content("Signed out successfully.")
     end
   end
+
+  scenario "Logged user authorizes Facebook account" do
+    sign_in_via(:twitter)
+    click_on "Edit profile"
+    auth_omniauth(:facebook)
+    click_on "Connect your Facebook"
+    page.should have_content("Disconnect from Facebook")
+  end
+
+  scenario "Logged user authorizes Twitter account" do
+    sign_in_via(:facebook)
+    click_on "Edit profile"
+    auth_omniauth(:twitter)
+    click_on "Connect your Twitter"
+    page.should have_content("Disconnect from Twitter")
+  end
 end
