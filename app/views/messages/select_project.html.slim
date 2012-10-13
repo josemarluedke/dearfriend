@@ -1,0 +1,9 @@
+h2 
+  = t('layouts.views.select_project')
+
+= simple_form_for(@message) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :project, :collection => @projects, as: :radio_buttons, label: ""
+
+  = f.button :submit, t("simple_form.next"), class: "btn-primary"
