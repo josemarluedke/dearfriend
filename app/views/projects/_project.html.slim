@@ -1,10 +1,20 @@
 .project-box
   .row-fluid
     .details
-      h3 = link_to project.name, project
+      - unless defined?(choose)
+        - link = project
+      - else
+          - link = "#"
+      h3 = link_to project.name, link
+      hr
       p.description= project.description.truncate(150)
+      hr
       .button
-        = link_to "See more!", project, class: "btn btn-primary"
+        - unless defined?(choose)
+          = link_to "See more!", link, class: "btn btn-primary btn-custon"
+        - else
+          = link_to "Select!", "#select-#{project.id}", class: "btn btn-primary btn-custon btn-choose", data: { id: project.id }
+
     .image
       .image-wrapper
         = link_to project do
