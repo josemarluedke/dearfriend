@@ -19,13 +19,13 @@ feature "Volunteer Login" do
       click_on "Sign Up"
     end
 
-    click_on "Edit profile"
+    click_on "Profile settings"
     page.should have_css("#user_volunteer[checked]")
   end
 
   scenario "Don't receive 'future approval message' when updates its profile and already are a volunteer" do
     sign_in_via(:facebook, volunteer: true)
-    click_on "Edit profile"
+    click_on "Profile settings"
     check "Volunteer?"
     click_on "Update"
     page.should_not have_content("You're almost a volunteer. We just need verify your appliance.")
@@ -33,13 +33,13 @@ feature "Volunteer Login" do
 
   scenario "See its verified volunteer badge after admin approval" do
     sign_in_via(:facebook, volunteer: true, verified_volunteer: true)
-    click_on "Edit profile"
+    click_on "Profile settings"
     page.should have_css("img#verified_volunteer")
   end
 
   scenario "Don't see its verified volunteer badge without receive admin approval" do
     sign_in_via(:facebook, volunteer: true)
-    click_on "Edit profile"
+    click_on "Profile settings"
     page.should_not have_css("img#verified_volunteer")
   end
 end

@@ -89,7 +89,8 @@ feature "User Login" do
 
   scenario "Logged user authorizes Facebook account" do
     sign_in_via(:twitter)
-    click_on "Edit profile"
+    click_on "Juquinha da Rocha"
+    click_on "Profile settings"
     auth_omniauth(:facebook)
     click_on "Connect your Facebook"
     page.should have_content("Disconnect from Facebook")
@@ -97,7 +98,7 @@ feature "User Login" do
 
   scenario "Logged user authorizes Twitter account" do
     sign_in_via(:facebook)
-    click_on "Edit profile"
+    click_on "Profile settings"
     auth_omniauth(:twitter)
     click_on "Connect your Twitter"
     page.should have_content("Disconnect from Twitter")
@@ -105,7 +106,7 @@ feature "User Login" do
 
   scenario "Become a volunteer and receive a message demonstrating the future approval" do
     sign_in_via(:facebook)
-    click_on "Edit profile"
+    click_on "Profile settings"
     check "Volunteer?"
     click_on "Update"
     page.should have_content("You're almost a volunteer. We just need verify your appliance.")
