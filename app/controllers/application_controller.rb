@@ -7,6 +7,15 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, alert: exception.message
   end
 
+  def after_sign_in_path_for(resource)
+    default_sign_in_path = if resource.respond_to?(:volunteer?) && resource.volunteer?
+                             root_path(anchor: "projects")
+                           else
+                             root_path
+                           end
+    request.env['omniauth.origin'] || stored_location_for(resource) || default_sign_in_path
+  end
+
   protected
   def render_404
     raise ActionController::RoutingError.new('Not Found')

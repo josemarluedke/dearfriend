@@ -7,7 +7,7 @@ describe ImageUploader do
     ImageUploader.enable_processing = true
     project = Project.new
     @uploader = ImageUploader.new(project, :image)
-    @uploader.store!(File.open(File.join(Rails.root, "spec", "fixtures", "images", "image.png")))
+    @uploader.store!(File.open(File.join(Rails.root, "spec", "fixtures", "images", "image.jpg")))
   end
 
   after do

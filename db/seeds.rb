@@ -11,4 +11,9 @@ u = User.create! name: "rumble", email: "rumble@dearfriend.cc", password: "rumbl
 u.admin = true
 u.save!
 
-3.times { Project.create! name: Faker::Name.name, description: Faker::Lorem::sentences, goal: 100 }
+3.times do
+  Project.create!(name: Faker::Name.name,
+                  description: Faker::Lorem::sentences,
+                  goal: 100,
+                  image: File.open("#{Rails.root}/spec/fixtures/images/image.jpg"))
+end
