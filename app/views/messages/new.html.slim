@@ -1,19 +1,26 @@
-h2 
-  = t('layouts.views.new_message')
+- content_for :header_area do
+  .write-message-header
+    header
+      .container
+        | Write a message
+    .container.steps
+      .step.one Write your lovely message to a friend.
+      .step.disabled.two Choose the community that will transcript it by hand.
+      .step.disabled.three Pay $5 for each message and support the community.
 
-= simple_form_for(@message) do |f|
-  = f.error_notification
-  .form-inputs
-    = f.input :letter, :required => true, :wrapper => :prepend do
-      = content_tag :span, content_tag(:i, "", :class => 'icon-envelope'), :class => "add-on"
-      = f.input_field :letter
+.write-message
+  h2 Write to someone special
+  p A hand from a community will transcript it for you for only $5.
+  = simple_form_for(@message) do |f|
+    .row-fluid
+      .first-column
+        = f.error_notification
+        .form-inputs
+          = f.input :letter, :required => true, :wrapper => :prepend
 
-    = f.input :from_address, :required => true, :wrapper => :prepend do
-      = content_tag :span, content_tag(:i, "", :class => 'icon-lock'), :class => "add-on"
-      = f.input_field :from_address
-
-    = f.input :to_address, :required => true, :wrapper => :prepend do
-      = content_tag :span, content_tag(:i, "", :class => 'icon-lock'), :class => "add-on"
-      = f.input_field :to_address
-
-  = f.button :submit, t("simple_form.next"), class: "btn-primary"
+      .second-column
+        .form-inputs
+          = f.input :from_address, :as => :text, :required => true, :wrapper => :prepend
+          hr
+          = f.input :to_address, :as => :text, :required => true, :wrapper => :prepend
+          = f.button :submit, t("simple_form.next"), class: "btn-primary"

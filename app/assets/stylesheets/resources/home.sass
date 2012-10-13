@@ -13,7 +13,7 @@
   .button
     margin-top: 20px
 
-.steps
+.steps, .write-message-header
   .container.steps
     padding: 30px
     .step
@@ -30,6 +30,9 @@
         color: white
         padding-top: 25px
         text-align: center
+      &.disabled
+        &:before
+          background: image-url('circle-disabled.png') no-repeat
       &.one:before
         content: "1"
       &.two:before
