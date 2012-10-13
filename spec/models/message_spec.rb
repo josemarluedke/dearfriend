@@ -40,4 +40,24 @@ describe Message do
       expect(subject).to_not be_complete_letter
     end
   end
+
+  describe "#letter_with_project?" do
+    it "returns true if it's a complete_letter and has a project associated" do
+      subject.stub(:complete_letter?).and_return(true)
+      subject.project = Project.make!
+      expect(subject).to be_a_letter_with_project
+    end
+
+    it "returns false if it's not a complete_letter but has a project associated" do
+      subject.stub(:complete_letter?).and_return(false)
+      subject.project = Project.make!
+      expect(subject).to_not be_a_letter_with_project
+    end
+
+    it "returns false if it's a complete_letter but not has a project associated" do
+      subject.stub(:complete_letter?).and_return(true)
+      subject.project = nil
+      expect(subject).to_not be_a_letter_with_project
+    end
+  end
 end
