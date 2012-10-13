@@ -5,11 +5,11 @@ class Project < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
   def total_messages_sent
-    messages.where("volunteer_id IS NOT ?", nil).size
+    messages.sent.size
   end
 
   def total_messages_to_be_downloaded
-    messages.where(volunteer_id: nil).size
+    messages.to_be_sent.size
   end
 
   def give_messages_to_volunteer
