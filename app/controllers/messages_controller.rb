@@ -42,4 +42,8 @@ class MessagesController < ApplicationController
       redirect_to select_project_message_path(resource)
     end
   end
+
+  # POST /messages/1/pay
+  def pay
+  end
 end
