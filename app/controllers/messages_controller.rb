@@ -41,7 +41,7 @@ class MessagesController < ApplicationController
   # GET /messages/1/confirm_payment
   def confirm_payment
     @message = Message.find(params[:id])
-    @project = Project.find(@message.project_id)
+    @project = @message.project
     unless @message.letter_with_project?
       flash[:alert] = "You must select a project before pay for your letter."
       redirect_to select_project_message_path(resource)
