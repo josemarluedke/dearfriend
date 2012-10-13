@@ -30,14 +30,12 @@
         = link_to "Write a message", new_message_path, class: "btn btn-primary"
         p Write to someone special. A hand from this community will transcript it for you for only $5.
 
-      // TODO
-      - if can?(:download, Message)
+      - if can?(:download_messages, Project)
         .download-messages
           = link_to "Download messages", "#download-messges", class: "btn btn-primary", :'data-toggle' => "modal"
           p Volunteer, we need you to deliver messages to this community, get letters and post them.
 
-// TODO
-- if can?(:download, Message)
+- if can?(:download_messages, Project)
   #download-messges.modal.hide tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
     = form_tag download_messages_project_path(@project), method: :post do
       .modal-header
