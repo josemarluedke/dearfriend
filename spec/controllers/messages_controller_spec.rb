@@ -56,4 +56,26 @@ describe MessagesController do
     end
   end
 
+  describe "GET 'select_project'" do
+    it "renders select_project view" do
+      get 'select_project', id: Message.make!
+      response.should render_template("select_project")
+    end
+  end
+
+  describe "GET 'confirm_payment'" do
+    it "renders confirm_payment view if its a letter with project" do
+      message = Message.make!
+      Message.any_instance.stub(:letter_with_project?).and_return(true)
+      get 'confirm_payment', id: message.id
+      response.should render_template("confirm_payment")
+    end
+
+    it "redirects to select_project action if its a letter without project" do
+      message = Message.make!
+      Message.any_instance.stub(:letter_with_project?).and_return(false)
+      get 'confirm_payment', id: message.id
+      response.should redirect_to(select_project_message_path(message))
+    end
+  end
 end

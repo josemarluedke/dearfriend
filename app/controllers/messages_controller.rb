@@ -22,7 +22,7 @@ class MessagesController < ApplicationController
   def update
     update! do
       if resource.letter_with_project?
-        redirect_to action: :confirm_payment, id: resource.id
+        redirect_to confirm_payment_message_path(resource)
       else
         render :select_project
       end
@@ -30,9 +30,16 @@ class MessagesController < ApplicationController
     end
   end
 
+  # GET /messages/1/select_project
   def select_project
   end
 
+  # GET /messages/1/confirm_payment
   def confirm_payment
+    @message = Message.find(params[:id])
+    unless @message.letter_with_project?
+      flash[:alert] = "You must select a project before pay for your letter."
+      redirect_to select_project_message_path(resource)
+    end
   end
 end
