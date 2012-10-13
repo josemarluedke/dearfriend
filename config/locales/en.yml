@@ -4,7 +4,8 @@
 en:
   layouts:
     views:
-      new_message: 'Send a message'
+      new_message: "Send a message"
+      select_project: "Select a project"
     header:
       links:
         send_message: "Send a message"
