@@ -1,4 +1,6 @@
 DearFriend::Application.routes.draw do
+  get "messages/new"
+
   resources :projects, only: [:show]
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
