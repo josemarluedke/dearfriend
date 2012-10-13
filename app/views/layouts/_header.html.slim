@@ -22,7 +22,6 @@ header
                 ul.dropdown-menu
                   li= link_to t('.links.profile_settings'), edit_user_registration_path(current_user)
                   li= link_to t('.links.send_message'), "#"
-                  // TODO if volunteer?
-                  li= link_to t('.links.download_messages'), "#"
+                  li= link_to t('.links.download_messages'), "#" if current_user.volunteer?
                   li= link_to t('.links.sign_out'), destroy_user_session_path, :method => :delete if user_signed_in?
 
