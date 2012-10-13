@@ -4,6 +4,7 @@ html
     title Dear Friend
     = stylesheet_link_tag "application"
     meta[charset="utf-8"]
+    meta[name="viewport" content="width=device-width, initial-scale=1.0"]
     = yield(:meta_tags)
     = csrf_meta_tag
     = javascript_include_tag "application"
@@ -11,5 +12,6 @@ html
     = initjs_tag
     = render 'layouts/flash', flash: flash if flash.present?
     = render 'layouts/header'
-    = yield
+    .container
+      = yield
     = render 'layouts/footer'
