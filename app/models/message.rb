@@ -8,4 +8,9 @@ class Message < ActiveRecord::Base
   def letter_with_project?
     valid? && project.present?
   end
+
+  # TODO: Entire #paid? implementation
+  def paid?
+    false
+  end
 end

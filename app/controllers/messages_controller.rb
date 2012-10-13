@@ -3,6 +3,9 @@ class MessagesController < ApplicationController
   respond_to :html, :json
   actions :new, :create, :update
 
+  before_filter :verify_update_authorization,
+    only: [:update, :select_project, :confirm_payment, :pay]
+
   def new
     new!
   end
@@ -47,5 +50,14 @@ class MessagesController < ApplicationController
 
   # POST /messages/1/pay
   def pay
+  end
+
+  private
+
+  def verify_update_authorization
+    if Message.find(params[:id]).paid?
+      flash[:warning] = "You already completed this letter. What about writing another one?"
+      redirect_to new_message_path
+    end
   end
 end
