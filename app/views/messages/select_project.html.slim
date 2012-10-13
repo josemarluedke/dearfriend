@@ -5,7 +5,6 @@ h2
 
 = simple_form_for(@message) do |f|
   = f.error_notification
-  .form-inputs.hide
-    = f.input :project_id, :collection => @projects, as: :radio_buttons, label: ""
+  = f.input :project_id, as: :hidden
 
   = f.button :submit, t("simple_form.next"), class: "btn-primary"

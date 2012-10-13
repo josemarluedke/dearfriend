@@ -9,11 +9,12 @@
       hr
       p.description= project.description.truncate(150)
       hr
-      .button
+      .button[class="project-#{project.id}"]
         - unless defined?(choose)
           = link_to "See more!", link, class: "btn btn-primary btn-custon"
         - else
-          = link_to "Select!", "#select-#{project.id}", class: "btn btn-primary btn-custon btn-choose", data: { id: project.id }
+          = link_to "Select", "#select-#{project.id}", class: "btn btn-primary btn-custon btn-choose", data: { id: project.id }
+          = link_to "Selected", "#select-#{project.id}", class: "btn btn-primary btn-custon btn-selected hide", data: { id: project.id }
 
     .image
       .image-wrapper
