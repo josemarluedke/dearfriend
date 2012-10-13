@@ -36,5 +36,7 @@ class MessagesController < ApplicationController
   end
 
   def confirm_payment
+    @message = Message.find(params[:id])
+    @project = Project.first
   end
 end
