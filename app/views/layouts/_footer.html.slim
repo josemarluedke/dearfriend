@@ -1,1 +1,26 @@
 footer
+  .container
+    .row-fluid
+      .share
+        = render "layouts/facebook"
+      .buttons
+        .row-fluid
+          .submit-project
+            = mail_to "contact@dearfriend.cc", "Submit you community", class: "btn btn-primary"
+          .become-voluntter
+            - if user_signed_in?
+              = link_to "Become a volunteer", edit_user_registration_path(current_user), class: "btn btn-primary" unless current_user.volunteer?
+            - else
+              = link_to "Become a volunteer", new_user_registration_path, class: "btn btn-primary"
+      
+  section.super-footer
+    .container
+      .text
+        .title Wanna talk? 
+        .pull-right
+          p 
+            | Send us an email. Or, better, a letter!
+            br/
+            | Rua Lorem Ipsum, 333 - Porto Alegre, RS, Brazil.
+            br/
+            | CEP: 0000-000
