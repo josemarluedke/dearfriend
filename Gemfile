@@ -11,10 +11,10 @@ gem 'inherited_resources'
 #gem 'has_scope'
 
 # Authentication
-#gem "devise", "~> 2.1.2"
-#gem "omniauth", "~> 1.1.0"
-#gem "omniauth-facebook", "~> 1.2.0"
-#gem "omniauth-twitter", "~> 0.0.12"
+gem "devise", "~> 2.1.2"
+gem "omniauth", "~> 1.1.0"
+gem "omniauth-facebook", "~> 1.2.0"
+gem "omniauth-twitter", "~> 0.0.12"
 
 # Heroku - Server
 gem 'thin'
@@ -28,7 +28,7 @@ gem 'initjs'
 gem 'rack-google-analytics'
 
 # Tools
-#gem 'simple_form'
+gem 'simple_form'
 #gem 'auto_html'
 
 # Administration
