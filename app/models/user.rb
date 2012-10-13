@@ -26,9 +26,8 @@ class User < ActiveRecord::Base
     "http://gravatar.com/avatar/#{Digest::MD5.new.update(email)}.jpg?s=#{size}"
   end
 
-  def volunteer?
-    return true if volunteer && verified_volunteer
-    false
+  def active_volunteer?
+    volunteer && verified_volunteer
   end
 end
 

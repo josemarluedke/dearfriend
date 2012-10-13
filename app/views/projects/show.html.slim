@@ -1,2 +1,4 @@
-h1 Projects#show
-p Find me in app/views/projects/show.html.slim
+- if can?(:download, Message)
+  = form_tag download_messages_project_path(@project), method: :get do
+    = number_field_tag "messages_quantity", nil, max: @project.total_messages_to_be_downloaded
+    = submit_tag "Baixar"
