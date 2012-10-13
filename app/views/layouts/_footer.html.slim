@@ -2,19 +2,20 @@ footer
   .container
     .row-fluid
       .share
-        p Do you love
+        p Do you love me?
         = render "layouts/facebook"
       .buttons
         .row-fluid
           .submit-project
-            p Let us know why you want to transcript messages and get paid for it.
             = mail_to "contact@dearfriend.cc", "Submit you community", class: "btn btn-custom btn-primary"
+            p Let us know why you want to transcript messages and get paid for it.            
           .become-voluntter
-            p Hey, superhero! Deliver messages to communities, get letters and post them.
             - if user_signed_in?
               = link_to "Become a volunteer", edit_user_registration_path(current_user), class: "btn btn-custom-red btn-primary" unless current_user.volunteer?
             - else
               = link_to "Become a volunteer", new_user_registration_path, class: "btn btn-custom-red btn-primary"
+            p Hey, superhero! Deliver messages to communities, get letters and post them.
+
       
   section.super-footer
     .container
