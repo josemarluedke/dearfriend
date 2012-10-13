@@ -1,7 +1,7 @@
 class CreateMessages < ActiveRecord::Migration
   def change
     create_table :messages do |t|
-      t.text :letter
+      t.text :letter, null: false
       t.references :author, null: false
       t.references :project
       t.references :volunteer
