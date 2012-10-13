@@ -3,6 +3,9 @@ class MessagesController < ApplicationController
   respond_to :html, :json
   actions :new, :create, :update
 
+  before_filter :verify_update_authorization,
+    only: [:update, :select_project, :confirm_payment, :pay]
+
   def new
     new!
   end
@@ -22,7 +25,7 @@ class MessagesController < ApplicationController
   def update
     update! do
       if resource.letter_with_project?
-        redirect_to action: :confirm_payment, id: resource.id
+        redirect_to confirm_payment_message_path(resource)
       else
         render :select_project
       end
@@ -30,13 +33,31 @@ class MessagesController < ApplicationController
     end
   end
 
+  # GET /messages/1/select_project
   def select_project
     @message = Message.find(params[:id])
     @projects = Project.all
   end
 
+  # GET /messages/1/confirm_payment
   def confirm_payment
     @message = Message.find(params[:id])
-    @project = Project.first
+    unless @message.letter_with_project?
+      flash[:alert] = "You must select a project before pay for your letter."
+      redirect_to select_project_message_path(resource)
+    end
+  end
+
+  # POST /messages/1/pay
+  def pay
+  end
+
+  private
+
+  def verify_update_authorization
+    if Message.find(params[:id]).paid?
+      flash[:warning] = "You already completed this letter. What about writing another one?"
+      redirect_to new_message_path
+    end
   end
 end
