@@ -6,6 +6,7 @@ DearFriend::Application.routes.draw do
     member do
       get 'select_project'
       get 'confirm_payment'
+      post 'pay'
     end
   end
 

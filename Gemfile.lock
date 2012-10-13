@@ -220,6 +220,7 @@ GEM
     remotipart (1.0.2)
     responders (0.9.3)
       railties (~> 3.1)
+    rmagick (2.13.1)
     rspec (2.11.0)
       rspec-core (~> 2.11.0)
       rspec-expectations (~> 2.11.0)
@@ -314,6 +315,7 @@ DEPENDENCIES
   rack-google-analytics
   rails (= 3.2.8)
   rails_admin
+  rmagick
   rspec-rails (>= 2.11.0)
   sass-rails (~> 3.2.5)
   shoulda-matchers
