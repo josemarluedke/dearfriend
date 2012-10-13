@@ -1,5 +1,49 @@
+- content_for :header_area do
+  .project-header
+    header
+      .container
+        = @project.name
+  .project-image
+    // TODO real image
+    //= image_tag project.image.url
+    = image_tag "http://placehold.it/1200x370"
+
+.project
+  .first-column
+    .text
+      h1 About the Community
+      p = simple_format @project.description
+  .second-column
+    .scoreboard
+      .written
+        .number = @project.messages.size
+        .text Written
+      .sent
+        .number = @project.total_messages_sent
+        .text Sent
+      .goal
+        .text Goal
+        .number = @project.goal
+        .text Sent letters
+    .buttons
+      .write
+        = link_to "Write a message", new_message_path, class: "btn btn-primary"
+        p Write to someone special. A hand from this community will transcript it for you for only $5.
+
+      // TODO
+      - if can?(:download, Message)
+        .download-messages
+          = link_to "Download messages", "#download-messges", class: "btn btn-primary", :'data-toggle' => "modal"
+          p Volunteer, we need you to deliver messages to this community, get letters and post them.
+
+// TODO
 - if can?(:download, Message)
-  = form_tag download_messages_project_path(@project), method: :get do
-    = label_tag "messages_quantity", "Quantity"
-    = number_field_tag "messages_quantity", nil, max: @project.total_messages_to_be_downloaded
-    = submit_tag "Download"
+  #download-messges.modal.hide tabindex="-1" role="dialog" aria-labelledby="Download messages" aria-hidden="true"
+    = form_tag download_messages_project_path(@project), method: :post do
+      .modal-header
+        button.close aria-hidden="true" data-dismiss="modal" type="button"
+        h3 Download messages
+      .modal-body
+        = number_field_tag "messages_quantity", nil, max: @project.total_messages_to_be_downloaded
+      .modal-footer
+        = submit_tag "Baixar", class: "btn btn-primary"
