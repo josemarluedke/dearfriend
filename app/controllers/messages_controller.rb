@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   inherit_resources
+  before_filter :authenticate_user!
   load_and_authorize_resource
   respond_to :html, :json
   actions :new, :create, :update
