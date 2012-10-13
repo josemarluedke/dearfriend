@@ -25,7 +25,13 @@ describe MessagesController do
   end
 
   describe "POST 'create'" do
-    it "redirects to select project page" do
+    it "renders new page in case of error on saving resource" do
+      Message.any_instance.stub(:save).and_return(false)
+      post 'create', message: valid_letter_with_project_attributes
+      response.should render_template("new")
+    end
+
+    it "redirects to select project page if none project is set" do
       sign_in User.make!
       message = Message.make!(author: @user)
       controller.stub(:resource).and_return(message)
@@ -33,10 +39,10 @@ describe MessagesController do
       response.should redirect_to(select_project_message_path(message))
     end
 
-    it "renders new page in case of none project set" do
-      Message.any_instance.stub(:save).and_return(false)
-      post 'new', message: valid_letter_with_project_attributes
-      response.should render_template("new")
+    it "redirects to confirm_payment page in case of project set" do
+      project = Project.make!
+      post 'create', message: valid_completed_letter_attributes.merge(project_id: project.id)
+      response.should redirect_to(confirm_payment_message_path(assigns(:message)))
     end
   end
 
