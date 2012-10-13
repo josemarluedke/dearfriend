@@ -92,8 +92,7 @@ describe MessagesController do
 
   describe "GET 'confirm_payment'" do
     it "renders confirm_payment view if its a letter with project" do
-      message = Message.make!(author: @user)
-      Message.any_instance.stub(:letter_with_project?).and_return(true)
+      message = Message.make!(author: @user, project: Project.make!)
       get 'confirm_payment', id: message.id
       response.should render_template("confirm_payment")
     end

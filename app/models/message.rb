@@ -7,6 +7,9 @@ class Message < ActiveRecord::Base
 
   PRICE = 5
 
+  scope :sent, where("volunteer_id IS NOT ?", nil)
+  scope :to_be_sent, where(volunteer_id: nil)
+
   def letter_with_project?
     valid? && project.present?
   end
@@ -14,5 +17,21 @@ class Message < ActiveRecord::Base
   # TODO: Entire #paid? implementation
   def paid?
     false
+  end
+
+  def as_text(index = nil)
+    string = <<TEXT
+FROM_ADDRESS
+#{author.name}
+#{from_address}
+
+TO_ADDRESS
+#{to_address}
+
+LETTER
+#{letter}
+TEXT
+    string.insert(0, "MESSAGE ##{index+1}\n\n") unless index.nil?
+    string
   end
 end

@@ -25,6 +25,7 @@
 .steps
   .container
     text-shadow: 1px 2px #cf6160
+.steps, .write-message-header
   .container.steps
     padding: 30px
     text-shadow: 1px 1px white
@@ -56,6 +57,9 @@
         text-align: center
         margin-right: 10px
         margin-top: -10px
+      &.disabled
+        &:before
+          background: image-url('circle-disabled.png') no-repeat
       &.one:before
         content: "1"
       &.two:before

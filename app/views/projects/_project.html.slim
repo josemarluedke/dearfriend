@@ -1,15 +1,16 @@
 .project-box
   .row-fluid
     .details
-      h3= project.name
+      h3 = link_to project.name, project
       p.description= project.description.truncate(150)
       .button
         = link_to "See more!", project, class: "btn btn-primary"
     .image
       .image-wrapper
-        // TODO real image thumb
-        /= image_tag project.image.url
-        = image_tag "http://placehold.it/620x270"
+        = link_to project do
+          // TODO real image thumb
+          /= image_tag project.image.url
+          = image_tag "http://placehold.it/620x270"
 
       .scoreboard
         .written

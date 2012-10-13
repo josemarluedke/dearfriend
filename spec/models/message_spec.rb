@@ -15,6 +15,20 @@ describe Message do
     it { should belong_to :volunteer }
   end
 
+  describe "scopes" do
+    describe "sent" do
+      it "includes messages with a volunteer assigned" do
+        with_volunteer = Message.make!(volunteer: User.make!(volunteer: true))
+        expect(Message.sent).to include(with_volunteer)
+      end
+
+      it "excludes messages without a volunteer assigned" do
+        without_volunteer = Message.make!(volunteer: nil)
+        expect(Message.sent).to_not include(without_volunteer)
+      end
+    end
+  end
+
   describe "#letter_with_project?" do
     it "returns true if it's valid and has a project associated" do
       subject.stub(:valid?).and_return(true)
