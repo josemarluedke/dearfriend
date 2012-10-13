@@ -3,7 +3,7 @@ require 'spec_helper'
 feature "Download messages" do
   background do
     user = sign_in_via(:facebook)
-    user.stub(:active_volunteer?).and_return(true)
+    User.any_instance.stub(:active_volunteer?).and_return(true)
     @project = Project.make!
     3.times { Message.make!(project: @project) }
   end
