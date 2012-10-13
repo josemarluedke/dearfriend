@@ -3,6 +3,8 @@ DearFriend::Application.routes.draw do
 
   resources :projects, only: [:show]
 
+  resources :messages
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   resources :authorizations, only: [:create, :destroy]

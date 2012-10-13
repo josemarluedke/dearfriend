@@ -1,2 +1,19 @@
-h1 Messages#new
-p Find me in app/views/messages/new.html.slim
+h2 
+  = t('layouts.views.new_message')
+
+= simple_form_for(@message) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :letter, :required => true, :wrapper => :prepend do
+      = content_tag :span, content_tag(:i, "", :class => 'icon-envelope'), :class => "add-on"
+      = f.input_field :letter
+
+    = f.input :from_address, :required => true, :wrapper => :prepend do
+      = content_tag :span, content_tag(:i, "", :class => 'icon-lock'), :class => "add-on"
+      = f.input_field :from_address
+
+    = f.input :to_address, :required => true, :wrapper => :prepend do
+      = content_tag :span, content_tag(:i, "", :class => 'icon-lock'), :class => "add-on"
+      = f.input_field :to_address
+
+  = f.button :submit, t("simple_form.next"), class: "btn-primary"
