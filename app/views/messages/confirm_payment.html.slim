@@ -5,11 +5,12 @@
         h2 Confirm payment
     = render 'steps', step: 3
 
+.box
+  h3 You are helping
+  h2
+    = @project.name
 
-h3 You are helping
-h2
-  = @project.name
+  p Price: #{number_to_currency Message::PRICE}
 
-h3 Price: #{number_to_currency Message::PRICE}
-
-= link_to "Pay with Paypal", pay_message_path, method: :post
+  .button
+    = link_to "Pay with Paypal", pay_message_path, class: "btn btn-custom btn-primary", method: :post

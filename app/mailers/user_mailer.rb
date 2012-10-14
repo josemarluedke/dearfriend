@@ -6,4 +6,9 @@ class UserMailer < ActionMailer::Base
     @user = user
     mail(:subject => "Volunteer request: #{@user.name}")
   end
+
+  def volunteer_confirmation_email(user)
+    @user = user
+    mail(to: @user.email, :subject => "You're approved as a Volunteer at Dear Friend!")
+  end
 end

@@ -6,19 +6,24 @@
     = render 'steps', step: 1
 
 .write-message
-  h2 Write to someone special
-  p A hand from a community will transcript it for you for only $5.
   = simple_form_for(@message) do |f|
     .row-fluid
       .first-column
-        = f.error_notification
-        = f.input :project_id, as: :hidden
-        .form-inputs
-          = f.input :letter, :required => true, :wrapper => :prepend, input_html: { maxlength: 2000 }
+        .form-text
+          .label
+          h2 Write to someone special
+          p A hand from a community will transcript it for you for only $5.
+          = f.error_notification
+          = f.input :project_id, as: :hidden
+          .form-inputs
+            = f.input :letter, :required => true, :label => false, :wrapper => :prepend, input_html: { maxlength: 2000 }
 
       .second-column
         .form-inputs
           = f.input :from_address, :as => :text, :required => true, :wrapper => :prepend, input_html: { maxlength: 255 }
+          p Your name and your address.
           hr
           = f.input :to_address, :as => :text, :required => true, :wrapper => :prepend, input_html: { maxlength: 255 }
-          = f.button :submit, t("simple_form.next"), class: "btn-primary"
+          p = "Your friend's name and address."
+          .button
+            = f.button :submit, t("simple_form.next"), class: "btn-primary btn-custom"

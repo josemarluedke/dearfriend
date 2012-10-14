@@ -1,14 +1,136 @@
 .write-message-header
   margin-top: -73px
+  h2
+    font-weight: normal
+    text-shadow: 1px 2px #CF6160
+  .steps
+    text-shadow: 1px 2px #BD5754
+    font-weight: normal
+    .step
+      color: #df6867
+    .disabled
+      color: #8a8987
+
+.container
+  .box
+    background: white
+    +border-radius (10px)
+    border: 1px solid #dfdfdf
+    padding: 20px
+    margin-bottom: 40px
+    h3
+      font-size: 28px
+      color: #df6867
+      font-family: $satisfyFamily
+      font-weight: normal
+      width: 100%
+      text-align: center
+    h2
+      font-family: $satisfyFamily
+      font-weight: normal
+      font-size: 34px
+      color: #97bebb
+      width: 100%
+      text-align: center      
+    p
+      font-family: $abelFamily
+      font-size: 16px
+      color: #8a8987
+      line-height: 21px
+      margin-bottom: 20px
+      border-top: solid 1px #efefef
+      border-bottom: solid 1px #efefef
+      padding: 20px 0
+      text-align: center
+      width: 40%
+      margin: 30px auto
+    .button
+      margin: 20px auto 
+      text-align: center
+      .btn-custom
+        padding: 16px 20px 0px 0
+        font-size: 24px
+        &:before
+          width: 40px
+          height: 50px
+          margin-top: -17px
+          background: #82a8a5 image-url('pay_icon.png') 5px 13px no-repeat
 
 .write-message
   .alert.alert-error
-    width: 100%
-    margin-right: 10px
+    width: 90%
+  .help-inline
+    padding-left: 0px
+
   .first-column
-    @extend .span8
+    @extend .span7
     float: left
+    margin-top: 20px
+    .form-text 
+      background: white
+      +border-radius (10px)
+      border: 1px solid #dfdfdf
+      padding: 20px
+      margin-bottom: 40px
+      .label
+        background: image-url('label_bg.png') no-repeat
+        width: 11px
+        height: 51px
+        margin-left: -31px
+        float: left
+        padding: 0px
+      h2
+        font-family: $satisfyFamily
+        text-shadow: 1px 1px #82a8a5
+        font-size: 21px
+        background-color: #9dc2bf
+        padding: 0 20px 0 20px
+        width: 200px
+        color: white
+        font-weight: normal
+        margin: 0px 0 30px -22px
+      p
+        font-family: $abelFamily
+        font-size: 16px
+        color: #8a8987
+        line-height: 21px
+        margin-bottom: 20px
+      .form-inputs
+        #message_letter
+          width: 97%
   .second-column
     @extend .span4
     float: left
-
+    margin-left: 30px
+    margin-top: 20px
+    .form-inputs
+      .text
+        label
+          font-family: $satisfyFamily
+          text-shadow: 1px 1px white
+          font-size: 24px
+          color: #97bebb
+          margin-bottom: 10px
+          font-weight: normal
+        textarea
+          width: 95%
+          max-height: 80px
+          margin-bottom: 3px
+      p
+        font-family: $abelFamily
+        font-size: 18px
+        color: #b0afac
+        line-height: 21px       
+        text-shadow: 1px 1px white
+      hr
+        background: image-url('line.gif') center top repeat-x
+        padding-top: 40px
+        margin-top: 40px
+        border: none
+      .button
+        overflow: hidden 
+        input
+          display: block 
+        .btn-custom
+          &:before
+            background: #82a8a5 image-url('pencil_icon.png') center center no-repeat
