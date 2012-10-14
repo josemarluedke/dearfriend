@@ -13,14 +13,14 @@ class Message < ActiveRecord::Base
 
   scope :sent, where("volunteer_id IS NOT ?", nil)
   scope :to_be_sent, where(volunteer_id: nil)
+  scope :paid_messages, where(confirmed_payment: true)
 
   def letter_with_project?
     valid? && project.present?
   end
 
-  # TODO: Entire #paid? implementation
   def paid?
-    false
+    confirmed_payment
   end
 
   def as_text(index = nil)
