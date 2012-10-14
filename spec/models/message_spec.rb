@@ -27,6 +27,18 @@ describe Message do
         expect(Message.sent).to_not include(without_volunteer)
       end
     end
+
+    describe "paid_messages" do
+      it "includes messages with a confirmed payment" do
+        confirmed = Message.make!(confirmed_payment: true)
+        expect(Message.paid_messages).to include(confirmed)
+      end
+
+      it "excludes messages without a confirmed payment" do
+        without_payment = Message.make!(confirmed_payment: false)
+        expect(Message.paid_messages).to_not include(without_payment)
+      end
+    end
   end
 
   describe "#letter_with_project?" do
@@ -46,6 +58,18 @@ describe Message do
       subject.stub(:valid?).and_return(false)
       subject.project = nil
       expect(subject).to_not be_a_letter_with_project
+    end
+  end
+
+  describe "#paid?" do
+    it "returns true if it has a confirmed payment" do
+      message = Message.make!(confirmed_payment: true)
+      message.should be_paid
+    end
+
+    it "returns false if it has no confirmed payments" do
+      message = Message.make!(confirmed_payment: false)
+      message.should_not be_paid
     end
   end
 end
