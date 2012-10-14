@@ -88,3 +88,40 @@
       .image
         img
           width: 100%
+
+
+.banner
+  .text
+    @media (max-width: 960px)
+      font-size: 300%
+
+    @media (max-width: 560px)
+      font-size: 200%
+
+
+@media (max-width: 560px)
+  .project-box
+    .image
+      .scoreboard
+        .written, .sent
+          height: 57px
+          width: 40px
+          margin-top: -6px
+          padding:
+            left: 10px
+          .number
+            font-size: 22px
+          .text
+            font-size: 13px
+        .sent
+          padding:
+            right: 10px
+        .goal
+          height: 73px
+          margin-top: -6px
+          .number
+            font-size: 38px
+            height: 20px
+          .text
+            font-size: 13px
+            margin-bottom: 20px
