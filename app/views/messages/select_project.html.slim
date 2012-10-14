@@ -1,5 +1,9 @@
-h2 
-  = t('layouts.views.select_project')
+- content_for :header_area do
+  .write-message-header
+    header
+      .container
+        h2 Select a Dear Friend
+    = render 'steps', step: 2
 
 = render @projects, choose: true
 
