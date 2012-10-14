@@ -7,6 +7,7 @@ class Ability
     cannot :update, Message, paid?: true
     cannot :select_project, Message, paid?: true
     cannot :confirm_payment, Message, paid?: true
+    can :pay, Message, author: user
     cannot :pay, Message, paid?: true
     if user.active_volunteer?
       can :take_messages, Project

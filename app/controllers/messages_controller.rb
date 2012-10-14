@@ -50,4 +50,18 @@ class MessagesController < ApplicationController
       redirect_to select_project_message_path(resource)
     end
   end
+
+  # POST /messages/1/pay
+  def pay
+    message = Message.find(params[:id])
+    payment = Payment.new(Message::PRICE)
+    payment.setup!(
+      payments_success_callback_url(message.project),
+      payments_cancel_callback_url(message.project)
+    )
+    message.payment_token = payment.token
+    message.save
+
+    redirect_to payment.redirect_uri
+  end
 end

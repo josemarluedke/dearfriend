@@ -94,6 +94,26 @@ describe User do
       should_not be_able_to(:manage, message)
     end
 
+    it "doesn't pays messages from others users" do
+      message = Message.make!
+      message.stub(:paid?).and_return(true)
+      message.author = User.make!
+      should_not be_able_to(:pay, message)
+    end
+
+    it "pays messages don't paid yet" do
+      message = Message.make!
+      message.stub(:paid?).and_return(false)
+      message.author = user
+      should be_able_to(:pay, message)
+    end
+
+    it "doesn't pays messages already paid" do
+      message = Message.make!(author: user)
+      message.stub(:confirmed_payment).and_return(true)
+      should_not be_able_to(:pay, message)
+    end
+
     it "doesn't download messages" do
       should_not be_able_to(:download_messages, Project.new)
     end
