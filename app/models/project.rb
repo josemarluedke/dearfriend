@@ -3,8 +3,10 @@ class InsufficientMessagesToBeSent < Exception; end
 class Project < ActiveRecord::Base
   attr_accessible :description, :goal, :image, :name, :image_cache, :remove_image
   has_many :messages
-  validates :name, :description, :image, presence: true
+  validates :name, :description, :image, :goal, presence: true
   mount_uploader :image, ImageUploader
+
+  scope :all_can_receive_messages, ->{ all.select { |item| item.can_receive_message? } }
 
   def total_messages_sent
     messages.sent.size
@@ -12,6 +14,10 @@ class Project < ActiveRecord::Base
 
   def total_messages_to_be_downloaded
     messages.to_be_sent.size
+  end
+
+  def can_receive_message?
+    messages.paid_messages.size < goal
   end
 
   def give_messages_to_volunteer(user, quantity)

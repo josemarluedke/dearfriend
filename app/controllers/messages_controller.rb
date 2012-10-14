@@ -38,7 +38,7 @@ class MessagesController < ApplicationController
   # GET /messages/1/select_project
   def select_project
     @message = Message.find(params[:id])
-    @projects = Project.all
+    @projects = Project.all_can_receive_messages
   end
 
   # GET /messages/1/confirm_payment
