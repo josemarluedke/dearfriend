@@ -41,9 +41,9 @@ TEXT
     string
   end
 
- def confirm!
-    update_column(:confirmed_payment, true)
-    save
+ def confirm!(transaction_id)
+    update_attributes(confirmed_payment: true,
+                      transaction_id: transaction_id)
   end
 
   protected

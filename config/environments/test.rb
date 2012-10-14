@@ -1,3 +1,5 @@
+DearFriend::Application::HOST = "http://localhost:3000"
+
 DearFriend::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 

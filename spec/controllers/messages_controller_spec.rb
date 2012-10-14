@@ -124,13 +124,4 @@ describe MessagesController do
       response.should_not redirect_to(new_message_path)
     end
   end
-
-  describe "POST 'pay'" do
-    it "redirects to new message page if refered message it's already paid" do
-      Message.any_instance.stub(:paid?).and_return(true)
-      message = Message.make!(author: @user)
-      post 'pay', id: message.id
-      response.should_not redirect_to(new_message_path)
-    end
-  end
 end
