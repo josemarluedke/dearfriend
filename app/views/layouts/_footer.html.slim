@@ -8,13 +8,14 @@ footer
         .row-fluid
           .submit-project
             = mail_to "contact@dearfriend.cc", "Submit your community", class: "btn btn-custom btn-primary"
-            p Let us know why you want to transcript messages and get paid for it.            
-          .become-voluntter
-            - if user_signed_in?
-              = link_to "Become a volunteer", edit_user_registration_path, class: "btn btn-custom-red btn-primary" unless current_user.volunteer?
-            - else
-              = link_to "Become a volunteer", new_user_registration_path, class: "btn btn-custom-red btn-primary"
-            p Hey, superhero! Deliver messages to communities, get letters and post them.
+            p Let us know why you want to transcript messages and get paid for it.
+          - unless user_signed_in? && current_user.volunteer?
+            .become-voluntter
+              - if user_signed_in?
+                = link_to "Become a volunteer", edit_user_registration_path, class: "btn btn-custom-red btn-primary"
+              - else
+                = link_to "Become a volunteer", new_user_registration_path, class: "btn btn-custom-red btn-primary"
+              p Hey, superhero! Deliver messages to communities, get letters and post them.
 
   section.super-footer
     .container
