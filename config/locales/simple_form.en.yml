@@ -22,11 +22,17 @@ en:
     #       email: 'E-mail.'
     hints:
       user:
-        volunteer: "Volunteer's responsabilities: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        volunteer: "We carefully select Dear Friend’s superheroes who makes things happen.
+When a verified volunteer gives up, our team personally selects new wanna-be-volunteers.
+You will then be able to download and deliver the messages, collect the letters and post them."
       message:
-          letter: Max. 2000 characters
-          from_address: Your name and Your from_adress
-          to_address: Your friend's name and adress  
+          letter: "Max. 2000 characters"
+          from_address: "Your address"
+          to_address: "Receiver's name and address"
+    placeholders:
+      message:
+        from_address: "Address, city, state/province, country, ZIP code."
+        to_address: "Name. Address, city, state/province, country, ZIP code."
     #   defaults:
     #     username: 'User name to sign in.'
     #     password: 'No special characters, please.'

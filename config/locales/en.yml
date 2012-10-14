@@ -10,16 +10,22 @@ en:
       links:
         send_message: "Send a message"
         download_messages: "Download messages"
-        downloaded_messages: "Downloaded messages"
         profile_settings: "Profile settings"
         sign_out: "Logout"
         sign_in: "Login"
         sign_up: "Sign Up"
         admin: "Admin page"
+  projects:
+    downloaded_messages:
+      links:
+        downloaded_messages: "Downloaded messages"
   activerecord:
     models:
       user: "User"
     attributes:
+      message:
+        from_address: "From:"
+        to_address: "To:"
       user:
         admin: "Admin?"
         current_password: "Current password"
@@ -29,4 +35,4 @@ en:
         password: "Password"
         password_confirmation: "Password confirmation"
         verified_volunteer: "Verified volunteer?"
-        volunteer: "Volunteer?"
+        volunteer: "I want to be a volunteer"

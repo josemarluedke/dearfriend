@@ -2,7 +2,7 @@ h2 = t('.links.downloaded_messages')
 - if @message_downloads.present?
   table.table
     tr
-      th Project
+      th Dear Friend
       th Downloaded at
       th Messages
       th Download link
@@ -13,4 +13,4 @@ h2 = t('.links.downloaded_messages')
         td = message_download.messages
         td = link_to "Click here to download", download_messages_project_path(message_download.project, date: message_download.day)
 - else
-  p You don't downloaded any message yet.
+  p You didn't download any messages yet.
