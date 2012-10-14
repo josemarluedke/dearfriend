@@ -12,5 +12,10 @@
 
   p Price: #{number_to_currency Message::PRICE}
 
+  p
+    | This is a #{link_to "Rails Rumble project", "http://railsrumble.com/entries/537-dear-friend"}.
+    br
+    | <strong>For now, you have to use a Sandbox PayPal account</strong> to support a false Dear Friend. You will not be charged. And, well, your message will not be handwritten. We hope everything this become real <strong>in a few weeks</strong>. Thank you!
+
   .button
     = link_to "Pay with Paypal", pay_message_path(@message), class: "btn btn-custom btn-primary", method: :post
