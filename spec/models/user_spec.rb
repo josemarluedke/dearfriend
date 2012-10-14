@@ -107,6 +107,11 @@ describe User do
 
       it "does download project's messages" do
         should be_able_to(:download_messages, Project.new)
+        should be_able_to(:take_messages, Project.new)
+      end
+
+      it "does access it's own history of message downloads" do
+        should be_able_to(:download_messages, Project.new)
       end
     end
   end

@@ -8,7 +8,11 @@ class Ability
     cannot :select_project, Message, paid?: true
     cannot :confirm_payment, Message, paid?: true
     cannot :pay, Message, paid?: true
-    can :download_messages, Project if user.active_volunteer?
+    if user.active_volunteer?
+      can :take_messages, Project
+      can :download_messages, Project
+      can :downloaded_messages, Project
+    end
 
     # Define abilities for the passed in user here. For example:
     #
