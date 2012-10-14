@@ -9,6 +9,7 @@
   height: 34px
   text-decoration: none
   width: 278px
+  font-family: $abelFamily
   &:hover
     text-decoration: none
     color: white
@@ -48,30 +49,15 @@
     width: 280px
     display: block
     margin-bottom: 10px
+
   .form-inputs
-    .email, .password
-      font-size: 18px
+    .string, .email, .password
       font-family: $abelFamily
-      color: #8a8987  
-      margin-bottom: 10px
+      color: #8a8987
     .boolean
-      text-align: left
       font-family: $abelFamily
       font-size: 14px
-      margin-top: -6px
-      float: left
-      color: #8a8987    
-      label
-        width: 100px
-        float: right
-        margin-left: 20px
-      .checkbox
-        width: 5px
-        float: left
-        margin-top: -16px
-        margin-left: -4px
-        input
-          width: 20px
+      color: #8a8987
 
 .omniauth
   +clearfix
@@ -212,3 +198,26 @@
     float: right
 
 
+
+  .form-inputs
+    .email, .password
+      font-size: 18px
+      font-family: $abelFamily
+      color: #8a8987
+      margin-bottom: 10px
+    .boolean
+      text-align: left
+      font-family: $abelFamily
+      font-size: 14px
+      margin-top: -6px
+      float: left
+      color: #8a8987
+      label
+        margin-left: 20px
+      .checkbox
+        width: 5px
+        float: left
+        margin-top: -16px
+        margin-left: -4px
+        input
+          width: 20px
