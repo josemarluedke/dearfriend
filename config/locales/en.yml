@@ -12,8 +12,8 @@ en:
         download_messages: "Download messages"
         downloaded_messages: "Downloaded messages"
         profile_settings: "Profile settings"
-        sign_out: "Sign Out"
-        sign_in: "Sign In"
+        sign_out: "Logout"
+        sign_in: "Login"
         sign_up: "Sign Up"
         admin: "Admin page"
   activerecord:
