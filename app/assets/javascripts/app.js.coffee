@@ -16,7 +16,7 @@ App = window.App =
       unless $(".flash a").length
         setTimeout (->
           $(".flash").slideUp "slow"
-        ), 16000
+        ), 10000
       $(window).click ->
         $(".flash").slideUp()
 
