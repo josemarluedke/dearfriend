@@ -38,5 +38,3 @@ class User < ActiveRecord::Base
     UserMailer.volunteer_confirmation_email(self).deliver if verified_volunteer && !saved_verified_volunteer rescue nil
   end
 end
-
-
