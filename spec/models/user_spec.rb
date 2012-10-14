@@ -141,10 +141,11 @@ describe User do
     before do
       @user = User.make!
     end
+
     it "sends a e-mail" do
       @user.volunteer = true
+      UserMailer.should_receive(:volunteer_request_email)
       @user.save
-      ActionMailer::Base.deliveries.last.to.should == ["contact@dearfriend.cc"]
     end
   end
 end
