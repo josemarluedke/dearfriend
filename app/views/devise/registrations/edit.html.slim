@@ -5,8 +5,8 @@
         = t(".edit_devise_resource", resource_name: resource_name.to_s.humanize)
 
 .profile
-  div.row
-    .span6
+  div.row-fluid
+    .settings
       = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
         = f.error_notification
         .form-inputs
@@ -42,7 +42,7 @@
           = link_to t('.update'), "#", class: "btn-primary btn-custom"        
           = f.button :submit, t(".update"), class: "hide"
 
-    .span6
+    .providers
       - if devise_mapping.omniauthable?
         table.table.table-bordered
           thead
