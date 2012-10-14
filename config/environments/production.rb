@@ -1,8 +1,10 @@
+DearFriend::Application::HOST = "http://dearfriend.cc/"
+
 DearFriend::Application.configure do
   # Google Analytics
   config.middleware.use Rack::GoogleAnalytics, :tracker => 'UA-35546630-1'
   config.action_mailer.default_url_options = { :host => "dearfried.cc" }
-  
+
   ActionMailer::Base.delivery_method = :smtp
 
   # Settings specified here will take precedence over those in config/application.rb
