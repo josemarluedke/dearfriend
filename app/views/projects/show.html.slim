@@ -25,9 +25,9 @@
         .number = @project.goal
         .text Sent letters
     - if @project.can_receive_message?
-      span
-    -else
       span Reach the goal and support this Dear Friend.
+    -else
+      span Goal reached! This Dear Friend is already supported.
     .buttons
       - if @project.can_receive_message?
         .write
