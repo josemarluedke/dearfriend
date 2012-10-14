@@ -136,4 +136,16 @@ describe User do
       end
     end
   end
+
+  describe "#email" do
+    before do
+      @user = User.make!
+    end
+
+    it "sends a e-mail" do
+      @user.volunteer = true
+      UserMailer.should_receive(:volunteer_request_email)
+      @user.save
+    end
+  end
 end

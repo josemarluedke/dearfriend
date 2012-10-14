@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   attr_accessible :email, :password, :password_confirmation, :remember_me,
-    :name, :volunteer, :image_url
+    :name, :volunteer, :image_url, :verified_volunteer
   has_many :authorizations, dependent: :destroy
   has_many :messages_as_author, class_name: "Message", foreign_key: "author_id"
   has_many :messages_as_volunteer, class_name: "Message", foreign_key: "volunteer_id"
@@ -28,5 +28,9 @@ class User < ActiveRecord::Base
 
   def active_volunteer?
     volunteer && verified_volunteer
+  end
+
+  before_save do
+    UserMailer.volunteer_request_email(self).deliver if volunteer && !verified_volunteer rescue nil
   end
 end

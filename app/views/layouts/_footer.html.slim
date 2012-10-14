@@ -6,7 +6,7 @@ footer
         = render "layouts/facebook"
       .buttons
         .row-fluid
-          .submit-project
+          .submit-project[class="#{ 'pull-right' if user_signed_in? && current_user.volunteer? }"]
             = mail_to "contact@dearfriend.cc", "Submit your community", class: "btn btn-custom btn-primary"
             p Let us know why you want to transcript messages and get paid for it.
           - unless user_signed_in? && current_user.volunteer?

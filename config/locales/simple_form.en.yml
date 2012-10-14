@@ -23,6 +23,10 @@ en:
     hints:
       user:
         volunteer: "Volunteer's responsabilities: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      message:
+          letter: Max. 2000 characters
+          from_address: Your name and Your from_adress
+          to_address: Your friend's name and adress  
     #   defaults:
     #     username: 'User name to sign in.'
     #     password: 'No special characters, please.'
