@@ -20,7 +20,7 @@ module AuthenticationHelper
 
     visit "/"
     click_on "Sign Up"
-    click_on "Sign in with #{provider.to_s.humanize}"
+    click_on "Login with #{provider.to_s.humanize}"
     fill_in "Password", with: "123123"
     fill_in "Password confirmation", with: "123123"
     check "Volunteer?" if attrs[:volunteer]
