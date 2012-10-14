@@ -1,9 +1,13 @@
 App.Messages.SelectProject = App.Messages.Update = Backbone.View.extend
+  el: "body"
+
+  events:
+    "submit form": "submitForm"
+    "click .btn-choose": "choose"
+    "click .btn-selected": "selected"
+
   initialize: ->
     _.bindAll(this)
-    $('form').bind('submit', @submitForm)
-    $('.btn-choose').bind('click', @choose)
-    $('.btn-selected').bind('click', @selected)
     @project_id = $('#message_project_id')
 
   submitForm: ->
@@ -25,3 +29,4 @@ App.Messages.SelectProject = App.Messages.Update = Backbone.View.extend
     @project_id.val()
     $('.btn-selected').hide()
     $('.project-'+target.data('id')).find('.btn-choose').fadeIn()
+    false
