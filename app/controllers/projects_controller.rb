@@ -3,8 +3,8 @@ class ProjectsController < ApplicationController
   actions :show
   respond_to :html, :json
 
-  # POST /projects/1/download_messages
-  def download_messages
+  # POST /projects/1/take_messages
+  def take_messages
     @project = Project.find(params[:id])
     messages_file = @project.give_messages_to_volunteer(current_user,
                                                         params[:messages_quantity])
@@ -13,5 +13,24 @@ class ProjectsController < ApplicationController
     render :show
   else
     send_data messages_file, filename: "messages_#{DateTime.current}.txt"
+  end
+
+  # GET /projects/downloaded_messages
+  def downloaded_messages
+    @message_downloads = []
+    current_user.messages_as_volunteer.group_by(&:downloaded_at).each do |day, msgs|
+      @message_downloads << OpenStruct.new(day: day,
+                                           project: msgs.first.project,
+                                           messages: msgs.count)
+    end
+  end
+
+  # GET /projects/download_messages
+  # params = { date: "2012-10-14" }
+  def download_messages
+    date = params[:date].to_date
+    @project = Project.find(params[:id])
+    messages_file = @project.messages_as_text_from(date)
+    send_data messages_file, filename: "messages_#{date}.txt"
   end
 end

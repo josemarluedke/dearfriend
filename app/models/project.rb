@@ -32,6 +32,10 @@ class Project < ActiveRecord::Base
       map { |m, index| m.as_text(index) }.join(messages_separator)
   end
 
+  def messages_as_text_from(day)
+    messages_as_text(messages.where(downloaded_at: day))
+  end
+
   def as_text
     <<TEXT
 Project "#{name}"
@@ -44,7 +48,7 @@ TEXT
   def assign_volunter_to_messages(quantity, user)
     assigned_messages = messages.to_be_sent.first(quantity)
     assigned_messages.each do |message|
-      message.update_attributes(volunteer: user)
+      message.update_attributes(volunteer: user, downloaded_at: Date.today)
     end
   end
 end
