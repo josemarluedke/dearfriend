@@ -46,7 +46,7 @@ class Project < ActiveRecord::Base
 
   def as_text
     <<TEXT
-Project "#{name}"
+Dear Friend "#{name}"
 #{description}
 TEXT
   end

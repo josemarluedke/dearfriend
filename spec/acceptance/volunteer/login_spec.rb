@@ -4,7 +4,7 @@ feature "Volunteer Login" do
   scenario "Receive an option to read volunteer responsabilities" do
     visit "/"
     click_on "Sign Up"
-    page.should have_content("Volunteer's responsabilities")
+    page.should have_content("When a verified volunteer gives up")
   end
 
   scenario "Create an account" do
@@ -14,7 +14,7 @@ feature "Volunteer Login" do
     fill_in "E-mail", with: "juquinha@dearfriend.cc"
     fill_in "Password", with: "123123"
     fill_in "Password confirmation", with: "123123"
-    check "Volunteer?"
+    check "I want to be a volunteer"
     within "form" do
       click_on "Sign Up"
     end
@@ -26,7 +26,7 @@ feature "Volunteer Login" do
   scenario "Don't receive 'future approval message' when updates its profile and already are a volunteer" do
     sign_in_via(:facebook, volunteer: true)
     click_on "Profile settings"
-    check "Volunteer?"
+    check "I want to be a volunteer"
     click_on "Update"
     page.should_not have_content("You're almost a volunteer. We just need verify your appliance.")
   end

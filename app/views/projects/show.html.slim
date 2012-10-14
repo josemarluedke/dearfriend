@@ -10,7 +10,7 @@
   .first-column
     .text
       .label
-      h1 About the Community
+      h1 About this Dear Friend
       p = simple_format @project.description
     = render 'timeline'
   .second-column
@@ -33,12 +33,12 @@
       - if @project.can_receive_message?
         .write
           = link_to "Write a message", new_message_path(project_id: @project), class: "btn btn-custom btn-primary"
-          p Write to someone special. A hand from this community will transcript it for you for only $5.
+          p Write to someone special. With a personal touch, a carefully selected Dear Friend will read and handwrite your message per $5.
 
       - if can?(:download_messages, Project) && @project.total_messages_to_be_downloaded > 0
         .download-messages
           = link_to "Download messages", "#download-messges", class: "btn btn-custom-red btn-primary", :'data-toggle' => "modal"
-          p Volunteer, we need you to deliver messages to this community, get letters and post them.
+          p Volunteer, we need you to deliver messages to this Dear Friend, collect letters and post them.
 
 
   .first-column
@@ -49,9 +49,10 @@
     = form_tag take_messages_project_path(@project), method: :post do
       .modal-header
         button.close aria-hidden="true" data-dismiss="modal" type="button"
-        h3 How many messages you want to download?
+        - available_msgs = @project.total_messages_to_be_downloaded
+        h3 = "There #{available_msgs < 2 ? "is" : "are"} #{available_msgs} #{"message".pluralize(available_msgs)} available to download. How many do you want to get?"
       .modal-body
-        p Your job is to deliver the messages to the community, get letters and post them. Each stamp costs $0.80. Make a wise choice.
+        p Your job is to deliver the messages to the Dear Friend, collect letters and post them. Each stamp costs $0.80. Make a wise choice.
         = number_field_tag "messages_quantity", nil, max: @project.total_messages_to_be_downloaded
       .modal-footer
         .button

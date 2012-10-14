@@ -1,5 +1,8 @@
 en:
   devise:
+    failure:
+      already_authenticated: 'You are already logged in.'
+      unauthenticated: 'You need to login or sign up before.'
     registrations:
       edit:
         provider: "Provider"
@@ -75,4 +78,3 @@ en:
         change_my_password: "Change my password"
         or: " or "
         back: "Back"
-

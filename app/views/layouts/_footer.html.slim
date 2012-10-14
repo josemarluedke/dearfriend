@@ -2,13 +2,13 @@ footer
   .container
     .row-fluid
       .share
-        p Do you love me?        
+        p Do you love me?
         = render "layouts/twitter"
         = render "layouts/facebook"
       .buttons
         .row-fluid
           .submit-project[class="#{ 'pull-right' if user_signed_in? && current_user.volunteer? }"]
-            = mail_to "contact@dearfriend.cc", "Submit your community", class: "btn btn-custom btn-primary"
+            = link_to "Become a Dear Friend", "http://dearfriend.wufoo.com/forms/z7x3p9/", class: "btn btn-custom btn-primary", target: "_blank"
             p Let us know why you want to transcript messages and get paid for it.
           - unless user_signed_in? && current_user.volunteer?
             .become-voluntter
@@ -16,7 +16,7 @@ footer
                 = link_to "Become a volunteer", edit_user_registration_path, class: "btn btn-custom-red btn-primary"
               - else
                 = link_to "Become a volunteer", new_user_registration_path, class: "btn btn-custom-red btn-primary"
-              p Hey, superhero! Deliver messages to communities, get letters and post them.
+              p Hey, superhero! Deliver messages to Dear Friends, collect letters and post them.
 
   section.super-footer
     .container
@@ -24,7 +24,7 @@ footer
         .title Wanna talk?
         .pull-right
           p
-            | Send us an email. Or, better, a letter!
+            | Send us an #{mail_to "contact@dearfriend.cc", "email"}. Or, better, a letter!
             br/
             | Rua Lorem Ipsum, 333 - Porto Alegre, RS, Brazil.
             br/
