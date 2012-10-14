@@ -13,4 +13,4 @@
   p Price: #{number_to_currency Message::PRICE}
 
   .button
-    = link_to "Pay with Paypal", payment_path(message_id: @message), class: "btn btn-custom btn-primary", method: :post
+    = link_to "Pay with Paypal", pay_message_path(@message), class: "btn btn-custom btn-primary", method: :post

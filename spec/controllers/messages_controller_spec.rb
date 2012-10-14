@@ -124,4 +124,27 @@ describe MessagesController do
       response.should_not redirect_to(new_message_path)
     end
   end
+
+  describe "POST 'pay'" do
+    let(:message) { Message.make!(author: @user) }
+
+    describe "First request: asking authorization" do
+      it "makes a call to payment's setup! method" do
+        controller.stub(:payments_success_callback_url).and_return("http://success")
+        controller.stub(:payments_cancel_callback_url).and_return("http://cancel")
+        Payment.any_instance.stub(:redirect_uri).and_return("http://dearfriend.cc/")
+
+        Payment.any_instance.should_receive(:setup!).with("http://success", "http://cancel").and_return(true)
+        post :pay, id: message
+      end
+
+      it "updates support's payment_token" do
+        Payment.any_instance.stub(:new).and_return(double.as_null_object)
+        Payment.any_instance.stub(:token).and_return("big_payment_token")
+        Payment.any_instance.stub(:redirect_uri).and_return(root_url)
+        post :pay, id: message
+        expect(message.reload.payment_token).to be_eql("big_payment_token")
+      end
+    end
+  end
 end

@@ -39,6 +39,22 @@ describe Message do
         expect(Message.paid_messages).to_not include(without_payment)
       end
     end
+
+    describe "to_be_sent" do
+      before do
+        2.times do
+          Message.make(volunteer: nil).tap do |m|
+            m.confirmed_payment = true
+            m.save
+          end
+        end
+        Message.make!(volunteer: nil)
+      end
+
+      it "gets just paid messages and with volunteers" do
+        expect(Message.to_be_sent).to have(2).items
+      end
+    end
   end
 
   describe "#letter_with_project?" do

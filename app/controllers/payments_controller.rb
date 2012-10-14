@@ -1,20 +1,4 @@
 class PaymentsController < InheritedResources::Base
-  before_filter :authenticate_user!
-  actions :create
-
-  def create
-    message = Message.find(params[:message_id])
-    payment = Payment.new(Message::PRICE)
-    payment.setup!(
-      success_callback_payment_url(project_id: message.project),
-      cancel_callback_payment_url(project_id: message.project)
-    )
-    message.payment_token = payment.token
-    message.save
-
-    redirect_to payment.redirect_uri
-  end
-
   def success_callback
     if message = Message.find_by_payment_token(params[:token])
       payment = Payment.new
