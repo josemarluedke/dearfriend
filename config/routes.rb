@@ -1,6 +1,9 @@
 DearFriend::Application.routes.draw do
 
-  resource :payment, only: [:create]
+  resource :payment, only: [:create] do
+    get "success_callback"
+    get "cancel_callback"
+  end
 
   resources :projects, only: [:show] do
     collection do
