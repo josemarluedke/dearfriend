@@ -8,7 +8,7 @@ footer
       .buttons
         .row-fluid
           .submit-project[class="#{ 'pull-right' if user_signed_in? && current_user.volunteer? }"]
-            = mail_to "contact@dearfriend.cc", "Become a Dear Friend", class: "btn btn-custom btn-primary"
+            = link_to "Become a Dear Friend", "http://dearfriend.wufoo.com/forms/z7x3p9/", class: "btn btn-custom btn-primary", target: "_blank"
             p Let us know why you want to transcript messages and get paid for it.
           - unless user_signed_in? && current_user.volunteer?
             .become-voluntter

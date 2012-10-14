@@ -22,3 +22,5 @@ App = window.App =
 
   Messages: {}
   Projects: {}
+  Users:
+    Registrations: {}
