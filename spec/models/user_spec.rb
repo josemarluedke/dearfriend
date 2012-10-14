@@ -147,9 +147,15 @@ describe User do
       @user = User.make!
     end
 
-    it "sends a e-mail" do
+    it "sends a volunteer request e-mail" do
       @user.volunteer = true
       UserMailer.should_receive(:volunteer_request_email)
+      @user.save
+    end
+
+    it "sends a volunteer confirmation e-mail" do
+      @user.verified_volunteer = true
+      UserMailer.should_receive(:volunteer_confirmation_email)
       @user.save
     end
   end

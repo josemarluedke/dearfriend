@@ -21,9 +21,8 @@
       .second-column
         .form-inputs
           = f.input :from_address, :as => :text, :required => true, :wrapper => :prepend, input_html: { maxlength: 255 }
-          p Your name and your address.
           hr
           = f.input :to_address, :as => :text, :required => true, :wrapper => :prepend, input_html: { maxlength: 255 }
-          p = "Your friend's name and address."
           .button
-            = f.button :submit, t("simple_form.next"), class: "btn-primary btn-custom"
+            = link_to t('Send Message'), "#", class: "btn-primary btn-custom"
+            = f.button :submit, t('simple_form.next'), class: "hide"
