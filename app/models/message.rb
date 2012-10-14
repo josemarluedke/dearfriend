@@ -12,8 +12,8 @@ class Message < ActiveRecord::Base
   PRICE = 5
 
   scope :sent, where("volunteer_id IS NOT ?", nil)
-  scope :to_be_sent, where(volunteer_id: nil)
   scope :paid_messages, where(confirmed_payment: true)
+  scope :to_be_sent, paid_messages.where(volunteer_id: nil)
 
   before_create :create_payment_token
 

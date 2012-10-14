@@ -21,7 +21,7 @@ describe Project do
 
     subject { @project }
 
-    it "should return the total messtes sent" do
+    it "should return the total messages sent" do
       subject.total_messages_sent.should == 3
     end
   end
@@ -34,6 +34,7 @@ describe Project do
       3.times do |i|
         m = Message.make!
         m.project = subject
+        m.confirmed_payment = true
         m.volunteer = User.make! unless i == 0
         m.save
       end
@@ -48,7 +49,12 @@ describe Project do
     subject { Project.make! }
 
     it "assigns a volunteer to the given count of messages" do
-      3.times { subject.messages.make! }
+      3.times do
+        subject.messages.make.tap do |m|
+          m.confirmed_payment = true
+          m.save
+        end
+      end
       user = User.make!
       subject.give_messages_to_volunteer(user, 2)
       subject.reload
