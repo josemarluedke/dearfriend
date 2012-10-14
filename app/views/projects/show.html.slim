@@ -9,6 +9,7 @@
 .project
   .first-column
     .text
+      .label
       h1 About the Community
       p = simple_format @project.description
     .fb-comments data-href="#{request.host}:#{request.port}#{request.fullpath}"
@@ -16,22 +17,22 @@
     .scoreboard
       .written
         .number = @project.messages.size
-        .text Written
+        .text Written Messages
       .sent
         .number = @project.total_messages_sent
-        .text Sent
+        .text Sent Letters
       .goal
         .text Goal
         .number = @project.goal
         .text Sent letters
     .buttons
       .write
-        = link_to "Write a message", new_message_path(project_id: @project), class: "btn btn-primary"
+        = link_to "Write a message", new_message_path(project_id: @project), class: "btn btn-custom btn-primary"
         p Write to someone special. A hand from this community will transcript it for you for only $5.
 
       - if can?(:download_messages, Project) && @project.total_messages_to_be_downloaded > 0
         .download-messages
-          = link_to "Download messages", "#download-messges", class: "btn btn-primary", :'data-toggle' => "modal"
+          = link_to "Download messages", "#download-messges", class: "btn btn-custom-red btn-primary", :'data-toggle' => "modal"
           p Volunteer, we need you to deliver messages to this community, get letters and post them.
 
 - if can?(:download_messages, Project) && @project.total_messages_to_be_downloaded > 0
