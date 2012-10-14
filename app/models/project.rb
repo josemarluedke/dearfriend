@@ -3,6 +3,7 @@ class InsufficientMessagesToBeSent < Exception; end
 class Project < ActiveRecord::Base
   attr_accessible :description, :goal, :image, :name, :image_cache, :remove_image
   has_many :messages
+  has_many :stories, dependent: :destroy
   validates :name, :description, :image, :goal, presence: true
   mount_uploader :image, ImageUploader
 

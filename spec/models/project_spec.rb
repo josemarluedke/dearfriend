@@ -9,6 +9,7 @@ describe Project do
 
   describe "associations" do
     it { should have_many :messages }
+    it { should have_many :stories }
   end
 
   describe "#total_messages_sent" do
