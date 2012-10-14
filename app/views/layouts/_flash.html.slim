@@ -1,5 +1,6 @@
 .flash
-  - for key, message in flash
-    div class="#{key} wrapper"
-      div class=key
-        = message
+  - for key, msg in flash
+    - flash_class = key.to_s == "alert" ? "error" : key
+    div class="#{flash_class} wrapper"
+      div class=flash_class
+        = msg

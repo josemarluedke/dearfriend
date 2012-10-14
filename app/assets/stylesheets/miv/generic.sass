@@ -77,3 +77,54 @@ h1, h2, h3, h4, h5, h6
     margin-top: -23px
     +border-radius (10px 0 0 10px)
 
+
+.flash
+  font:
+    family: $satisfyFamily
+    size: 220%
+  color: white
+  display: none
+  z-index: 1000
+  position: fixed
+  bottom: 0
+  width: 100%
+  text-align: center
+
+  .wrapper
+    div
+      padding: 20px
+
+    &:before, &:after
+      content: ""
+      display: block
+      height: 6px
+
+    &.success, &.wrapper
+      background-color: $green
+
+
+      &:before, &:after
+        background: image-url('dot-footer.png') repeat-x
+      &:before
+        border-top: 10px solid $green
+      &:after
+        border-bottom: 5px solid $green
+
+
+    &.failure, &.error, &.alert, &.warning
+      background-color: $orange
+
+      &:before, &:after
+        background: image-url('dot-steps-header.png') repeat-x
+      &:before
+        border-top: 10px solid $orange
+      &:after
+        border-bottom: 5px solid $orange
+
+
+      // Bootstrap reset
+      color: white
+      margin: 0px
+      border: 0px
+      +border-radius(0px)
+
