@@ -3,10 +3,7 @@
     header
       .container
         | Write a message
-    .container.steps
-      .step.one Write your lovely message to a friend.
-      .step.disabled.two Choose the community that will transcript it by hand.
-      .step.disabled.three Pay $5 for each message and support the community.
+    = render 'steps', step: 1
 
 .write-message
   h2 Write to someone special

@@ -1,11 +1,14 @@
-h2 
-  = t('layouts.views.select_project')
+- content_for :header_area do
+  .write-message-header
+    header
+      .container
+        h2 Select a Dear Friend
+    = render 'steps', step: 2
 
 = render @projects, choose: true
 
 = simple_form_for(@message) do |f|
   = f.error_notification
-  .form-inputs.hide
-    = f.input :project_id, :collection => @projects, as: :radio_buttons, label: ""
+  = f.input :project_id, as: :hidden
 
   = f.button :submit, t("simple_form.next"), class: "btn-primary"

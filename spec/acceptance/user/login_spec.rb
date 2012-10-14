@@ -54,7 +54,7 @@ feature "User Login" do
       visit "/"
       click_on "Sign In"
       click_on "Sign in with Facebook"
-      page.should have_content("Successfully authenticated from facebook account.")
+      page.should have_content("You are already signed in.")
     end
 
     scenario "Logout" do
@@ -77,7 +77,7 @@ feature "User Login" do
       visit "/"
       click_on "Sign In"
       click_on "Sign in with Twitter"
-      page.should have_content("Successfully authenticated from twitter account.")
+      page.should have_content("You are already signed in.")
     end
 
     scenario "Logout" do

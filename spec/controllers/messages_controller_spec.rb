@@ -53,13 +53,6 @@ describe MessagesController do
         put 'update', id: message.id, message: valid_letter_with_project_attributes
         response.should redirect_to(confirm_payment_message_path(message))
       end
-
-      it "renders select_project page in case of none project set" do
-        Message.any_instance.stub(:letter_with_project?).and_return(false)
-        message = Message.make!(author: @user)
-        put 'update', id: message.id, message: valid_letter_with_project_attributes
-        response.should render_template("select_project")
-      end
     end
 
     it "redirects to new message page if refered message it's already paid" do
@@ -67,6 +60,20 @@ describe MessagesController do
       message = Message.make!(author: @user)
       get 'confirm_payment', id: message.id
       response.should_not redirect_to(new_message_path)
+    end
+
+    it "renders select_project page in case of none project set" do
+      Message.any_instance.stub(:letter_with_project?).and_return(false)
+      message = Message.make!(author: @user)
+      put 'update', id: message.id, message: valid_letter_with_project_attributes
+      response.should render_template("select_project")
+    end
+
+    it "assigns projects variable" do
+      Message.any_instance.stub(:letter_with_project?).and_return(false)
+      message = Message.make!(author: @user)
+      put 'update', id: message.id, message: valid_letter_with_project_attributes
+      expect(assigns(:projects)).to be_a_kind_of(Array)
     end
   end
 

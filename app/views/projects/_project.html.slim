@@ -9,9 +9,10 @@
       hr
       p.description= project.description.truncate(150)
       hr
-      .button
+      .button[class="project-#{project.id}"]
         - if defined?(choose)
-          = link_to "Select!", "#select-#{project.id}", class: "btn btn-primary btn-custon btn-choose", data: { id: project.id }
+          = link_to "Select", "#select-#{project.id}", class: "btn btn-primary btn-custon btn-choose", data: { id: project.id }
+          = link_to "Selected", "#select-#{project.id}", class: "btn btn-primary btn-custon btn-selected hide", data: { id: project.id }
         - else
           = link_to "See more!", link, class: "btn btn-primary btn-custon"
 
@@ -23,11 +24,11 @@
       .scoreboard
         .written
           .number = project.messages.size
-          .text Written
+          .text Written Messages
         .sent
           .number = project.total_messages_sent
-          .text Sent
+          .text Sent Letters
         .goal
           .text Goal
           .number = project.goal
-          .text Sent letters
+          .text Sent Letters

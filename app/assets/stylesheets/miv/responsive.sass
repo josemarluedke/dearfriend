@@ -80,3 +80,11 @@
     float: none
     width: 100% !important
 
+
+// Only for Firefox
+@-moz-document url-prefix()
+  @media (max-width: 1000px)
+    .project-box
+      .image
+        img
+          width: 100%
