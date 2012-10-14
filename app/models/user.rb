@@ -29,6 +29,10 @@ class User < ActiveRecord::Base
   def active_volunteer?
     volunteer && verified_volunteer
   end
+
+  before_save do
+    UserMailer.volunteer_request_email(self).deliver if volunteer && !verified_volunteer rescue nil
+  end
 end
 
 

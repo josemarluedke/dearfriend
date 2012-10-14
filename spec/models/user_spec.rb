@@ -136,4 +136,15 @@ describe User do
       end
     end
   end
+
+  describe "#email" do
+    before do
+      @user = User.make!
+    end
+    it "sends a e-mail" do
+      @user.volunteer = true
+      @user.save
+      ActionMailer::Base.deliveries.last.to.should == ["contact@dearfriend.cc"]
+    end
+  end
 end
