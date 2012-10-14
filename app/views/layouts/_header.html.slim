@@ -24,6 +24,7 @@ header
                   - if user_signed_in? && current_user.admin?
                     li= link_to t('.links.admin'), "/admin"
                   li= link_to t('.links.send_message'), new_message_path
+                  li= link_to t('.links.downloaded_messages'), downloaded_messages_projects_path
                   li= link_to t('.links.download_messages'), root_path(anchor: "projects") if current_user.active_volunteer?
                   li= link_to t('.links.sign_out'), destroy_user_session_path, :method => :delete if user_signed_in?
 

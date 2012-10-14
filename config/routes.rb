@@ -1,8 +1,12 @@
 DearFriend::Application.routes.draw do
 
   resources :projects, only: [:show] do
+    collection do
+      get 'downloaded_messages'
+    end
     member do
-      post 'download_messages'
+      post 'take_messages'
+      get 'download_messages'
     end
   end
 

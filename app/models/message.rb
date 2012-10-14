@@ -5,7 +5,7 @@ class Message < ActiveRecord::Base
 
   attr_accessible :confirmed_payment, :from_address, :letter, :payment_token,
                   :to_address, :transaction_id, :author, :project_id,
-                  :volunteer, :price, :project
+                  :volunteer, :price, :project, :downloaded_at
 
   validates :letter, :author, :from_address, :to_address, presence: true
 

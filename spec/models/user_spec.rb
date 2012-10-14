@@ -107,6 +107,11 @@ describe User do
 
       it "does download project's messages" do
         should be_able_to(:download_messages, Project.new)
+        should be_able_to(:take_messages, Project.new)
+      end
+
+      it "does access it's own history of message downloads" do
+        should be_able_to(:download_messages, Project.new)
       end
     end
   end
@@ -142,9 +147,15 @@ describe User do
       @user = User.make!
     end
 
-    it "sends a e-mail" do
+    it "sends a volunteer request e-mail" do
       @user.volunteer = true
       UserMailer.should_receive(:volunteer_request_email)
+      @user.save
+    end
+
+    it "sends a volunteer confirmation e-mail" do
+      @user.verified_volunteer = true
+      UserMailer.should_receive(:volunteer_confirmation_email)
       @user.save
     end
   end

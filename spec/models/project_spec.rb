@@ -62,4 +62,14 @@ describe Project do
       expect { subject.give_messages_to_volunteer(user, 2) }.to raise_error(InsufficientMessagesToBeSent)
     end
   end
+
+  describe "#messages_as_text_from" do
+    it "returns messages_as_text from messages that happened in the requested day" do
+      expected_msg = Message.make!(project: subject, downloaded_at: "2012-10-14")
+      Message.make!(project: subject, downloaded_at: "2012-10-15")
+      Message.make!(project: subject, downloaded_at: "2012-10-15")
+      Project.any_instance.should_receive(:messages_as_text).with([expected_msg])
+      subject.messages_as_text_from("2012-10-14")
+    end
+  end
 end
