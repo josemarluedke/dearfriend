@@ -30,5 +30,3 @@ class User < ActiveRecord::Base
     volunteer && verified_volunteer
   end
 end
-
-
