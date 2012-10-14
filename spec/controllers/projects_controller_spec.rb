@@ -51,9 +51,9 @@ describe ProjectsController do
   describe "GET 'download_messages'" do
     subject { Project.make! }
     before do
+      Message.make!(project: subject, volunteer: @user, downloaded_at: "2012-10-12")
+      Message.make!(project: subject, volunteer: @user, downloaded_at: "2012-10-12")
       Message.make!(project: subject, volunteer: @user, downloaded_at: "2012-10-14")
-      Message.make!(project: subject, volunteer: @user, downloaded_at: "2012-10-12")
-      Message.make!(project: subject, volunteer: @user, downloaded_at: "2012-10-12")
       Message.make!(project: Project.make!, volunteer: @user, downloaded_at: "2012-10-12")
     end
 
@@ -67,7 +67,7 @@ describe ProjectsController do
     context "having a day as params[:date] parameter" do
       it "gets a list of messages from that day" do
         Project.any_instance.should_receive(:messages_as_text_from).
-          with("2012-10-14").and_return(stub("text file"))
+          with(Date.parse("2012-10-14")).and_return(stub("text file"))
         get :download_messages, id: Project.make!.id, date: "2012-10-14"
       end
     end

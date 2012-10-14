@@ -18,10 +18,12 @@ class ProjectsController < ApplicationController
   # GET /projects/downloaded_messages
   def downloaded_messages
     @message_downloads = []
-    current_user.messages_as_volunteer.group_by(&:downloaded_at).each do |day, msgs|
-      @message_downloads << OpenStruct.new(day: day,
-                                           project: msgs.first.project,
-                                           messages: msgs.count)
+    current_user.messages_as_volunteer.group_by(&:downloaded_at).each do |day, day_msgs|
+      day_msgs.group_by(&:project).each do |project, project_msgs|
+        @message_downloads << OpenStruct.new(day: day,
+                                             project: project,
+                                             messages: project_msgs.count)
+      end
     end
   end
 
