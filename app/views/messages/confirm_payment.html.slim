@@ -1,5 +1,11 @@
-h2 Confirm payment
-| ------------------
+- content_for :header_area do
+  .write-message-header
+    header
+      .container
+        h2 Confirm payment
+    = render 'steps', step: 3
+
+
 h3 You are helping
 h2
   = @project.name
