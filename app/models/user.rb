@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me,
     :name, :volunteer, :image_url, :verified_volunteer
   has_many :authorizations, dependent: :destroy
+  has_many :stories, dependent: :destroy
   has_many :messages_as_author, class_name: "Message", foreign_key: "author_id"
   has_many :messages_as_volunteer, class_name: "Message", foreign_key: "volunteer_id"
   validates :name, presence: true
@@ -33,7 +34,7 @@ class User < ActiveRecord::Base
   before_validation do
     saved_volunteer = id.nil? ? false : User.find(id).volunteer
     saved_verified_volunteer = id.nil? ? false : User.find(id).verified_volunteer
-    
+
     UserMailer.volunteer_request_email(self).deliver if volunteer && !saved_volunteer && !verified_volunteer rescue nil
     UserMailer.volunteer_confirmation_email(self).deliver if verified_volunteer && !saved_verified_volunteer rescue nil
   end

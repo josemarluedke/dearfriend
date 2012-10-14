@@ -45,6 +45,63 @@
         font-size: 16px
         color: #8a8987
         line-height: 21px
+    .timeline
+      background: white
+      +border-radius (10px)
+      border: 1px solid #dfdfdf
+      padding: 20px
+      margin-bottom: 40px
+      span
+        background: image-url('label_bg.png') no-repeat
+        width: 11px
+        height: 51px
+        margin-left: -31px
+        float: left
+        padding: 0px
+      h2
+        font-family: $satisfyFamily
+        text-shadow: 1px 1px #82a8a5
+        font-size: 21px
+        background-color: #9dc2bf
+        padding: 0 0 0 20px
+        width: 200px
+        color: white
+        font-weight: normal
+        margin: 1px 0 30px -20px
+      ul
+        li
+          list-style: none
+          .avatar
+            float: left
+            margin-right: 20px
+            img
+              +border-radius (50%)
+          .name
+            font-family: $satisfyFamily
+            font-size: 21px
+            color: #8a8987
+            font-weight: normal
+            margin-bottom: 7px
+          .text-story
+            font-family: $abelFamily
+            font-size: 16px
+            color: #8a8987
+            line-height: 21px
+            span
+              background: none
+              width: 90%
+              height: auto
+              margin-left: 0px
+          .date
+            margin-left: 65px
+            font-family: $abelFamily
+            font-size: 14px
+            color: #82a8a5
+          hr
+            border-top: 1px solid #F0F0F0
+            width: 90%
+            height: 1px
+            margin-bottom: 20px
 
   .second-column
     @extend .span4
