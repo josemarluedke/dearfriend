@@ -1,0 +1,14 @@
+development: &sandbox
+  username: owner_1340824323_biz_api1.caixadeideias.com.br
+  password: 1340824346
+  signature: AiPC9BjkCyDFQXbSkoZcgqH3hpacAf4CxJ-K-12IJXbZKw0YFV1IdLfC
+  sandbox: true
+
+test:
+  <<: *sandbox
+
+production: &production
+  username: owner_1340824323_biz_api1.caixadeideias.com.br
+  password: 1340824346
+  signature: AiPC9BjkCyDFQXbSkoZcgqH3hpacAf4CxJ-K-12IJXbZKw0YFV1IdLfC
+  sandbox: true

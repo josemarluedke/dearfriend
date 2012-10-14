@@ -14,6 +14,8 @@ class Message < ActiveRecord::Base
   scope :sent, where("volunteer_id IS NOT ?", nil)
   scope :to_be_sent, where(volunteer_id: nil)
 
+  before_create :create_payment_token
+
   def letter_with_project?
     valid? && project.present?
   end
@@ -37,5 +39,16 @@ LETTER
 TEXT
     string.insert(0, "MESSAGE ##{index+1}\n\n") unless index.nil?
     string
+  end
+
+ def confirm!
+    update_column(:confirmed_payment, true)
+    save
+  end
+
+  protected
+
+  def create_payment_token
+    self.payment_token = SecureRandom.hex(20)
   end
 end
