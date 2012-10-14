@@ -11,9 +11,9 @@
       hr
       .button
         - if defined?(choose)
-          = link_to "Select!", "#select-#{project.id}", class: "btn btn-primary btn-custon btn-choose", data: { id: project.id }
+          = link_to "Select!", "#select-#{project.id}", class: "btn btn-primary btn-custom btn-choose", data: { id: project.id }
         - else
-          = link_to "See more!", link, class: "btn btn-primary btn-custon"
+          = link_to "See more!", link, class: "btn btn-primary btn-custom"
 
     .image
       .image-wrapper
