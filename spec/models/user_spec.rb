@@ -75,6 +75,7 @@ describe User do
     it { should have_many :authorizations }
     it { should have_many :messages_as_author }
     it { should have_many :messages_as_volunteer }
+    it { should have_many :stories }
   end
 
   describe "abilities" do

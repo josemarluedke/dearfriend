@@ -1,0 +1,20 @@
+- if @project.stories.any?
+  .timeline
+    .wrapper
+      span
+      h2 What is going on
+      ul.list
+        - for story in @project.stories
+          li
+            .avatar
+              = image_tag story.user.avatar_url(40)
+            .name
+              = story.user.name
+            .text-story
+              - if story.kind == "downloaded_messages"
+                = t("stories.#{story.kind}", total: story.download_count)
+              - else
+                = t("stories.#{story.kind}")
+            .date
+              = "#{distance_of_time_in_words_to_now(story.created_at)} ago"
+            hr

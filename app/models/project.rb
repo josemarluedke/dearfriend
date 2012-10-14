@@ -3,6 +3,7 @@ class InsufficientMessagesToBeSent < Exception; end
 class Project < ActiveRecord::Base
   attr_accessible :description, :goal, :image, :name, :image_cache, :remove_image
   has_many :messages
+  has_many :stories, dependent: :destroy
   validates :name, :description, :image, :goal, presence: true
   mount_uploader :image, ImageUploader
 
@@ -26,6 +27,7 @@ class Project < ActiveRecord::Base
       raise InsufficientMessagesToBeSent
     end
 
+    Story.create kind: "downloaded_messages", project: self, user: user, download_count: quantity
     messages_as_text(assign_volunter_to_messages(quantity, user))
   end
 
