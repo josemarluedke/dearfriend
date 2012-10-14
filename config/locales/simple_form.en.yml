@@ -20,9 +20,12 @@ en:
     #       email: 'E-mail to sign in.'
     #     edit:
     #       email: 'E-mail.'
+    labels:
+      user:
+        volunteer: "I want to be a volunteer"
     hints:
       user:
-        volunteer: "Volunteer's responsabilities: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        volunteer: "We carefully select Dear Friend’s superheroes who makes things happen. <br><br>When a verified volunteer gives up, our team personally selects new wanna-be-volunteers.<br><br>You will then be able to download and deliver the messages, collect the letters and post them."
       message:
           letter: Max. 2000 characters
           from_address: Your name and Your from_adress
