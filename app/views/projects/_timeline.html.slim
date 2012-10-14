@@ -11,7 +11,10 @@
             .name
               = story.user.name
             .text-story
-              = t("stories.#{story.kind}")
+              - if story.kind == "downloaded_messages"
+                = t("stories.#{story.kind}", total: story.download_count)
+              - else
+                = t("stories.#{story.kind}")
             .date
               = "#{distance_of_time_in_words_to_now(story.created_at)} ago"
             hr

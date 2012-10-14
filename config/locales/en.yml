@@ -2,6 +2,9 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  stories:
+    downloaded_messages: "Is a volunteer and downloaded %{total} messages to be handwritten."
+    created_message: "Wrote a so loooooooovely message and supported this Dear Friend."
   layouts:
     views:
       new_message: "Send a message"
