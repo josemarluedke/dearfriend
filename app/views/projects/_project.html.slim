@@ -11,7 +11,7 @@
       hr
       .button[class="project-#{project.id}"]
         - if defined?(choose)
-          = link_to "Select", "#select-#{project.id}", class: "btn btn-primary btn-custom btn-choose", data: { id: project.id }
+          = link_to "Select", "#select-#{project.id}", class: "btn btn-primary btn-custom-red btn-choose", data: { id: project.id }
           = link_to "Selected", "#select-#{project.id}", class: "btn btn-primary btn-custom btn-selected hide", data: { id: project.id }
         - else
           = link_to "See more!", link, class: "btn btn-primary btn-custom"
