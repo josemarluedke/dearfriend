@@ -20,19 +20,16 @@ class Project < ActiveRecord::Base
       raise InsufficientMessagesToBeSent
     end
 
-    assigned_messages = messages.to_be_sent.first(quantity.to_i)
-    assigned_messages.each do |message|
-      message.update_attributes(volunteer: user)
-    end
+    messages_as_text(assign_volunter_to_messages(quantity, user))
+  end
 
+  def messages_as_text(messages_collection)
     messages_file = ""
     messages_file << as_text
     messages_separator = "\n=====\n\n"
     messages_file << messages_separator
-    messages_file << assigned_messages.each_with_index.
+    messages_file << messages_collection.each_with_index.
       map { |m, index| m.as_text(index) }.join(messages_separator)
-
-    messages_file
   end
 
   def as_text
@@ -40,5 +37,14 @@ class Project < ActiveRecord::Base
 Project "#{name}"
 #{description}
 TEXT
+  end
+
+  private
+
+  def assign_volunter_to_messages(quantity, user)
+    assigned_messages = messages.to_be_sent.first(quantity)
+    assigned_messages.each do |message|
+      message.update_attributes(volunteer: user)
+    end
   end
 end

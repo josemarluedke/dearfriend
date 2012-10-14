@@ -43,4 +43,23 @@ describe Project do
       expect(subject.total_messages_to_be_downloaded).to eql(1)
     end
   end
+
+  describe "#give_messages_to_volunteer" do
+    subject { Project.make! }
+
+    it "assigns a volunteer to the given count of messages" do
+      3.times { subject.messages.make! }
+      user = User.make!
+      subject.give_messages_to_volunteer(user, 2)
+      subject.reload
+      expect(subject.messages[0].volunteer).to eql(user)
+      expect(subject.messages[1].volunteer).to eql(user)
+    end
+
+    it "raises InsufficientMessagesToBeSent in case of quantity request is bigger than available" do
+      subject.messages.make!
+      user = User.make!
+      expect { subject.give_messages_to_volunteer(user, 2) }.to raise_error(InsufficientMessagesToBeSent)
+    end
+  end
 end
