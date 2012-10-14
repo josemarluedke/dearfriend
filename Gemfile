@@ -31,12 +31,12 @@ gem 'rack-google-analytics'
 
 # Tools
 gem 'simple_form'
-gem 'rails_admin'
 gem 'carrierwave'
 gem "rmagick"
-#gem 'auto_html'
+gem 'paypal-express'
 
 # Administration
+gem 'rails_admin'
 #gem 'activeadmin'
 
 group :assets do

@@ -1,5 +1,7 @@
 DearFriend::Application.routes.draw do
 
+  resource :payment, only: [:create]
+
   resources :projects, only: [:show] do
     collection do
       get 'downloaded_messages'
