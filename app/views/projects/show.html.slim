@@ -48,7 +48,8 @@
     = form_tag take_messages_project_path(@project), method: :post do
       .modal-header
         button.close aria-hidden="true" data-dismiss="modal" type="button"
-        h3 = "There is #{@project.total_messages_to_be_downloaded} messages available to download. How many do you want to get?"
+        - available_msgs = @project.total_messages_to_be_downloaded
+        h3 = "There #{available_msgs < 2 ? "is" : "are"} #{available_msgs} #{"message".pluralize(available_msgs)} available to download. How many do you want to get?"
       .modal-body
         p Your job is to deliver the messages to the Dear Friend, collect letters and post them. Each stamp costs $0.80. Make a wise choice.
         = number_field_tag "messages_quantity", nil, max: @project.total_messages_to_be_downloaded
