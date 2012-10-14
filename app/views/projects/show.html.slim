@@ -45,4 +45,6 @@
         p Your job is to deliver the messages to the community, get letters and post them. Each stamp costs $0.80. Make a wise choice.
         = number_field_tag "messages_quantity", nil, max: @project.total_messages_to_be_downloaded
       .modal-footer
-        = submit_tag "Download", class: "btn btn-primary btn-download"
+        .button
+          = link_to "Download", "#", class: "btn btn-primary btn-download btn-custom-red"
+          = submit_tag "Download", class: "hide"
