@@ -23,13 +23,14 @@ module AuthenticationHelper
     click_on "Login with #{provider.to_s.humanize}"
     fill_in "Password", with: "123123"
     fill_in "Password confirmation", with: "123123"
-    check "Volunteer?" if attrs[:volunteer]
+    check "I want to be a volunteer?" if attrs[:volunteer]
     within "form" do
       click_on "Sign Up"
     end
     if attrs[:verified_volunteer]
       user = User.find_by_email(user["info"]["email"])
       user.verified_volunteer = true
+      user.volunteer = true
       user.save
     end
 

@@ -24,18 +24,22 @@
         .text Goal
         .number = @project.goal
         .text Sent letters
-    span Reach the goal and support this Dear Friend.
+    - if @project.can_receive_message?
+      span
+    -else
+      span Reach the goal and support this Dear Friend.
     .buttons
-      .write
-        = link_to "Write a message", new_message_path(project_id: @project), class: "btn btn-custom btn-primary"
-        p Write to someone special. With a personal touch, a carefully selected Dear Friend will read and handwrite your message per $5.
+      - if @project.can_receive_message?
+        .write
+          = link_to "Write a message", new_message_path(project_id: @project), class: "btn btn-custom btn-primary"
+          p Write to someone special. With a personal touch, a carefully selected Dear Friend will read and handwrite your message per $5.
 
       - if can?(:download_messages, Project) && @project.total_messages_to_be_downloaded > 0
         .download-messages
           = link_to "Download messages", "#download-messges", class: "btn btn-custom-red btn-primary", :'data-toggle' => "modal"
           p Volunteer, we need you to deliver messages to this Dear Friend, collect letters and post them.
 
-.project
+
   .first-column
     .fb-comments data-href="#{request.host}:#{request.port}#{request.fullpath}"
 

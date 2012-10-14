@@ -26,6 +26,38 @@ describe Project do
     end
   end
 
+  describe "#can_receive_message?" do
+    let(:project) { Project.make! goal: 2 }
+    before do
+      Message.make! confirmed_payment: true, project: project
+      Message.make! project: project
+    end
+
+    it "should can receive messages" do
+      project.can_receive_message?.should == true
+    end
+
+    it "not should can receive messages" do
+      Message.make! confirmed_payment: true, project: project
+      project.can_receive_message?.should == false
+    end
+  end
+
+  describe "#all_can_receive_messages" do
+    let(:project_1) { Project.make! goal: 2 }
+    let(:project_2) { Project.make! goal: 2 }
+    before do
+      2.times { Message.make! confirmed_payment: true, project: project_1 }
+      Message.make! project: project_2
+    end
+    subject { Project.all_can_receive_messages }
+
+    it "should return only projects that I can receive message" do
+      subject.should have(1).item
+      subject == [project_2]
+    end
+  end
+
   describe "#total_messages_to_be_downloaded" do
     subject { Project.make! }
 

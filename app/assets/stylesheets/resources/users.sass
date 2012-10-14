@@ -66,16 +66,121 @@
 
 .profile
   margin-top: 20px
-  .form-inputs
+  .edit_user
+    background: white
+    +border-radius (10px)
+    border: 1px solid #dfdfdf
+    padding: 20px
+    margin-bottom: 40px
+    margin-top: 30px
+    float: left
+    span.tittle
+      background: image-url('label_bg.png') no-repeat
+      width: 11px
+      height: 51px
+      margin-left: -31px
+      float: left
+      padding: 0px
+    h2
+      font-family: $satisfyFamily
+      text-shadow: 1px 1px #82a8a5
+      font-size: 21px
+      background-color: #9dc2bf
+      padding: 0 0 0 20px
+      width: 200px
+      color: white
+      font-weight: normal
+      margin: 1px 0 30px -20px
     label
       text-shadow: 1px 1px white
       font-family: $abelFamily
-      font-size: 21px
+      font-size: 18px
       line-height: 21px
       color: #8a8987
+      float: left
+      margin-bottom: 0px
+      margin-right: 15px
+      padding-top: 4px
+      text-align: right
+      width: 100px
+    .input-prepend
+      margin-bottom: 30px
+      input
+        width: 60%
+    .help-block
+      font-family: $abelFamily
+      font-size: 14px
+      color: #b0afac
+      line-height: auto
+      text-shadow: 1px 1px white
+      padding-left: 114px
+      margin-bottom: 20px
+      display: block
+      margin-top: -22px
+    .volunteer-text
+      border-top: 1px solid #efefef
+      border-bottom: 1px solid #efefef
+      width: 100%
+      padding: 30px 0 10px
+      margin: 20px auto
+      float: left
+      position: relative
+      label
+        font-family: $satisfyFamily
+        font-weight: normal
+        font-size: 28px
+        line-height: 21px
+        color: #df6867
+        float: left
+        margin-bottom: 20px
+        margin-right: 0px
+        text-align: center
+        width: 100%
+      label.checkbox
+        margin: 0px
+        padding: 0px
+        width: 30px
+        input
+          width: 30px
+          left: 110px
+          top: 33px
+          position: absolute
+      .help-block
+        font-family: $abelFamily
+        font-size: 16px
+        line-height: 21px
+        color: #b0afac
+        float: left
+        width: 100%
+        padding: 0px
+        margin-top: 0px
+        text-align: center
 
+    .update
+      width: 100%
+      text-align: center
+      display: inline-block
+      margin-top: 20px
+      margin-bottom: 20px
 
+      .btn-custom
+        padding: 17px 20px 0px 0
+        font-size: 24px
+        display: inline-block
+        &:before
+          width: 40px
+          height: 50px
+          margin-top: -17px
+          text-decoration: none
+          background: #82a8a5 image-url('update_icon.png') center center no-repeat
+  .table
+    margin-top: 30px
 
-
+  .settings
+    @extend .span6
+    float: left
+  .providers
+    @extend .span6
+    float: right
 
 
