@@ -25,6 +25,7 @@
         .text Goal
         .number = @project.goal
         .text Sent letters
+    span Reach the goal and support this Dear Friend.
     .buttons
       .write
         = link_to "Write a message", new_message_path(project_id: @project), class: "btn btn-custom btn-primary"
