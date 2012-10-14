@@ -1,6 +1,10 @@
-h2 = t('.links.downloaded_messages')
+- content_for :header_area do
+  .project-header
+    header
+      .container
+        = t('.links.downloaded_messages')
 - if @message_downloads.present?
-  table.table
+  table.table.downloaded_messages
     tr
       th Dear Friend
       th Downloaded at
