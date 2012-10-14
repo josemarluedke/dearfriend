@@ -24,15 +24,25 @@
     &:before
       padding-top: 35px
 
+  .write-message-header
+    .container.steps
+      margin-top: 20px
 
   .submit-project,
   .become-voluntter,
   footer .share,
   footer .buttons,
   .project .first-column,
-  .project .second-column
+  .project .second-column,
+  .write-message .first-column,
+  .write-message .second-column
     float: none
     width: 100% !important
+
+
+  .write-message
+    .second-column
+      margin-left: 0
 
   footer .share
     text-align: center
@@ -49,7 +59,10 @@
     .first-column
       .fb-comments
         margin-top: 40px
-
+    .second-column
+      .buttons
+        margin-left: 0
+        text-align: center
 
 @media (max-width: 768px)
   .banner, .super-footer
@@ -141,3 +154,10 @@
           padding:
             left: 10px
             right: 10px
+
+  .write-message
+    .form-inputs
+      .button
+        .btn-custom
+          width: 100% !important
+
