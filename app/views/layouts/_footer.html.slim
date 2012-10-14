@@ -20,6 +20,20 @@ footer
 
   section.super-footer
     .container
+      #vote
+        | Please, #{link_to "vote for us", "http://vote.dearfriend.cc/"} in the #{link_to "2012 Rails Rumble", "http://www.railsrumble.com/"}
+      .devs
+        h3 Meet the team!
+        .photos
+          = link_to "http://www.facebook.com/evelisedluz" do
+            = image_tag "eve.png"
+          = link_to "http://irio.posterous.com/" do
+            = image_tag "irio.png"
+          = link_to "http://www.josemarluedke.com/" do
+            = image_tag "josemar.png"
+          = link_to "http://facebook.com/barboza.cardoso" do
+            = image_tag "rafa.png"
+          p The idea was conceived by the Porto Alegre Global Shapers Hub
       .text
         .title Wanna talk?
         .pull-right
