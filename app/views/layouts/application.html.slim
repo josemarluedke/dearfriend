@@ -5,6 +5,10 @@ html
     = stylesheet_link_tag "application"
     meta[charset="utf-8"]
     meta[name="viewport" content="width=device-width, initial-scale=1.0"]
+    meta[property="og:title"        content="Dear Friend"]
+    meta[property="og:url"          content="http://dearfriend.cc"]
+    meta[property="og:description"  content="Give life to your email message tansforming it into a letter."]
+    meta[property="og:image"        content="#{root_url[0...-1]}#{image_path("logo.png")}"]
     = yield(:meta_tags)
     = csrf_meta_tag
     = javascript_include_tag "application"
