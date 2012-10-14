@@ -36,6 +36,10 @@
 .sign_in_box, .sign_up_box, .new_password_box, .edit_password_box
   width: 280px
   margin: auto
+  h2
+    color: #82a8a5
+    text-shadow: 1px 1px white
+    text-align: center
   .links
     text-align: center
   input
@@ -44,6 +48,30 @@
     width: 280px
     display: block
     margin-bottom: 10px
+  .form-inputs
+    .email, .password
+      font-size: 18px
+      font-family: $abelFamily
+      color: #8a8987  
+      margin-bottom: 10px
+    .boolean
+      text-align: left
+      font-family: $abelFamily
+      font-size: 14px
+      margin-top: -6px
+      float: left
+      color: #8a8987    
+      label
+        width: 100px
+        float: right
+        margin-left: 20px
+      .checkbox
+        width: 5px
+        float: left
+        margin-top: -16px
+        margin-left: -4px
+        input
+          width: 20px
 
 .omniauth
   +clearfix
