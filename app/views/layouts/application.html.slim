@@ -18,4 +18,4 @@ html
     .container
       = yield
     = render 'layouts/footer'
-    = render 'layouts/gosquared'
+    = render 'layouts/gosquared' if Rails.env.production?
