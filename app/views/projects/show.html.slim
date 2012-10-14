@@ -12,7 +12,6 @@
       .label
       h1 About the Community
       p = simple_format @project.description
-    .fb-comments data-href="#{request.host}:#{request.port}#{request.fullpath}"
   .second-column
     .scoreboard
       .written
@@ -34,6 +33,10 @@
         .download-messages
           = link_to "Download messages", "#download-messges", class: "btn btn-custom-red btn-primary", :'data-toggle' => "modal"
           p Volunteer, we need you to deliver messages to this community, get letters and post them.
+
+.project
+  .first-column
+    .fb-comments data-href="#{request.host}:#{request.port}#{request.fullpath}"
 
 - if can?(:download_messages, Project) && @project.total_messages_to_be_downloaded > 0
   #download-messges.modal.hide tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"

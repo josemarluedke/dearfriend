@@ -28,7 +28,9 @@
   .submit-project,
   .become-voluntter,
   footer .share,
-  footer .buttons
+  footer .buttons,
+  .project .first-column,
+  .project .second-column
     float: none
     width: 100% !important
 
@@ -42,6 +44,11 @@
 
   .become-voluntter
     padding-top: 30px
+
+  .project
+    .first-column
+      .fb-comments
+        margin-top: 40px
 
 
 @media (max-width: 768px)
@@ -125,3 +132,12 @@
           .text
             font-size: 13px
             margin-bottom: 20px
+
+@media (max-width: 1200px)
+  .project
+    .second-column
+      .scoreboard
+        .written, .sent
+          padding:
+            left: 10px
+            right: 10px
