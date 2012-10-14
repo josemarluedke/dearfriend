@@ -88,4 +88,34 @@ describe Message do
       message.should_not be_paid
     end
   end
+
+  describe "story" do
+    subject { Message.make! project: Project.make! }
+
+    describe "not confirmed payment" do
+      it "should not have a story" do
+        subject.project.stories.by_messages be_empty
+      end
+    end
+
+    describe "confirmed payment" do
+      before do
+        subject.confirm! "12345"
+      end
+
+      it "should create a story on confirm payment" do
+        subject.project.stories.by_messages.should have(1).tem
+      end
+
+      it "should set a correct kind of story" do
+        story = subject.project.stories.by_messages.first
+        story.kind.should == "created_message"
+      end
+
+      it "should set a correct author of story" do
+        story = subject.project.stories.by_messages.first
+        story.user.should == subject.author
+      end
+    end
+  end
 end

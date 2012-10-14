@@ -27,6 +27,7 @@ class Project < ActiveRecord::Base
       raise InsufficientMessagesToBeSent
     end
 
+    Story.create kind: "downloaded_messages", project: self, user: user, download_count: quantity
     messages_as_text(assign_volunter_to_messages(quantity, user))
   end
 

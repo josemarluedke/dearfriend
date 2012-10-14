@@ -111,4 +111,44 @@ describe Project do
       subject.messages_as_text_from("2012-10-14")
     end
   end
+
+
+  describe "story" do
+    subject { Project.make! }
+    before do
+      3.times do
+        subject.messages.make.tap do |m|
+          m.confirmed_payment = true
+          m.save
+        end
+      end
+      @user = User.make!
+    end
+
+    describe "not called yet" do
+      it "should not have a story by kind downloads" do
+        subject.stories.by_downloads.should be_empty
+      end
+    end
+
+    describe "when called" do
+      before do
+        subject.give_messages_to_volunteer(@user, 2)
+      end
+
+      it "should create a story on call #give_messages_to_volunteer" do
+        subject.stories.by_downloads.should have(1).item
+      end
+
+      it "should set a correct kind of story" do
+        story = subject.stories.by_downloads.first
+        story.kind.should == "downloaded_messages"
+      end
+
+      it "should set a correct author of story" do
+        story = subject.stories.by_downloads.first
+        story.user.should == @user
+      end
+    end
+  end
 end

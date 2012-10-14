@@ -41,9 +41,10 @@ TEXT
     string
   end
 
- def confirm!(transaction_id)
+  def confirm!(transaction_id)
     update_attributes(confirmed_payment: true,
                       transaction_id: transaction_id)
+    Story.create! kind: "created_message", project: project, user: author
   end
 
   protected
