@@ -42,7 +42,7 @@
 
 
   .first-column
-    .fb-comments data-href="#{request.host}:#{request.port}#{request.fullpath}"
+    .fb-comments data-href="#{request.url}"
 
 - if can?(:download_messages, Project) && @project.total_messages_to_be_downloaded > 0
   #download-messges.modal.hide tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
