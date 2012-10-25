@@ -65,3 +65,7 @@ group :development, :test do
   gem "pry"
   gem 'awesome_print'
 end
+
+group :development do
+  gem 'zeus'
+end
