@@ -34,6 +34,7 @@ gem 'simple_form'
 gem 'carrierwave'
 gem "rmagick"
 gem 'paypal-express'
+gem "rails-settings-cached"
 
 # Administration
 gem 'rails_admin'

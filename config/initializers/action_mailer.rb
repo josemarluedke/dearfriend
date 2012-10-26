@@ -1,11 +1,11 @@
 begin
   ActionMailer::Base.smtp_settings = {
-  :address        => 'smtp.mandrillapp.com',
-  :port           => '587',
+  :address        => Setting.mail[:smtp],
+  :port           => Setting.mail[:port],
   :authentication => :plain,
-  :user_name      => 'contact@dearfriend.cc',
-  :password       => 'e2834bd7-e1b4-4402-aefa-5f13af68d72d',
-  :domain         => 'dearfriend.cc'
+  :user_name      => Setting.mail[:username],
+  :password       => Setting.mail[:password],
+  :domain         => Setting.mail[:domain]
   }
 rescue
   nil

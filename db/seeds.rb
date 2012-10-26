@@ -14,3 +14,11 @@ Project.create([
   { name: "Mary Penny", goal: 50, description: "Dear Friends,\n\nMy name is Mary Penny and I am an eighty-year-old retired calligrapher. It has been twenty years since I was able to find a project to work on. Last week, my granddaughter told me about Dear Friend and I was delighted at the opportunity of getting back to work.\n\nEngaging in this project will give meaning to my remaining days. This is my goal in participating in this amazing initiative.", image: File.open("#{Rails.root}/spec/fixtures/images/mary-penny-cover.jpg") },
   { name: "Happy Harbor Deaf Association", goal: 200, description: "The Happy Harbor Deaf Association promotes a variety of learning and joyous activities for its members, in order to promote social inclusion for the hearing impaired. Many young people from underprivileged communities participate in weekly arts, music, sports and reading activities specially developed by the Association staff.\n\nThe young members involved in the music activities dream with new drums and want to transcript 200 letters so as to transform this dream into reality.", image: File.open("#{Rails.root}/spec/fixtures/images/deaf-cover.jpg") }
 ])
+
+Setting.facebook  = {key: '1234556789', secret: '1q2w3e4r5t6y7u8i9o0pdfgh'}
+Setting.twitter   = {key: '1234556789', secret: '1q2w3e4r5t6y7u8i9o0pdfgh'}
+Setting.mail = {:smtp     => "smtp.domain.com", 
+                :port     =>"587", 
+                :username => "mail@domain.com", 
+                :password => "1234-5678-9012-1234", 
+                :domain   => "domain.com"}
