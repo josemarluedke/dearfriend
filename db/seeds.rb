@@ -17,8 +17,8 @@ Project.create([
 
 Setting.facebook  = {key: '1234556789', secret: '1q2w3e4r5t6y7u8i9o0pdfgh'}
 Setting.twitter   = {key: '1234556789', secret: '1q2w3e4r5t6y7u8i9o0pdfgh'}
-Setting.mail = {:smtp     => "smtp.domain.com", 
-                :port     =>"587", 
-                :username => "mail@domain.com", 
-                :password => "1234-5678-9012-1234", 
-                :domain   => "domain.com"}
+Setting.mail = {smtp:     "smtp.domain.com", 
+                port:     "587", 
+                username: "mail@domain.com", 
+                password: "1234-5678-9012-1234", 
+                domain:   "domain.com"}
