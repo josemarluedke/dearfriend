@@ -32,6 +32,7 @@ gem 'rack-google-analytics'
 # Tools
 gem 'simple_form'
 gem 'carrierwave'
+gem "fog", "~> 1.3.1"
 gem "rmagick"
 gem 'paypal-express'
 gem "rails-settings-cached"
