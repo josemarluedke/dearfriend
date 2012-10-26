@@ -22,4 +22,4 @@ Setting['twitter.secret']   = '1q2w3e4r5t6y7u8i9o0pdfgh'
 Setting['mail.smtp']        = "smtp.domain.com"
 Setting['mail.port']        = 587
 Setting['mail.username']    = "mail@domain.com"
-Setting['mail.password']    = "1234-5678-9012-1
+Setting['mail.password']    = "1234-5678-9012-1"
