@@ -17,3 +17,5 @@ db/schema.rb
 public/uploads_development
 public/uploads_test
 .rvmrc
+*.tar
+*.dump
