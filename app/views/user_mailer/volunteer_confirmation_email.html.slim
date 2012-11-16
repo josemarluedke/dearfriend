@@ -3,11 +3,11 @@ html
   head
     meta content="text/html; charset=UTF-8" http-equiv="Content-Type"
   body
-    p Congratulations!
-    p We selected you to be Dear Friend's volunteer. Your account is verified.
-    p You are able now to download and deliver the messages, collect the letters and post them. Each stamp costs (you) $0.80. So, make a wise choice.
-    p Are you ready? Choose a Dear Friend which you wanna support at #{link_to "Dear Friend", "http://dearfriend.cc"} and click "Download messages" to start making things happen.
+    p = t('.congratz')
+    p = t('.you_are_selected')
+    p = t('.you_can_get_letters')
+    p = t('.are_you_ready') link: link_to "Dear Friend", t(".site.url")
     p
-      | Love,
+      = t('.love')
       br
-      | Dear Friend Team.
+      = t('.team')

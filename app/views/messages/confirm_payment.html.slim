@@ -2,15 +2,15 @@
   .write-message-header
     header
       .container
-        h2 Confirm payment
+        h2 = t('.confirm')
     = render 'steps', step: 3
 
 .box
-  h3 You are supporting
+  h3 = t('.you_are_supporting')
   h2
     = @project.name
 
-  p Price: #{number_to_currency Message::PRICE}
+  p #{t('.price')}: #{number_to_currency Message::PRICE}
 
   p
     | This is a #{link_to "Rails Rumble project", "http://railsrumble.com/entries/537-dear-friend"}.

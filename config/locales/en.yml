@@ -2,6 +2,9 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  name: "Dear Friend"
+  site:
+    url: "http://dearfriend.cc"
   stories:
     downloaded_messages: "Is a volunteer and downloaded %{total} messages to be handwritten."
     created_message: "Wrote a so loooooooovely message and supported this Dear Friend."
@@ -13,15 +16,96 @@ en:
       links:
         send_message: "Send a message"
         download_messages: "Download messages"
+        downloaded_messages: "Downloaded messages"
         profile_settings: "Profile settings"
         sign_out: "Logout"
         sign_in: "Login"
         sign_up: "Sign Up"
         admin: "Admin page"
+    footer:
+      do_you_love: "Do you love me?"
+      become_a_dearfriend_tip: "Let us know why you want to transcript messages and get paid for it."
+      become_a_volunteer_tip: "Hey, superhero! Deliver messages to Dear Friends, collect letters and post them."
+      rumble_text: "This is a brazilian project developed in less than 48 hours for"
+      global_shapers_text: "The idea was conceived by the"
+      footer_text: "We hope everything this become real in a few weeks. Including digital messages which will become real letters."
+      meet_the_team: "Meet the team!"
+      wanna_talk: "Wanna talk?"
+      mail_1: "Send us an"
+      mail_2: "Or, better, a letter!"
+      links:
+        become_a_dearfriend: "Become a Dear Friend"
+        become_a_volunteer: "Become a volunteer"
+        rumble: "2012 Rails Rumble"
+        global_shapers: "Porto Alegre Global Shapers Hub"
   projects:
+    project:
+      select: "Select"
+      selected: "Selected"
+      see_more: "See more!"
+      written_messages: "Written Messages"
+      sent_letters: "Sent Letters"
+      goal: "Goal"
+    timeline:
+      whats_going_on: "What is going on?"
     downloaded_messages:
+      no_downloaded_messages: "You didn't download any messages yet."
       links:
         downloaded_messages: "Downloaded messages"
+        click_to_download: "Click here to download"
+    show:
+      about: "About this Dear Friend"
+      written_messages: "Written Messages"
+      sent_letters: "Sent Letters"
+      goal: "Goal"
+      reach_the_goal: "Reach the goal and support this Dear Friend."
+      goal_reached: "Goal reached! This Dear Friend is already supported."
+      write_a_message_text: "Write to someone special. With a personal touch, a carefully selected Dear Friend will read and handwrite your message per $5."
+      download_messages_text: "Volunteer, we need you to deliver messages to this Dear Friend, collect letters and post them."
+      available_messages_text:
+        one: "There is 1 message avaiable to download. Do you want to download it?"
+        other: "There are %{count} messages available to download. How many do you want to download?"
+      volunteer_job_text: "Your job is to deliver the messages to the Dear Friend, collect letters and post them. Each stamp costs $0.80. Make a wise choice."
+      links:
+        write_a_message: "Write a message"
+        download_messages: "Download messages"
+  user_mailer:
+    volunteer_confirmation_email:
+      congratz: "Congratulations!"
+      you_are_selected: "We selected you to be Dear Friend's volunteer. Your account is verified."
+      you_can_get_letters: "You are able now to download and deliver the messages, collect the letters and post them. Each stamp costs (you) $0.80. So, make a wise choice."
+      are_you_ready: "Are you ready? Choose a Dear Friend which you wanna support at %{link} and click \"Download messages\" to start making things happen."
+      love: "Love,"
+      team: "Dear Friend team."
+    volunteer_request_email:
+      request_email_text: "The user #{@user.name} wants to be a volunteer. To Approve it, go to the " 
+      admin: "Admin"
+      panel: "panel."
+  home:
+    header_text: "Give life to your email message transforming it into a letter."
+    how_it_works: "How does it work?"
+    step_one: "Write your lovely message to a special one."
+    step_two: "Choose a Dear Friend to handwrite it."
+    step_three: "Pay $5 to support him."
+    links:
+      new_message: "Write a message"
+  messages:
+    steps:
+      step_one: "Write your lovely message to a special one."
+      step_two: "Choose a Dear Friend to handwrite it."
+      step_three: "Pay $5 to support him."
+    confirm_payment:
+      confirm: "Confirm payment"
+      you_are_supporting: "You are supporting"
+      price: "Price"
+    new:
+      write_a_message: "Write a message"
+      message_header: "Write to someone special"
+      message_text: "With a personal touch, a carefully selected Dear Friend will read and handwrite your message."
+      links:
+        send_message: "Send message"
+    select_project:
+      select_a_dear_friend: "Select a Dear Friend"
   activerecord:
     models:
       user: "User"

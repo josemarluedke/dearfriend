@@ -3,19 +3,19 @@
     .container
       .row-fluid
         .text
-          p Give life to your email message transforming it into a letter.
+          p = t('home.header_text')
         .video
           .js-video.vimeo.widescreen
             iframe allowFullScreen="" frameborder="0" height="258" mozallowfullscreen="" src="http://player.vimeo.com/video/51390650?title=0&byline=0&portrait=0&color=97bebb" webkitAllowFullScreen="" width="458"
       .button
-        = link_to "Write a message", new_message_path, class: "btn btn-custom btn-primary"
+        = link_to t("home.links.new_message"), new_message_path, class: "btn btn-custom btn-primary"
   section.steps
     header
-      .container How does it work?
+      .container = t('home.how_it_works')
     .container.steps
-      .step.one Write your lovely message to a special one.
-      .step.two Choose a Dear Friend to handwrite it.
-      .step.three Pay $5 to support him.
+      .step.one = t('home.step_one')
+      .step.two = t('home.step_two')
+      .step.three = t('home.step_three')
 
 .projects
   a name="projects" id="projects-anchor"

@@ -2,7 +2,7 @@
   .write-message-header
     header
       .container
-        | Write a message
+        = t('.write_a_message')
     = render 'steps', step: 1
 
 .write-message
@@ -11,8 +11,8 @@
       .first-column
         .form-text
           .label
-          h2 Write to someone special
-          p With a personal touch, a carefully selected Dear Friend will read and handwrite your message.
+          h2 = t('.message_header')
+          p = t('.message_text')
           = f.error_notification
           = f.input :project_id, as: :hidden
           .form-inputs
@@ -24,5 +24,5 @@
           hr
           = f.input :to_address, :as => :text, :required => true, :wrapper => :prepend, input_html: { maxlength: 255 }
           .button
-            = link_to "Send message", "#", class: "btn-primary btn-custom btn-send-message"
+            = link_to t('.links.send_message'), "#", class: "btn-primary btn-custom btn-send-message"
             = f.button :submit, t('simple_form.next'), class: "hide"

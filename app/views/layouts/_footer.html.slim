@@ -2,33 +2,33 @@ footer
   .container
     .row-fluid
       .share
-        p Do you love me?
+        p = t('.do_you_love')
         = render "layouts/twitter"
         = render "layouts/facebook"
       .buttons
         .row-fluid
           .submit-project[class="#{ 'pull-right' if user_signed_in? && current_user.volunteer? }"]
-            = link_to "Become a Dear Friend", "http://dearfriend.wufoo.com/forms/z7x3p9/", class: "btn btn-custom btn-primary", target: "_blank"
-            p Let us know why you want to transcript messages and get paid for it.
+            = link_to t('.links.become_a_dearfriend'), "http://dearfriend.wufoo.com/forms/z7x3p9/", class: "btn btn-custom btn-primary", target: "_blank"
+            p = t('.become_a_dearfriend_tip')
           - unless user_signed_in? && current_user.volunteer?
             .become-voluntter
               - if user_signed_in?
-                = link_to "Become a volunteer", edit_user_registration_path, class: "btn btn-custom-red btn-primary"
+                = link_to link_to t('.links.become_a_volunteer'), edit_user_registration_path, class: "btn btn-custom-red btn-primary"
               - else
-                = link_to "Become a volunteer", new_user_registration_path, class: "btn btn-custom-red btn-primary"
-              p Hey, superhero! Deliver messages to Dear Friends, collect letters and post them.
+                = link_to link_to t('.links.become_a_volunteer'), new_user_registration_path, class: "btn btn-custom-red btn-primary"
+              p = t('layouts.footer.become_a_volunteer_tip')
 
   section.super-footer
     .container
       #vote
-        p This is a brazilian project developed in less than 48 hours for #{link_to "2012 Rails Rumble", "http://www.railsrumble.com/"}.
-        p The idea was conceived by the #{ link_to "Porto Alegre Global Shapers Hub", "http://www.globalshapers.org/hubs/porto-alegre"}.
-        p We hope everything this become real in a few weeks. Including digital messages which will become real letters.
+        p #{t('.rumble_text')} #{link_to t('.links.rumble'), "http://www.railsrumble.com/"}.
+        p #{t('.global_shapers_text')} #{ link_to t('.links.global_shapers'), "http://www.globalshapers.org/hubs/porto-alegre"}.
+        p = t('.footer_text')
         p
           br/
           br/
       .devs
-        h3 Meet the team!
+        h3 = t('.meet_the_team')
         .photos
           = link_to "http://www.facebook.com/evelisedluz" do
             = image_tag "eve.png"
@@ -40,10 +40,10 @@ footer
             = image_tag "rafa.png"
           
       .text
-        .title Wanna talk?
+        .title = t('.wanna_talk')
         .pull-right
           p
-            | Send us an #{mail_to "contact@dearfriend.cc", "email"}. Or, better, a letter!
+            | #{t('.mail_1')} #{mail_to "contact@dearfriend.cc", "email"}. #{t('.mail_2')}
             br/
             | Rua Lorem Ipsum, 333 - Porto Alegre, RS, Brazil.
             br/

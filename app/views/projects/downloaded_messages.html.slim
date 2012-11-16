@@ -15,6 +15,6 @@
         td = link_to message_download.project.name, message_download.project
         td = message_download.day
         td = message_download.messages
-        td = link_to "Click here to download", download_messages_project_path(message_download.project, date: message_download.day)
+        td = link_to t('.click_to_download'), download_messages_project_path(message_download.project, date: message_download.day)
 - else
-  p You didn't download any messages yet.
+  p = t('.no_downloaded_messages')

@@ -6,7 +6,7 @@ header
           span.icon-bar
           span.icon-bar
           span.icon-bar
-        = link_to "Dear Friend", root_path, class: "brand"
+        = link_to t("name"), root_path, class: "brand"
         .nav-collapse.collapse
           ul.nav.secondary-nav.pull-right
             li= link_to t('.links.sign_in'), new_user_session_path unless user_signed_in?

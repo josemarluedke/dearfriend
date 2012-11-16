@@ -12,6 +12,7 @@ feature "Download messages" do
     within ".project-box"do
       click_on "See more!"
     end
+    verify_translations
     within ".buttons" do
       page.should_not have_content("Download messages")
     end

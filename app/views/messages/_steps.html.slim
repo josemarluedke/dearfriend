@@ -1,8 +1,8 @@
 .steps
   .container.steps
     .step.one[class="#{'disabled' unless step == 1}"]
-      | Write your lovely message to a special one.
+      = t('.step_one')
     .step.two[class="#{'disabled' unless step == 2}"]
-      | Choose a Dear Friend to handwrite it.
+      = t('.step_two')
     .step.three[class="#{'disabled' unless step == 3}"]
-      | Pay $5 to support him.
+      = t('.step_three')

@@ -2,7 +2,7 @@
   .write-message-header
     header
       .container
-        h2 Select a Dear Friend
+        h2 = t('.select_a_dear_friend')
     = render 'steps', step: 2
 
 = render @projects, choose: true

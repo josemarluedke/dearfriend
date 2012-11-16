@@ -4,6 +4,6 @@ html
     meta content="text/html; charset=UTF-8" http-equiv="Content-Type"
   body
     p
-      = "The user #{@user.name} wants to be a volunteer. To Approve it, go to the " 
-      a href="http://dearfriend.cc/admin" Admin
-      |  panel.
+      = t('.request_email_text')
+      a href="http://dearfriend.cc/admin" = t(".admin")
+      = t('.panel')

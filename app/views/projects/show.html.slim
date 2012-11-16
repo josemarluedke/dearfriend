@@ -10,35 +10,35 @@
   .first-column
     .text
       .label
-      h1 About this Dear Friend
+      h1 = t('.about')
       p = simple_format @project.description
     = render 'timeline'
   .second-column
     .scoreboard
       .written
         .number = @project.messages.paid_messages.size
-        .text Written Messages
+        .text = t('.written_messages')
       .sent
         .number = @project.total_messages_sent
-        .text Sent Letters
+        .text = t('.sent_letters')
       .goal
-        .text Goal
+        .text = t('.goal')
         .number = @project.goal
-        .text Sent letters
+        .text = t('.sent_letters')
     - if @project.can_receive_message?
-      span Reach the goal and support this Dear Friend.
+      span = t('.reach_the_goal')
     -else
-      span Goal reached! This Dear Friend is already supported.
+      span = t('.goal_reached')
     .buttons
       - if @project.can_receive_message?
         .write
-          = link_to "Write a message", new_message_path(project_id: @project), class: "btn btn-custom btn-primary"
-          p Write to someone special. With a personal touch, a carefully selected Dear Friend will read and handwrite your message per $5.
+          = link_to t('.links.write_a_message'), new_message_path(project_id: @project), class: "btn btn-custom btn-primary"
+          p = t('.write_a_message_text')
 
       - if can?(:download_messages, Project) && @project.total_messages_to_be_downloaded > 0
         .download-messages
-          = link_to "Download messages", "#download-messges", class: "btn btn-custom-red btn-primary", :'data-toggle' => "modal"
-          p Volunteer, we need you to deliver messages to this Dear Friend, collect letters and post them.
+          = link_to t('.links.download_messages'), "#download-messges", class: "btn btn-custom-red btn-primary", :'data-toggle' => "modal"
+          p = t('.download_messages_text')
 
 
   .first-column
@@ -50,9 +50,10 @@
       .modal-header
         button.close aria-hidden="true" data-dismiss="modal" type="button"
         - available_msgs = @project.total_messages_to_be_downloaded
-        h3 = "There #{available_msgs < 2 ? "is" : "are"} #{available_msgs} #{"message".pluralize(available_msgs)} available to download. How many do you want to get?"
+        /h3 = t('.available_messages_text', :is_are => (available_msgs < 2 ? "is" : "are"), :messages => available_msgs, :message => "message".pluralize(available_msgs))
+        h3 = t('.available_messages_text', :count => available_msgs)
       .modal-body
-        p Your job is to deliver the messages to the Dear Friend, collect letters and post them. Each stamp costs $0.80. Make a wise choice.
+        p = t('.volunteer_job_text')
         = number_field_tag "messages_quantity", nil, max: @project.total_messages_to_be_downloaded
       .modal-footer
         .button
