@@ -15,11 +15,14 @@ Project.create([
   { name: "Happy Harbor Deaf Association", goal: 200, description: "The Happy Harbor Deaf Association promotes a variety of learning and joyous activities for its members, in order to promote social inclusion for the hearing impaired. Many young people from underprivileged communities participate in weekly arts, music, sports and reading activities specially developed by the Association staff.\n\nThe young members involved in the music activities dream with new drums and want to transcript 200 letters so as to transform this dream into reality.", image: File.open("#{Rails.root}/spec/fixtures/images/deaf-cover.jpg") }
 ])
 
-Setting['facebook.key']     = '1234556789'
-Setting['facebook.secret']  = '1q2w3e4r5t6y7u8i9o0pdfgh'
-Setting['twitter.key']      = '1234556789'
-Setting['twitter.secret']   = '1q2w3e4r5t6y7u8i9o0pdfgh'
+Setting['facebook.key']     = 'key'
+Setting['facebook.secret']  = 'secret'
+Setting['twitter.key']      = 'key'
+Setting['twitter.secret']   = 'secret'
 Setting['mail.smtp']        = "smtp.domain.com"
 Setting['mail.port']        = 587
 Setting['mail.username']    = "mail@domain.com"
-Setting['mail.password']    = "1234-5678-9012-1"
+Setting['mail.password']    = "password"
+Setting['aws.key']          = "key"
+Setting['aws.secret']       = "secret"
+
