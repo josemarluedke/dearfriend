@@ -1,0 +1,24 @@
+pt-BR:
+  simple_form:
+    "yes": Sim
+    "no": Não
+    next: Próximo
+    required:
+      text: Obrigatório
+      mark: "*"
+    error_notification:
+      default_message: "Por favor, veja os problemas abaixo:"
+    labels:
+      user:
+        volunteer: "Eu quero fazer parte da Liga"
+    hints:
+      user:
+        volunteer: "Selecionamos cuidadosamente voluntários que queiram ser membros da Liga e fazer as coisas acontecerem. Quando um dos membros deixa a Liga, nosso time pessoalmente seleciona um novo voluntário que poderá entregar as mensagens a um Herói Postal, coletá-las em formato de cartas e postar aos destinatários com muito carinho."
+      message:
+        letter: "Máx. 2000 carateres"
+        from_address: "O seu endereço"
+        to_address: "O nome e endereço do destinatário"
+    placeholders:
+      message:
+        from_address: "Endereço completo, cidade, estado/região, país e CEP."
+        to_address: "Nome e sobrenome. Endereço completo, cidade, estado/região, país e CEP."

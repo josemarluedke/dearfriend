@@ -1,0 +1,78 @@
+pt-BR:
+  devise:
+    failure:
+      already_authenticated: "Você já está logado."
+      unauthenticated: "Antes, você precisa fazer o login ou cadastro."
+    registrations:
+      edit:
+        provider: Provedor
+        connect_disconnect: Conectado/Desconectado
+        unhappy: Triste?
+        cancel_my_account: "Cancelar minha conta"
+        edit_devise_resource: "Editar %{resource_name}"
+        connect_your_provider: "Conecte seu %{provider_name}"
+        disconnect_from_provider: "Desconectar de %{provider_name}"
+        back: Voltar
+        update: Atualizar
+        are_you_sure: "Você tem certeza?"
+      new:
+        sign_up: "Me cadastrar"
+        sign_in: Login
+        name: Nome
+        email: E-mail
+        password: Senha
+        password_confirmation: "Confirmação de senha"
+        omniauth_description: "Complete o seu cadastro escolhendo uma senha."
+    sessions:
+      new:
+        sign_in: Login
+    confirmations:
+      new:
+        resend_confirmation_instructions: "Reenviar instruções de confirmação"
+    mailer:
+      confirmation_instructions:
+        subject: "Instruções de confirmação"
+        greeting: "Bem-vindo %{recepient}!"
+        instruction: "Você pode confirmar a sua conta de e-mail através do link abaixo:"
+        action: "Confirmar minha conta"
+      reset_password_instructions:
+        subject: "Instruções de recuperação de senha"
+        greeting: "Olá %{recepient}!"
+        instruction: "Um usuário solicitou um link para alterar sua senha e você pode fazer isso através do link abaixo."
+        action: "Alterar minha senha"
+        instruction_2: "Se você não requisitou isto, por favor, ignore este e-mail."
+        instruction_3: "Sua senha permanecerá a mesma até que você acesse o link acima e crie uma nova."
+      unlock_instructions:
+        subject: "Instruções de desbloqueio"
+        greeting: "Olá %{recepient}!"
+        message: "Sua conta foi bloqueada devido a uma quantidade excessiva de tentativas mal sucedidas."
+        instruction: "Clique no link abaixo para desbloquear sua conta:"
+        action: "Desbloquear minha conta"
+    passwords:
+      edit:
+        change_your_password: "Alterar sua senha"
+        new_password: "Nova senha"
+        confirm_your_new_password: "Confirme a sua nova senha"
+        change_my_password: "Alterar minha senha"
+      new:
+        forgot_your_password: "Esqueci minha senha"
+        send_me_reset_password_instructions: "Me envie instruções para recuperar minha senha"
+    unlocks:
+      new:
+        resend_unlock_instructions: "Me reenvie instruções de desbloqueio"
+    shared:
+      are_you_sure: "Você tem certeza?"
+      update: Atualizar
+      social_links:
+        sign_in_with: "Login com %{provider}"
+      links:
+        sign_in: Login
+        sign_up: "Me cadastrar"
+        reset_your_password: "Recuperar sua senha"
+        didn_t_receive_confirmation_instructions?: "Não recebeu as instruções de confirmação?"
+        didn_t_receive_unlock_instructions?: "Não recebeu as instruções de desbloqueio?"
+        unlock_my_account: "Desbloquear minha conta"
+        confirm_my_account: "Confirmar minha conta"
+        change_my_password: "Alterar minha senha"
+        or: " ou "
+        back: Voltar

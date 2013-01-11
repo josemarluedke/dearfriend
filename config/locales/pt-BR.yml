@@ -1,0 +1,122 @@
+pt-BR:
+  name: "Herói Postal"
+  site:
+    url: "http://heroipostal.com.br/"
+  stories:
+    downloaded_messages: "É um membro da Liga e fez download de %{total} mensagens para serem transcritas com muito amor por este Herói Postal."
+    created_message: "Escreveu uma mensagem com muuuuuito amor e apoiou este Herói Postal."
+  layouts:
+    views:
+      new_message: "Escreva uma mensagem"
+      select_project: "Escolha um Herói Postal"
+    header:
+      links:
+        send_message: "Escreva uma mensagem"
+        download_messages: "Baixar mensagens"
+        downloaded_messages: "Mensagens baixadas"
+        profile_settings: "Meu perfil"
+        sign_out: Sair
+        sign_in: Login
+        sign_up: "Me cadastrar"
+        admin: Admin
+    footer:
+      do_you_love: "♥ o Herói Postal?"
+      become_a_dearfriend_tip: "Nos conte por que você gostaria de transcrever mensagens e ainda ser remunerado por isso."
+      become_a_volunteer_tip: "Você é muito importante pra nós! Leve mensagens a um Herói Postal, colete cartas e poste aos destinatários com muito carinho."
+      rumble_text: "Herói Postal é um projeto brasileiro desenvolvido em menos de 48 horas para o"
+      global_shapers_text: "Ideia e conceito idealizados pelo"
+      footer_text: ~
+      meet_the_team: "Quem somos?"
+      wanna_talk: "Manda um oi pra gente!"
+      mail_1: "Nos escreva um"
+      mail_2: "Ou melhor, uma carta!"
+      links:
+        become_a_dearfriend: "Seja um Herói Postal!"
+        become_a_volunteer: "Seja um membro da Liga!"
+        rumble: "Rails Rumble 2012"
+        global_shapers: "Global Shapers - Porto Alegre"
+  projects:
+    project:
+      select: Selecionar
+      selected: Selecionado
+      see_more: "Saiba mais!"
+      written_messages: "Mensagens escritas"
+      sent_letters: "Cartas postadas"
+      goal: Meta
+    timeline:
+      whats_going_on: "O que tem acontecido?"
+    downloaded_messages:
+      no_downloaded_messages: "Você ainda não baixou mensagens."
+      links:
+        downloaded_messages: "Mensagens baixadas"
+        click_to_download: "Clique aqui para fazer o download"
+    show:
+      about: "Sobre este Herói Postal"
+      written_messages: "Mensagens escritas"
+      sent_letters: "Cartas postadas"
+      goal: Meta
+      reach_the_goal: "Quando a meta for atingida, este Herói Postal será apoiado."
+      goal_reached: "Meta alcançada! Você fez acontecer e este Herói Postal foi apoiado."
+      write_a_message_text: "Escreva uma mensagem para alguém especial. Com muito carinho, um querido Herói Postal irá ler, transformar sua mensagem em carta e postá-la por R$ 10,00."
+      download_messages_text: "Você é muito importante pra nós! Precisamos de você para entregar mensagens a um Herói Postal, coletar cartas e depois postar aos destinatários com muito carinho."
+      available_messages_text:
+        one: "Há uma mensagem disponível. Deseja fazer o download?"
+        other: "Existem %{count} mensagens disponíveis. Você deseja fazer o download de quantas?"
+      volunteer_job_text: "Seu trabalho será entregar as mensagens a um Herói Postal, coletá-las em formato de cartas e postar aos destinatários com muito carinho. Cada uma delas custará R$ 0,80 para ser postada. Faça uma escolha sábia e consciente!"
+      links:
+        write_a_message: "Escreva uma mensagem"
+        download_messages: "Baixar mensagens"
+  user_mailer:
+    volunteer_confirmation_email:
+      congratz: Parabéns!
+      you_are_selected: "Sua conta foi aprovada e você foi selecionado para ser um membro da Liga Herói Postal!"
+      you_can_get_letters: "Você agora é um membro da Liga e seu trabalho será entregar as mensagens a um Herói Postal, coletá-las em formato de cartas e postar aos destinatários com muito carinho. Cada uma delas custará R$ 0,80 para ser postada. Faça uma escolha sábia e consciente!"
+      are_you_ready: "Tudo ok? Então escolha o Herói Postal que você deseja apoiar em %{link} e clique em \"Download de Mensagens\" para fazer acontecer."
+      love: "Com amor,"
+      team: "Liga Herói Postal."
+    volunteer_request_email:
+      request_email_text: "O usuário #{@user.name} deseja ser um membro da Liga. Para aprová-lo, vá para "
+      admin: Admin
+      panel: painel.
+  home:
+    header_text: "Dê vida a suas mensagens transformando elas em cartas."
+    how_it_works: "Como funciona?"
+    step_one: "Escreva uma mensagem para alguém muito especial."
+    step_two: "Escolha um Herói Postal para transcrevê-la."
+    step_three: "Apoie com R$10,00 e dê ainda mais coragem a ele!"
+    links:
+      new_message: "Escreva uma mensagem"
+  messages:
+    steps:
+      step_one: "Escreva uma mensagem para alguém muito especial."
+      step_two: "Escolha um Herói Postal para transcrevê-la."
+      step_three: "Apoie com R$10,00 e dê ainda mais coragem a ele!"
+    confirm_payment:
+      confirm: "Confirmar pagamento"
+      you_are_supporting: "Você está apoiando"
+      price: Valor
+    new:
+      write_a_message: "Escreva uma mensagem"
+      message_header: "Escreva uma mensagem para alguém especial"
+      message_text: "Com muito carinho, um querido Herói Postal irá ler e transformar a sua mensagem em carta."
+      links:
+        send_message: "Enviar mensagem"
+    select_project:
+      select_a_dear_friend: "Selecione um Herói Postal"
+  activerecord:
+    models:
+      user: Usuário
+    attributes:
+      message:
+        from_address: "De:"
+        to_address: "Para:"
+      user:
+        admin: Admin?
+        current_password: "Senha atual"
+        email: E-mail
+        image: Imagem
+        name: Nome
+        password: Senha
+        password_confirmation: "Confirmação de senha"
+        verified_volunteer: "Membro da Liga aprovado?"
+        volunteer: "Eu quero fazer parte da Liga"
