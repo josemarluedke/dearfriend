@@ -19,3 +19,4 @@ public/uploads_test
 .rvmrc
 *.tar
 *.dump
+config/locales/.wti

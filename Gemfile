@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.11'
 
 # Database
 gem 'pg'
@@ -66,6 +66,7 @@ group :development, :test do
   gem "jasmine"
   gem "pry"
   gem 'awesome_print'
+  gem 'web_translate_it'
 end
 
 group :development do
