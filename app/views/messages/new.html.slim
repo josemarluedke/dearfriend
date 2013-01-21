@@ -21,8 +21,10 @@
       .second-column
         .form-inputs
           = f.input :from_address, :as => :text, :required => true, :wrapper => :prepend, input_html: { maxlength: 255 }
+          small = t "simple_form.placeholders.message.from_address"
           hr
           = f.input :to_address, :as => :text, :required => true, :wrapper => :prepend, input_html: { maxlength: 255 }
+          small = t "simple_form.placeholders.message.to_address"
           .button
             = link_to t('.links.send_message'), "#", class: "btn-primary btn-custom btn-send-message"
             = f.button :submit, t('simple_form.next'), class: "hide"
