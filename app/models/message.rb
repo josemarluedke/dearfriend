@@ -9,7 +9,7 @@ class Message < ActiveRecord::Base
 
   validates :letter, :author, :from_address, :to_address, presence: true
 
-  PRICE = 5
+  PRICE = 10
 
   scope :sent, where("volunteer_id IS NOT ?", nil)
   scope :paid_messages, where(confirmed_payment: true)

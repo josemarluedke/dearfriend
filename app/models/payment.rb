@@ -1,9 +1,10 @@
+# Encoding: utf-8
 class Payment
   attr_accessor :amount, :token, :payer_id, :redirect_uri, :identifier
 
   DESCRIPTION = {
-    item: "Support a Dear Friend",
-    payment: "Dear Friend"
+    item: "Apoie um Herói Postal",
+    payment: "Herói Postal"
   }
 
   def initialize(amount = nil, custom_logger = nil)
@@ -49,7 +50,8 @@ class Payment
     request_attrs = {
       amount: amount,
       description: DESCRIPTION[:payment],
-      items: [item]
+      items: [item],
+      currency_code: :BRL
     }
 
     Paypal::Payment::Request.new(request_attrs)
