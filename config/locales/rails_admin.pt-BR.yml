@@ -1,12 +1,11 @@
 pt-BR:
-  home:
-    name: Home
-  views:
+  admin:
+    home:
+      name: Home
     pagination:
       previous: "&laquo; Anterior"
       next: "Próximo &raquo;"
       truncate: "…"
-  admin:
     misc:
       search: "Procurar"
       filter: "Filtrar"
