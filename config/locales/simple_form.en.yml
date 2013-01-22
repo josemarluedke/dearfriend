@@ -1,42 +1,24 @@
-en:
+en-US:
   simple_form:
-    "yes": 'Yes'
-    "no": 'No'
-    next: 'Next'
+    "yes": "Yes"
+    "no": "No"
+    next: Next
     required:
-      text: 'required'
-      mark: '*'
-      # You can uncomment the line below if you need to overwrite the whole required html.
-      # When using html, text and mark won't be used.
-      # html: '<abbr title="required">*</abbr>'
+      text: required
+      mark: "*"
     error_notification:
       default_message: "Please review the problems below:"
-    # Labels and hints examples
-    # labels:
-    #   defaults:
-    #     password: 'Password'
-    #   user:
-    #     new:
-    #       email: 'E-mail to sign in.'
-    #     edit:
-    #       email: 'E-mail.'
     labels:
       user:
         volunteer: "I want to be a volunteer"
     hints:
       user:
-        volunteer: "We carefully select Dear Friend’s superheroes who makes things happen.
-When a verified volunteer gives up, our team personally selects new wanna-be-volunteers.
-You will then be able to download and deliver the messages, collect the letters and post them."
+        volunteer: "We carefully select Dear Friend’s superheroes who makes things happen. When a verified volunteer gives up, our team personally selects new wanna-be-volunteers. You will then be able to download and deliver the messages, collect the letters and post them."
       message:
-          letter: "Max. 2000 characters"
-          from_address: "Your address"
-          to_address: "Receiver's name and address"
+        letter: "Max. 2000 characters"
+        from_address: "Your address"
+        to_address: "Receiver's name and address"
     placeholders:
       message:
         from_address: "Address, city, state/province, country, ZIP code."
         to_address: "Name. Address, city, state/province, country, ZIP code."
-    #   defaults:
-    #     username: 'User name to sign in.'
-    #     password: 'No special characters, please.'
-

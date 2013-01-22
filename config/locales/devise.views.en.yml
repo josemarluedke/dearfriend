@@ -1,31 +1,31 @@
-en:
+en-US:
   devise:
     failure:
-      already_authenticated: 'You are already logged in.'
-      unauthenticated: 'You need to login or sign up before.'
+      already_authenticated: "You are already logged in."
+      unauthenticated: "You need to login or sign up before."
     registrations:
       edit:
-        provider: "Provider"
-        connect_disconnect: "Connect/Disconect"
-        unhappy: "Unhappy?"
+        provider: Provider
+        connect_disconnect: Connect/Disconect
+        unhappy: Unhappy?
         cancel_my_account: "Cancel my account"
         edit_devise_resource: "Edit %{resource_name}"
         connect_your_provider: "Connect your %{provider_name}"
         disconnect_from_provider: "Disconnect from %{provider_name}"
-        back: "Back"
-        update: "Update"
+        back: Back
+        update: Update
         are_you_sure: "Are you sure?"
       new:
         sign_up: "Sign Up"
-        sign_in: "Login"
-        name: "Name"
-        email: "Email"
-        password: "Password"
+        sign_in: Login
+        name: Name
+        email: Email
+        password: Password
         password_confirmation: "Password confirmation"
         omniauth_description: "Complete your registration setting a password."
     sessions:
       new:
-        sign_in: "Login"
+        sign_in: Login
     confirmations:
       new:
         resend_confirmation_instructions: "Resend confirmation instructions"
@@ -57,18 +57,16 @@ en:
       new:
         forgot_your_password: "Forgot your password?"
         send_me_reset_password_instructions: "Send me reset password instructions"
-
     unlocks:
       new:
         resend_unlock_instructions: "Resend unlock instructions"
     shared:
       are_you_sure: "Are you sure?"
-      update: "Update"
-
+      update: Update
       social_links:
         sign_in_with: "Login with %{provider}"
       links:
-        sign_in: "Login"
+        sign_in: Login
         sign_up: "Sign Up"
         reset_your_password: "Reset your password"
         didn_t_receive_confirmation_instructions?: "Didn't receive confirmation instructions?"
@@ -77,4 +75,4 @@ en:
         confirm_my_account: "Confirm my account"
         change_my_password: "Change my password"
         or: " or "
-        back: "Back"
+        back: Back

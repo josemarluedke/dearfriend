@@ -1,7 +1,4 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
-en:
+en-US:
   name: "Dear Friend"
   site:
     url: "http://dearfriend.cc"
@@ -18,8 +15,8 @@ en:
         download_messages: "Download messages"
         downloaded_messages: "Downloaded messages"
         profile_settings: "Profile settings"
-        sign_out: "Logout"
-        sign_in: "Login"
+        sign_out: Logout
+        sign_in: Login
         sign_up: "Sign Up"
         admin: "Admin page"
     footer:
@@ -40,12 +37,12 @@ en:
         global_shapers: "Porto Alegre Global Shapers Hub"
   projects:
     project:
-      select: "Select"
-      selected: "Selected"
+      select: Select
+      selected: Selected
       see_more: "See more!"
       written_messages: "Written Messages"
       sent_letters: "Sent Letters"
-      goal: "Goal"
+      goal: Goal
     timeline:
       whats_going_on: "What is going on?"
     downloaded_messages:
@@ -57,7 +54,7 @@ en:
       about: "About this Dear Friend"
       written_messages: "Written Messages"
       sent_letters: "Sent Letters"
-      goal: "Goal"
+      goal: Goal
       reach_the_goal: "Reach the goal and support this Dear Friend."
       goal_reached: "Goal reached! This Dear Friend is already supported."
       write_a_message_text: "Write to someone special. With a personal touch, a carefully selected Dear Friend will read and handwrite your message per $5."
@@ -71,16 +68,16 @@ en:
         download_messages: "Download messages"
   user_mailer:
     volunteer_confirmation_email:
-      congratz: "Congratulations!"
+      congratz: Congratulations!
       you_are_selected: "We selected you to be Dear Friend's volunteer. Your account is verified."
       you_can_get_letters: "You are able now to download and deliver the messages, collect the letters and post them. Each stamp costs (you) $0.80. So, make a wise choice."
       are_you_ready: "Are you ready? Choose a Dear Friend which you wanna support at %{link} and click \"Download messages\" to start making things happen."
       love: "Love,"
       team: "Dear Friend team."
     volunteer_request_email:
-      request_email_text: "The user #{@user.name} wants to be a volunteer. To Approve it, go to the " 
-      admin: "Admin"
-      panel: "panel."
+      request_email_text: "The user #{@user.name} wants to be a volunteer. To Approve it, go to the "
+      admin: Admin
+      panel: panel.
   home:
     header_text: "Give life to your email message transforming it into a letter."
     how_it_works: "How does it work?"
@@ -97,7 +94,7 @@ en:
     confirm_payment:
       confirm: "Confirm payment"
       you_are_supporting: "You are supporting"
-      price: "Price"
+      price: Price
     new:
       write_a_message: "Write a message"
       message_header: "Write to someone special"
@@ -108,18 +105,19 @@ en:
       select_a_dear_friend: "Select a Dear Friend"
   activerecord:
     models:
-      user: "User"
+      user: User
     attributes:
       message:
         from_address: "From:"
         to_address: "To:"
       user:
-        admin: "Admin?"
+        admin: Admin?
         current_password: "Current password"
-        email: "E-mail"
-        image: "Image"
-        name: "Name"
-        password: "Password"
+        email: E-mail
+        image: Image
+        name: Name
+        password: Password
         password_confirmation: "Password confirmation"
         verified_volunteer: "Verified volunteer?"
         volunteer: "I want to be a volunteer"
+  en: ""

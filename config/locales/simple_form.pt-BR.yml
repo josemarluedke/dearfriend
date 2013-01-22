@@ -21,4 +21,4 @@ pt-BR:
     placeholders:
       message:
         from_address: "Endereço completo, cidade, estado/região, país e CEP."
-        to_address: "Nome e sobrenome. Endereço completo, cidade, estado/região, país e CEP."
+        to_address: "Nome e sobrenome, endereço completo, cidade, estado/região, país e CEP."

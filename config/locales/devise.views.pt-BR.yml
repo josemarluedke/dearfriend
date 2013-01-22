@@ -40,8 +40,8 @@ pt-BR:
         greeting: "Olá %{recepient}!"
         instruction: "Um usuário solicitou um link para alterar sua senha e você pode fazer isso através do link abaixo."
         action: "Alterar minha senha"
-        instruction_2: "Se você não requisitou isto, por favor, ignore este e-mail."
-        instruction_3: "Sua senha permanecerá a mesma até que você acesse o link acima e crie uma nova."
+        instruction_2: "Se você não solicitou isto por favor, ignore este e-mail."
+        instruction_3: "Sua senha continuará a mesma até que você acesse o link acima e crie uma nova."
       unlock_instructions:
         subject: "Instruções de desbloqueio"
         greeting: "Olá %{recepient}!"
@@ -64,11 +64,11 @@ pt-BR:
       are_you_sure: "Você tem certeza?"
       update: Atualizar
       social_links:
-        sign_in_with: "Login com %{provider}"
+        sign_in_with: "Logar com %{provider}"
       links:
         sign_in: Login
         sign_up: "Me cadastrar"
-        reset_your_password: "Recuperar sua senha"
+        reset_your_password: "Restabelecer sua senha"
         didn_t_receive_confirmation_instructions?: "Não recebeu as instruções de confirmação?"
         didn_t_receive_unlock_instructions?: "Não recebeu as instruções de desbloqueio?"
         unlock_my_account: "Desbloquear minha conta"
