@@ -108,7 +108,7 @@ pt-BR:
       confirmation: "Sim, tenho a certeza"
       delete_confirmation: "Confirmar apagar"
       bulk_delete: "Os seguintes objetos serão apagados, o que pode apagar ou deixar orfãos as dependências relacionadas"
-    export:      
+    export:
       confirmation: "Exportar para %{name}"
       select: "Selecionar campos para exportar"
       fields_from: "Campos de %{name}"
