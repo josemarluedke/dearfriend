@@ -25,10 +25,6 @@ class Payment
     @logger.debug("Payment#setup! from #{pay_client.inspect}.")
     @redirect_uri = response.redirect_uri
     self
-  rescue Paypal::Exception::APIError => e
-    p e.message
-    p e.response
-    p e.response.details
   end
 
   def complete!
