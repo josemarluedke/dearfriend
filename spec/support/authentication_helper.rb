@@ -1,3 +1,4 @@
+# encoding: UTF-8
 require "spec_helper"
 
 module AuthenticationHelper
@@ -19,13 +20,13 @@ module AuthenticationHelper
     user = auth_omniauth(provider, attrs)
 
     visit "/"
-    click_on "Sign Up"
-    click_on "Login with #{provider.to_s.humanize}"
-    fill_in "Password", with: "123123"
-    fill_in "Password confirmation", with: "123123"
-    check "I want to be a volunteer" if attrs[:volunteer]
+    click_on "Me cadastrar"
+    click_on "Logar com #{provider.to_s.humanize}"
+    fill_in "Senha", with: "123123"
+    fill_in "Confirmação de senha", with: "123123"
+    check "Eu quero fazer parte da Liga" if attrs[:volunteer]
     within "form" do
-      click_on "Sign Up"
+      click_on "Me cadastrar"
     end
     if attrs[:verified_volunteer]
       user = User.find_by_email(user["info"]["email"])

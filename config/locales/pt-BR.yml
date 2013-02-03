@@ -112,11 +112,11 @@ pt-BR:
         to_address: "Para:"
       user:
         admin: Admin?
-        current_password: "Senha atual"
+        current_password: Senha atual
         email: E-mail
         image: Imagem
         name: Nome
         password: Senha
-        password_confirmation: "Confirmação de senha"
-        verified_volunteer: "Membro da Liga aprovado?"
-        volunteer: "Eu quero fazer parte da Liga"
+        password_confirmation: Confirmação de senha
+        verified_volunteer: Membro da Liga aprovado?
+        volunteer: Eu quero fazer parte da Liga
