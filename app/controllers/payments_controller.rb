@@ -1,20 +1,24 @@
 class PaymentsController < InheritedResources::Base
   def success_callback
-    if message = Message.find_by_payment_token(params[:token])
-      payment = Payment.new
-      payment.token = params[:token]
-      payment.payer_id = params[:PayerID]
-      payment.amount = Message::PRICE
-      payment.complete!
-
-      message.confirm!(payment.identifier)
-      redirect_to message.project, notice: "Payment done, thank you! Your message will be transformed into a beautiful letter."
+    if project = Project.find(params[:project_id])
+      redirect_to project, notice: "Payment done, thank you! Your message will be transformed into a beautiful letter."
     else
       redirect_to root_path, status: :unprocessable_entity
     end
   end
 
-  def cancel_callback
-    redirect_to root_url, alert: "Payment canceled. Come back later to transform your message into a letter."
+  def notification
+    moip_notification do |notification|
+      if notification.payment_status.eql?(:finished)
+        message = Message.find_by_payment_token(notification.id)
+        if message
+          message.confirm!(notification.moip_id)
+        else
+          return head 422
+        end
+      end
+
+      head 200
+    end
   end
 end
