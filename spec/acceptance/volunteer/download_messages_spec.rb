@@ -10,11 +10,11 @@ feature "Download messages" do
   scenario "Don't view the 'Download messages' link if all the messages were already downloaded" do
     visit "/"
     within ".project-box"do
-      click_on "See more!"
+      click_on "Saiba mais!"
     end
     verify_translations
-    within ".buttons" do
-      page.should_not have_content("Download messages")
+    within ".project" do
+      page.should_not have_content("Baixar mensagens")
     end
   end
 

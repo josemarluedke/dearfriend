@@ -1,3 +1,4 @@
+# encoding: UTF-8
 require 'spec_helper'
 
 describe Payment do
@@ -7,8 +8,8 @@ describe Payment do
   end
 
   it "has description constant messages" do
-    Payment::DESCRIPTION[:item].should eql("Support a Dear Friend")
-    Payment::DESCRIPTION[:payment].should eql("Dear Friend")
+    Payment::DESCRIPTION[:item].should eql("Apoie um Herói Postal")
+    Payment::DESCRIPTION[:payment].should eql("Herói Postal")
   end
 
   describe "#setup!" do

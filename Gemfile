@@ -6,6 +6,9 @@ gem 'rails', '3.2.12'
 gem 'pg'
 gem "foreigner"
 
+# I18n
+gem 'rails-i18n'
+
 # Improvements
 gem 'inherited_resources'
 #gem 'has_scope'
@@ -19,7 +22,6 @@ gem "cancan"
 
 # Server
 gem 'thin'
-#gem 'heroku'
 gem 'capistrano'
 
 # Frontend stuff
@@ -52,7 +54,7 @@ end
 
 group :production do
   gem "execjs"
-  gem 'therubyracer', :platform => :ruby
+  gem 'therubyracer', platform: :ruby
 end
 
 group :development, :test do

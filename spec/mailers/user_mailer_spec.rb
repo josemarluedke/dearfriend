@@ -37,7 +37,7 @@ describe UserMailer do
 
     #ensure that the @confirmation_url variable appears in the email body
     it 'assigns @confirmation_url' do
-      mail_confirmation.body.encoded.should match("http://dearfriend.cc")
+      mail_confirmation.body.encoded.should match("http://heroipostal.com.br")
     end
   end
 end
