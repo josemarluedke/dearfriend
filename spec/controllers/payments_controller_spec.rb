@@ -38,6 +38,8 @@ describe PaymentsController do
       message.save
     end
 
+    it "logs the notification"
+
     context "finished" do
       let(:valid_params) do
         valid_paid_params.merge('id_transacao' => message.payment_token)
