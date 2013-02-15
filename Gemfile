@@ -43,7 +43,6 @@ gem 'rails_admin'
 #gem 'activeadmin'
 
 # Payment
-gem 'paypal-express'
 gem 'moiper'
 
 group :assets do
