@@ -15,9 +15,9 @@ class Payment
 
   def checkout!(return_url, notification_url)
     payment = Moiper::Payment.new(
+      id: id,
       description: DESCRIPTION,
       price: @amount,
-      id: id,
       return_url: return_url,
       notification_url: notification_url
     )

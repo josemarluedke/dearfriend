@@ -32,7 +32,6 @@ describe MessagesController do
     end
 
     it "redirects to select project page if none project is set" do
-      sign_in User.make!
       message = Message.make!(author: @user)
       controller.stub(:resource).and_return(message)
       post 'create', message: valid_completed_letter_attributes
@@ -127,24 +126,41 @@ describe MessagesController do
 
   describe "POST 'pay'" do
     let(:message) { Message.make!(author: @user) }
+    
+    before do
+      Payment.any_instance.stub(:checkout!)
+      Payment.any_instance.stub(:redirect_uri).and_return('http://return')
+    end
 
-    describe "First request: asking authorization" do
-      it "makes a call to payment's setup! method" do
-        controller.stub(:payments_success_callback_url).and_return("http://success")
-        controller.stub(:payments_cancel_callback_url).and_return("http://cancel")
-        Payment.any_instance.stub(:redirect_uri).and_return("http://dearfriend.cc/")
+    it "initializes a payment with predefined price for messages" do
+      Payment.should_receive(:new).with(10).
+        and_return(stub(token: 'foo',
+                        redirect_uri: 'http://return').as_null_object)
 
-        Payment.any_instance.should_receive(:setup!).with("http://success", "http://cancel").and_return(true)
-        post :pay, id: message
-      end
+      post :pay, id: message
+    end
 
-      it "updates support's payment_token" do
-        Payment.any_instance.stub(:new).and_return(double.as_null_object)
-        Payment.any_instance.stub(:token).and_return("big_payment_token")
-        Payment.any_instance.stub(:redirect_uri).and_return(root_url)
-        post :pay, id: message
-        expect(message.reload.payment_token).to be_eql("big_payment_token")
-      end
+    it "checkouts a new payment" do
+      controller.stub(:payments_success_callback_url).
+        with(hash_including(:project_id)).and_return('http://success')
+      controller.stub(:payments_notification_url).
+        with(hash_including(:project_id)).and_return('http://notification')
+
+      Payment.any_instance.should_receive(:checkout!).
+        with('http://success', 'http://notification')
+      post :pay, id: message
+    end
+
+    it "updates support's payment_token" do
+      Payment.any_instance.stub(:token).and_return('big_payment_token')
+      post :pay, id: message
+      expect(message.reload.payment_token).to be_eql('big_payment_token')
+    end
+
+    it "redirects to payment redirect uri" do
+      Payment.any_instance.stub(:redirect_uri).and_return('http://payment')
+      post :pay, id: message
+      expect(response).to redirect_to('http://payment')
     end
   end
 end

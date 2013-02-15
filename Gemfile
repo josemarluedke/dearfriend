@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
+gem 'rails', '3.2.12'
 
 # Database
 gem 'pg'
@@ -43,7 +43,6 @@ gem 'rails_admin'
 #gem 'activeadmin'
 
 # Payment
-gem 'paypal-express'
 gem 'moiper'
 
 group :assets do
