@@ -83,10 +83,8 @@ describe Project do
 
     it "assigns a volunteer to the given count of messages" do
       3.times do
-        subject.messages.make.tap do |m|
-          m.confirmed_payment = true
-          m.save
-        end
+        message = Message.make!(project: subject)
+        message.confirm!('foo')
       end
       user = User.make!
       subject.give_messages_to_volunteer(user, 2)
@@ -117,10 +115,8 @@ describe Project do
     subject { Project.make! }
     before do
       3.times do
-        subject.messages.make.tap do |m|
-          m.confirmed_payment = true
-          m.save
-        end
+        message = Message.make!(project: subject)
+        message.confirm!('foo')
       end
       @user = User.make!
     end
