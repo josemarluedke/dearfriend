@@ -32,7 +32,6 @@ describe MessagesController do
     end
 
     it "redirects to select project page if none project is set" do
-      sign_in User.make!
       message = Message.make!(author: @user)
       controller.stub(:resource).and_return(message)
       post 'create', message: valid_completed_letter_attributes

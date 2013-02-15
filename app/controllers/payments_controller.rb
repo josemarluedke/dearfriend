@@ -1,10 +1,9 @@
 class PaymentsController < InheritedResources::Base
+  include Moiper::NotificationControllerHelper
+
   def success_callback
-    if project = Project.find(params[:project_id])
-      redirect_to project, notice: "Payment done, thank you! Your message will be transformed into a beautiful letter."
-    else
-      redirect_to root_path, status: :unprocessable_entity
-    end
+    project = Project.find(params[:project_id])
+    redirect_to project, notice: "Payment done, thank you! Your message will be transformed into a beautiful letter."
   end
 
   def notification
