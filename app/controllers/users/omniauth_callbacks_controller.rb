@@ -1,5 +1,5 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  def action_missing(provider)
+  def method_missing(provider)
     omniauth = env["omniauth.auth"]
     if current_user
       current_user.authorizations.find_or_create_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
