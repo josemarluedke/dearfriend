@@ -36,12 +36,14 @@ gem 'simple_form'
 gem 'carrierwave'
 gem "fog", "~> 1.3.1"
 gem "rmagick"
-gem 'paypal-express'
 gem "rails-settings-cached"
 
 # Administration
 gem 'rails_admin'
 #gem 'activeadmin'
+
+# Payment
+gem 'moiper'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.5'

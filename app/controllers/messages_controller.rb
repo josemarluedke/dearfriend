@@ -55,9 +55,9 @@ class MessagesController < ApplicationController
   def pay
     message = Message.find(params[:id])
     payment = Payment.new(Message::PRICE)
-    payment.setup!(
-      payments_success_callback_url(message.project),
-      payments_cancel_callback_url(message.project)
+    payment.checkout!(
+      payments_success_callback_url(project_id: message.project),
+      payments_notification_url(project_id: message.project)
     )
     message.payment_token = payment.token
     message.save
